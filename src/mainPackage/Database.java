@@ -80,7 +80,6 @@ public class Database {
 
             //Ajout du chateau dans le dictionnaire des dominos
             dominos.put("500", new String[]{"0", "chateau"});
-            System.out.println(dominos.entrySet());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

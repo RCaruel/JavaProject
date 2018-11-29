@@ -16,16 +16,21 @@ public class Main {
 
             System.out.println("Que voulez-vous faire?\n" +
                     "1. Jouer\n" +
-                    "2. Quitter");
+                    "2. Tutoriel\n" +
+                    "3. Quitter");
 
             choix = scanner.nextByte();
 
             switch (choix){
                 case 1:
                     Jouer.play(database, scanner);
+                    break;
+                case 2:
+                    Tutoriel.play(scanner);
+                    break;
             }
 
-        }while(choix != 2);
+        }while(choix != 3);
 
     }
 }
