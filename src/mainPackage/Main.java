@@ -4,36 +4,60 @@ import java.util.Scanner;
 
 public class Main {
 
+    static Scanner scanner = new Scanner(System.in);
+    static Database database = new Database();
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         byte choix;
+
+
+        initialisation();
 
         Database database = new Database();
         database.init();
-        
-        Initialisation ini = new Initialisation();
 
         do {
 
-            System.out.println("Que voulez-vous faire?\n" +
-                    "1. Jouer\n" +
-                    "2. Tutoriel\n" +
-                    "3. Quitter");
+            afficheMenu();
 
-            choix = scanner.nextByte();
+            choix = lectureDuChoix();
 
             switch (choix){
                 case 1:
-                	Initialisation.jeux();
-                    Jouer.play(database, scanner);
+                    lanceLeJeu();
                     break;
                 case 2:
-                    Tutoriel.play(scanner);
+                    afficheLeTutoriel();
                     break;
             }
 
         }while(choix != 3);
 
     }
+
+    public static void initialisation(){
+        database.init();
+    }
+
+    public static void afficheMenu(){
+        System.out.println("Que voulez-vous faire?\n" +
+                "1. Jouer\n" +
+                "2. Tutoriel\n" +
+                "3. Quitter");
+    }
+
+    public static byte lectureDuChoix(){
+        return scanner.nextByte();
+    }
+
+    public static void lanceLeJeu(){
+        Initialisation.jeux();
+        Jouer.play(database, scanner);
+    }
+
+    public static void afficheLeTutoriel(){
+        Tutoriel.play(scanner);
+    }
+
 }
