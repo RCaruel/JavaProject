@@ -1,3 +1,4 @@
+// création des objet en fonction des paramétres
 package mainPackage;
 import java.util.ArrayList;
 import java.util.Random;
