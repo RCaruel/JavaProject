@@ -20,27 +20,12 @@ public class Database {
     static int scorePlayer2;
     static int scorePlayer3;
     static int scorePlayer4;
-    
-
-    //--- Données qui contient la map de chaque joueurs ---//
-
-    String[][] mapPlayer1 = new String[5][5];
-    String[][] mapPlayer2 = new String[5][5];
-    String[][] mapPlayer3 = new String[5][5];
-    String[][] mapPlayer4 = new String[5][5];
 
     //--- Donnée qui contient tous les dominos séparés en moitiés ---//
 
     static Map<String , String[]> dominos = new HashMap<>();
 
-    public static void init(){
-
-        scorePlayer1 = 0;
-        scorePlayer2 = 0;
-        scorePlayer3 = 0;
-        scorePlayer4 = 0;
-
-
+    public void init(){
 
         // Lecture du fichier dominos.csv
         try {
