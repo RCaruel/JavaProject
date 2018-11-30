@@ -8,26 +8,19 @@ public class Database {
 
     //--- Données pour lire le fichier dominos.csv ---//
 
-    String RESOURCES_PATH = "src/ressources/";
-    String DOMINOS_FILE_NAME = "dominos.csv";
-    String ligne = "";
-    String SEPARATOR = ",";
-    String[] cartes;
-
-    //--- Données utiles pour le jeu ---//
-
-    byte nbTuilesDepart;
-    byte nbChateaux;
-    byte nbDominos;
-    byte nbJoueurs;
-    byte longueur;
+    static String RESOURCES_PATH = "src/ressources/";
+    static String DOMINOS_FILE_NAME = "dominos.csv";
+    static String ligne = "";
+    static String SEPARATOR = ",";
+    static String[] cartes;
 
     //--- Données qui contiennent les scores de chaque joueurs ---//
 
-    int scorePlayer1;
-    int scorePlayer2;
-    int scorePlayer3;
-    int scorePlayer4;
+    static int scorePlayer1;
+    static int scorePlayer2;
+    static int scorePlayer3;
+    static int scorePlayer4;
+    
 
     //--- Données qui contient la map de chaque joueurs ---//
 
@@ -38,23 +31,15 @@ public class Database {
 
     //--- Donnée qui contient tous les dominos séparés en moitiés ---//
 
-    Map<String , String[]> dominos = new HashMap<>();
+    static Map<String , String[]> dominos = new HashMap<>();
 
-    public void init(){
-
-        // Initialisation des données pour jouer
-
-        nbJoueurs = 4;
-
-        nbDominos = 48;
-        nbChateaux = 4;
-        nbTuilesDepart = 4;
-        longueur = 5;
+    public static void init(){
 
         scorePlayer1 = 0;
         scorePlayer2 = 0;
         scorePlayer3 = 0;
         scorePlayer4 = 0;
+
 
 
         // Lecture du fichier dominos.csv

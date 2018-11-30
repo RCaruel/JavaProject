@@ -4,6 +4,7 @@
 //création des objets en fonction des paramétres//
 //**********************************************//
 
+
 package mainPackage;
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,17 +17,14 @@ public class Initialisation {
 	static ArrayList<String> ordreroi = new ArrayList<String>();
 	static Random rand = new Random();
 	static Scanner scan = new Scanner(System.in);
-	
-    //static String[][] mapPlayer1 = new String[5][5];
-    //static String[][] mapPlayer2 = new String[5][5];
-    //static String[][] mapPlayer3 = new String[5][5];
-    //static String[][] mapPlayer4 = new String[5][5];
-    
+
     static String[][][] mapPlayer = new String[4][5][5];
 	
     static int nbDominos;
 	
-	public static void jeux() {
+    
+    
+	public static void debutjeux() {
 
 		System.out.println("choisir le nombre de joueurs :");
 		int nbJoueurs = scan.nextInt();
