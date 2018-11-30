@@ -11,6 +11,8 @@ public class Main {
 
         Database database = new Database();
         database.init();
+        
+        Initialisation ini = new Initialisation();
 
         do {
 
@@ -23,6 +25,7 @@ public class Main {
 
             switch (choix){
                 case 1:
+                	Initialisation.jeux();
                     Jouer.play(database, scanner);
                     break;
                 case 2:

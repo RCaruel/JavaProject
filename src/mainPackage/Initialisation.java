@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class init {
+public class Initialisation {
 	
 	static ArrayList<String> roi = new ArrayList<String>();
 	static ArrayList<String> ordreroi = new ArrayList<String>();
@@ -26,7 +26,7 @@ public class init {
 		
 	    // initialisation des plateaux
 	    for (int i = 0; i < nbJoueurs; i++) {
-	    	mapPlayer[i][2][2] = "500";  //créer mapPlayer dans database
+	    	mapPlayer[i][2][2] = "500 ";  //créer mapPlayer dans database
 	    }
 	    	
 	    // initialisation des rois
@@ -77,21 +77,27 @@ public class init {
 	    	dominos[i] = domi[i];
 	    }
 	    
-	    
+	    System.out.print("[ ");
 	    for (int i = 0; i < nbDominos; i++) {
-	    	System.out.print(dominos[i] + " , ");
+	    	System.out.print(dominos[i] + " ");
 	    }
+	    System.out.print("]");
 	    
-	    System.out.println("ordre de jeux");
+	    System.out.println(" ");
+	    System.out.println("Ordre de jeux");
 	    System.out.println(roi);
+	    System.out.println("");
 	    
 	    //Affichage plateau
 	    for (int i = 0; i < 4; i++) {
 	    	for (int j = 0; j < 5; j++) {
+	    		System.out.print("[ ");
 	    		for (int k = 0; k < 5; k++) {
 	    			System.out.print(mapPlayer[i][j][k] + " ");
 	    		}
-	    		System.out.println();
+	    		System.out.print("]");
+	    		System.out.println(" ");
+	    		System.out.println(" ");
 	    	}
 	    	System.out.println();
 	    	System.out.println();
