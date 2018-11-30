@@ -9,6 +9,7 @@ public class Composant {
 
     int nombreDominos;
     int nombreJoueurs;
+    Joueurs[] listJoueurs;
     Map<String , String[]> dominos = new HashMap<>();
 
     public int getNombreDominos() {
@@ -21,6 +22,10 @@ public class Composant {
 
     public Map<String, String[]> getDominos() {
         return this.dominos;
+    }
+
+    public Joueurs[] getListJoueurs() {
+        return listJoueurs;
     }
 
     public void setDominos() {
@@ -66,5 +71,6 @@ public class Composant {
 
     public void setNombreJoueurs(int nombreJoueurs) {
         this.nombreJoueurs = nombreJoueurs;
+        this.listJoueurs = new Joueurs[nombreJoueurs];
     }
 }
