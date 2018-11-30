@@ -26,10 +26,9 @@ public class Jouer {
 	static Scanner scan = new Scanner(System.in);
 	
 	static ArrayList<String> roi = new ArrayList<String>();
-	static ArrayList<String> ordreroi = new ArrayList<String>();
     static String[][][] mapPlayer = new String[4][5][5];
 	static int nbDominos;
-	static int[] indicedominos = new int[nbDominos];
+	static int[] indicedominos;
 	
     static String RESOURCES_PATH = "src/ressources/";
     static String DOMINOS_FILE_NAME = "dominos.csv";
@@ -130,7 +129,7 @@ public class Jouer {
     	}
 	    
 	    nbDominos = 48 - 12*(4-nbJoueurs);
-	    
+	    indicedominos = new int[nbDominos];
 	    
 	    for ( int i = 0; i < nbDominos; i++) {
 	    	indicedominos[i] = domi[i];
@@ -166,13 +165,35 @@ public class Jouer {
     public static void tour(){
     	
     	int compteurtour = 0;
-    	//tire 3 cartes
-    	ArrayList<Integer> troisdominos = new ArrayList<Integer>();
-    	for (int i = 0; i < 3; i++) {
-    		troisdominos.set(i,indicedominos[i+3*compteurtour]);
-    	}
-    	Collections.sort(troisdominos);
     	
+    	while (3*compteurtour < nbDominos) {
+	    	//tire nb de roi cartes
+	    	ArrayList<Integer> listedominos = new ArrayList<Integer>();
+	    	ArrayList<String> newroi = new ArrayList<String>();
+	    	for (int i = 0; i < roi.size(); i++) {
+	    		listedominos.set(i,indicedominos[i+3*compteurtour]);
+	    	}
+	    	Collections.sort(listedominos);
+	    	
+	    	for (int i = 0; i < roi.size(); i++) {
+	    		System.out.println("Tuile disponible : ");
+	    		System.out.print("[ ");
+	    	    for (int j = 0; j < roi.size(); j++) {
+	    	    	System.out.print(listedominos.get(j) + " ");
+	    	    }
+	    	    System.out.print("]");
+	    		
+	    		System.out.println("le joueur : " + roi.get(i) + " choisie une tuile.");
+	    		int indicetuile = scan.nextInt();
+	    		listedominos.remove(indicetuile);
+	    		newroi.set(indicetuile, roi.get(i));
+	    	}
+	    	for (int i = 0; i < roi.size(); i++) {
+	    		roi.set(i, newroi.get(i));
+	    		newroi.remove(i);
+	    	}
+	    	compteurtour+=1;
+    	}
     	
     	
     	

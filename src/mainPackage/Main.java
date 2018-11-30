@@ -11,12 +11,6 @@ public class Main {
 
         byte choix;
 
-
-        initialisation();
-
-        Database database = new Database();
-        database.init();
-
         do {
 
             afficheMenu();
@@ -36,9 +30,6 @@ public class Main {
 
     }
 
-    public static void initialisation(){
-        database.init();
-    }
 
     public static void afficheMenu(){
         System.out.println("Que voulez-vous faire?\n" +
