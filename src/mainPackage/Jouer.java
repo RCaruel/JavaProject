@@ -5,6 +5,7 @@
 
 package mainPackage;
 import java.io.BufferedReader;
+import java.awt.List;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Collections;
+
 
 
 public class Jouer {
@@ -26,6 +29,7 @@ public class Jouer {
 	static ArrayList<String> ordreroi = new ArrayList<String>();
     static String[][][] mapPlayer = new String[4][5][5];
 	static int nbDominos;
+	static int[] indicedominos = new int[nbDominos];
 	
     static String RESOURCES_PATH = "src/ressources/";
     static String DOMINOS_FILE_NAME = "dominos.csv";
@@ -127,7 +131,7 @@ public class Jouer {
 	    
 	    nbDominos = 48 - 12*(4-nbJoueurs);
 	    
-	    int[] indicedominos = new int[nbDominos];
+	    
 	    for ( int i = 0; i < nbDominos; i++) {
 	    	indicedominos[i] = domi[i];
 	    }
@@ -160,6 +164,24 @@ public class Jouer {
 	}
 
     public static void tour(){
+    	
+    	int compteurtour = 0;
+    	//tire 3 cartes
+    	ArrayList<Integer> troisdominos = new ArrayList<Integer>();
+    	for (int i = 0; i < 3; i++) {
+    		troisdominos.set(i,indicedominos[i+3*compteurtour]);
+    	}
+    	Collections.sort(troisdominos);
+    	
+    	
+    	
+    	
+
+    	
+    	
+    	
+    	
+    	
     	
     }
 

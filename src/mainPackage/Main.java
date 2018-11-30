@@ -52,8 +52,7 @@ public class Main {
     }
 
     public static void lanceLeJeu(){
-        Initialisation.jeux();
-        Jouer.play(database, scanner);
+        Jouer.play();
     }
 
     public static void afficheLeTutoriel(){
