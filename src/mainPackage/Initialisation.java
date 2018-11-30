@@ -1,8 +1,14 @@
-// création des objet en fonction des paramétres
+
+
+//**********************************************//
+//création des objets en fonction des paramétres//
+//**********************************************//
+
 package mainPackage;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
 
 public class Initialisation {
 	
