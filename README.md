@@ -1,5 +1,5 @@
 # JavaProject
-## Première partie : fare le jeu en version console
+## Première partie : faire le jeu en version console
 ### menu basique :
     Contient un jouer et un quitter.
     Il est à améliorer.
