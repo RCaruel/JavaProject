@@ -175,6 +175,7 @@ public class Jouer {
 
     public static void tour(){
     	
+    	
     	int compteurtour = 0;
     	String[] newroi = new String[roi.size()];
     	
@@ -202,6 +203,7 @@ public class Jouer {
 	    		System.out.println("le joueur : " + roi.get(i) + " place son roi sur une tuile.");
 	    		indicetuile = scan.nextInt();
 	    		newroi[indicetuile] = roi.get(i);
+	    		
 	    		//listedominos.set(indicetuile, null);
 	    		
 	    	}
@@ -218,15 +220,15 @@ public class Jouer {
 	    		int x = scan.nextInt();
 	    		System.out.println("ordonnée de la premiére demi tuile :");
 	    		int y = scan.nextInt();
-	    		System.out.println("abscisse de la deusiéme demi tuile :");
+	    		System.out.println("abscisse de la deuxiéme demi tuile :");
 	    		int x1 = scan.nextInt();
-	    		System.out.println("ordonnée de la deusiéme demi tuile :");
+	    		System.out.println("ordonnée de la deuxiéme demi tuile :");
 	    		int y1 = scan.nextInt();
 	    		
 	    		for (int j = 0; j < roi.size(); j++) {
 	    			if (roi.get(i).equals(plateau[j])) {
-	    				mapPlayer[j][x][y] = listedominos.get(indicetuile) + "1";
-	    				mapPlayer[j][x1][y1] = listedominos.get(indicetuile) + "2";
+	    				mapPlayer[j][x][y] = listedominos.get(indicetuile) + " 1    ";
+	    				mapPlayer[j][x1][y1] = listedominos.get(indicetuile) + " 2    ";
 	    			}
 	    		}		
 	    	}
