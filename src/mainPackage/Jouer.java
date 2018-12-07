@@ -29,6 +29,8 @@ public class Jouer {
     static String[][][] mapPlayer = new String[4][5][5];
 	static int nbDominos;
 	static int[] indicedominos;
+	static String[] plateau = new String[4];
+	static int indicetuile;
 	
     static String RESOURCES_PATH = "src/ressources/";
     static String DOMINOS_FILE_NAME = "dominos.csv";
@@ -86,6 +88,15 @@ public class Jouer {
 	    for (int i = 0; i < nbJoueurs; i++) {
 	    	mapPlayer[i][2][2] = "500 ";
 	    }
+	    
+	    //on attribut le plateau 0 au jouer rouge 
+	    //                       1 au jouer bleu
+	    //                       2 au jouer vert
+	    //                       3 au jouer jaune
+	    plateau[0] = "rouge";
+	    plateau[1] = "bleu";
+	    plateau[2] = "vert";
+	    plateau[3] = "jaune";
 	    	
 	    // initialisation des rois
 	    if (nbJoueurs == 2) {
@@ -165,45 +176,75 @@ public class Jouer {
     public static void tour(){
     	
     	int compteurtour = 0;
+    	String[] newroi = new String[roi.size()];
+    	
     	
     	while (3*compteurtour < nbDominos) {
-	    	//tire nb de roi cartes
+    		
 	    	ArrayList<Integer> listedominos = new ArrayList<Integer>();
-	    	ArrayList<String> newroi = new ArrayList<String>();
+    		//tire nb de roi cartes
 	    	for (int i = 0; i < roi.size(); i++) {
-	    		listedominos.set(i,indicedominos[i+3*compteurtour]);
+	    		listedominos.add(indicedominos[i+3*compteurtour]);
+	    		//System.out.println(indicedominos[i+3*compteurtour]);
 	    	}
 	    	Collections.sort(listedominos);
 	    	
 	    	for (int i = 0; i < roi.size(); i++) {
+	    		
+	    		//choix de la tuile
 	    		System.out.println("Tuile disponible : ");
 	    		System.out.print("[ ");
 	    	    for (int j = 0; j < roi.size(); j++) {
 	    	    	System.out.print(listedominos.get(j) + " ");
 	    	    }
 	    	    System.out.print("]");
+	    	    System.out.println(" ");
+	    		System.out.println("le joueur : " + roi.get(i) + " place son roi sur une tuile.");
+	    		indicetuile = scan.nextInt();
+	    		newroi[indicetuile] = roi.get(i);
+	    		//listedominos.set(indicetuile, null);
 	    		
-	    		System.out.println("le joueur : " + roi.get(i) + " choisie une tuile.");
-	    		int indicetuile = scan.nextInt();
-	    		listedominos.remove(indicetuile);
-	    		newroi.set(indicetuile, roi.get(i));
 	    	}
+	    	
 	    	for (int i = 0; i < roi.size(); i++) {
-	    		roi.set(i, newroi.get(i));
-	    		newroi.remove(i);
+	    		roi.set(i, newroi[i]);
 	    	}
+	    	
+	    	for (int i = 0; i < roi.size(); i++) {
+	    		
+	    		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
+	    		
+	    		System.out.println("abscisse de la premiére demi tuile :");
+	    		int x = scan.nextInt();
+	    		System.out.println("ordonnée de la premiére demi tuile :");
+	    		int y = scan.nextInt();
+	    		System.out.println("abscisse de la deusiéme demi tuile :");
+	    		int x1 = scan.nextInt();
+	    		System.out.println("ordonnée de la deusiéme demi tuile :");
+	    		int y1 = scan.nextInt();
+	    		
+	    		for (int j = 0; j < roi.size(); j++) {
+	    			if (roi.get(i).equals(plateau[j])) {
+	    				mapPlayer[j][x][y] = listedominos.get(indicetuile) + "1";
+	    				mapPlayer[j][x1][y1] = listedominos.get(indicetuile) + "2";
+	    			}
+	    		}		
+	    	}
+	    	
+	    	for (int i = 0; i < roi.size(); i++) {
+	    	    	for (int j = 0; j < 5; j++) {
+	    	    		System.out.print("[ ");
+	    	    		for (int k = 0; k < 5; k++) {
+	    	    			System.out.print(mapPlayer[i][j][k] + " ");
+	    	    		}
+	    	    		System.out.print("]");
+	    	    		System.out.println(" ");
+	    	    		System.out.println(" ");
+	    	    	}
+	    	    	System.out.println();
+	    	    	System.out.println();
+	    	    }
 	    	compteurtour+=1;
     	}
-    	
-    	
-    	
-
-    	
-    	
-    	
-    	
-    	
-    	
     }
-
 }
