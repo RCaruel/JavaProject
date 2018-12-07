@@ -50,10 +50,11 @@ public class Joueurs {
 
     public void setMap(String[][] map) {
         this.map = map;
+
     }
 
     public void ajoutMap(String value, int x, int y){
-        this.map[x][y] = value;
+        this.map[y][x] = value;
     }
 
     public void setStatut(String statut) {
