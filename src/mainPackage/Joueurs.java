@@ -1,6 +1,9 @@
 package mainPackage;
+
+
 //type database
 public class Joueurs {
+	
     int choixTuile;
     String pseudo;
     String couleur;
@@ -60,4 +63,5 @@ public class Joueurs {
     public void setStatut(String statut) {
         this.statut = statut;
     }
+    
 }
