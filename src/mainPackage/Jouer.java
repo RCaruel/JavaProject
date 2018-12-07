@@ -39,6 +39,11 @@ public class Jouer {
     static String[] cartes;
 	static Map<String , String[]> dominos = new HashMap<>();
 	
+	static int[] choixtuile;
+	static int compteurtour = 0;
+	static String[] newroi;
+	static ArrayList<Integer> listedominos = new ArrayList<Integer>();
+	
 	public static void play() {
 		mapDominos();
 		debutjeux();
@@ -81,7 +86,7 @@ public class Jouer {
 	
     public static void debutjeux() {
 
-		System.out.println("choisir le nombre de joueurs :");
+		System.out.println("choisir un nombre de joueurs entre 2 et 4:");
 		int nbJoueurs = scan.nextInt();
 		
 	    // initialisation des plateaux
@@ -173,79 +178,131 @@ public class Jouer {
 	    }       
 	}
 
+    public static void tiretuile() {
+    	//tire nb de roi cartes
+    	for (int i = 0; i < roi.size(); i++) {
+    		listedominos.add(indicedominos[i+roi.size()*compteurtour]);
+    	}
+    	Collections.sort(listedominos);
+    }
+    
+    public static void choixdetuile(int i) {
+    	
+    	boolean bool = true;
+	
+    	// while pour vérifier qu'on ne choisie pas une tuile déja occupé
+		while (bool) {
+ 
+    		System.out.println("Tuile disponible : ");
+    		System.out.print("[ ");
+    	    for (int j = 0; j < roi.size(); j++) {
+    	    	System.out.print(listedominos.get(j) + " ");
+    	    }
+    	    System.out.print("]");
+    	    System.out.println(" ");
+    		System.out.println("le joueur : " + roi.get(i) + " place son roi sur une tuile.");
+    		indicetuile = scan.nextInt();
+    		newroi[indicetuile] = roi.get(i);
+    		if (choixtuile[indicetuile] == listedominos.get(indicetuile)) {
+    			System.out.print("Cette tuile a déja été choisie ! >Choisissez une autre tuile");
+    		} else {
+    			choixtuile[indicetuile] = listedominos.get(indicetuile);
+    			bool =  false;
+    		}
+		}
+    }
+    
+    public static void choixduplacement(int i) {
+    	
+    	System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
+		
+		System.out.println("abscisse de la premiére demi tuile :");
+		int x = scan.nextInt();
+		System.out.println("ordonnée de la premiére demi tuile :");
+		int y = scan.nextInt();
+		System.out.println("abscisse de la deuxiéme demi tuile :");
+		int x1 = scan.nextInt();
+		System.out.println("ordonnée de la deuxiéme demi tuile :");
+		int y1 = scan.nextInt();
+		
+		for (int j = 0; j < roi.size(); j++) {
+			if (roi.get(i).equals(plateau[j])) {
+				mapPlayer[j][x][y] = choixtuile[j] + " 1 ";
+				mapPlayer[j][x1][y1] = choixtuile[j] + " 2 ";
+			}
+		}	
+    }
+    
+    public static void affichageMap(int i) {
+    	for (int j = 0; j < 5; j++) {
+	    	System.out.print("[ ");
+	    	for (int k = 0; k < 5; k++) {
+	   			System.out.print(mapPlayer[i][j][k] + " ");
+	   		}
+	   		System.out.print("]");
+	   		System.out.println(" ");
+    		System.out.println(" ");
+	    	}
+	    	System.out.println();
+	    	System.out.println();
+    }
+    
     public static void tour(){
     	
-    	
-    	int compteurtour = 0;
-    	String[] newroi = new String[roi.size()];
-    	
-    	
-    	while (3*compteurtour < nbDominos) {
+    	choixtuile = new int[roi.size()];
+    	newroi = new String[roi.size()];
+
+    	while (roi.size()*compteurtour < nbDominos) {
     		
-	    	ArrayList<Integer> listedominos = new ArrayList<Integer>();
-    		//tire nb de roi cartes
-	    	for (int i = 0; i < roi.size(); i++) {
-	    		listedominos.add(indicedominos[i+3*compteurtour]);
-	    		//System.out.println(indicedominos[i+3*compteurtour]);
-	    	}
-	    	Collections.sort(listedominos);
+    		//on tire les tuiles
+    		tiretuile();
 	    	
+    		//chaque roi choisie sa tuile
 	    	for (int i = 0; i < roi.size(); i++) {
 	    		
-	    		//choix de la tuile
-	    		System.out.println("Tuile disponible : ");
-	    		System.out.print("[ ");
-	    	    for (int j = 0; j < roi.size(); j++) {
-	    	    	System.out.print(listedominos.get(j) + " ");
-	    	    }
-	    	    System.out.print("]");
-	    	    System.out.println(" ");
-	    		System.out.println("le joueur : " + roi.get(i) + " place son roi sur une tuile.");
-	    		indicetuile = scan.nextInt();
-	    		newroi[indicetuile] = roi.get(i);
+	    		boolean bo = true;
 	    		
-	    		//listedominos.set(indicetuile, null);
-	    		
+	    		while(bo) {
+		    		try {
+		    			choixdetuile(i);
+		    			bo = false;
+		    		} catch (ArrayIndexOutOfBoundsException e) {
+		    			System.out.println("Attention il faut choisir l'indice de la tuile !");
+		    			System.out.println("Les indices commencent à 0 !");	
+		    		}
+	    		}
 	    	}
 	    	
+	    	//on redéfinie l'ordre de jeux en fonction du placement
 	    	for (int i = 0; i < roi.size(); i++) {
 	    		roi.set(i, newroi[i]);
 	    	}
 	    	
+	    	//chaque roi place sa tuile
 	    	for (int i = 0; i < roi.size(); i++) {
 	    		
-	    		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
+	    		boolean boo = true;
 	    		
-	    		System.out.println("abscisse de la premiére demi tuile :");
-	    		int x = scan.nextInt();
-	    		System.out.println("ordonnée de la premiére demi tuile :");
-	    		int y = scan.nextInt();
-	    		System.out.println("abscisse de la deuxiéme demi tuile :");
-	    		int x1 = scan.nextInt();
-	    		System.out.println("ordonnée de la deuxiéme demi tuile :");
-	    		int y1 = scan.nextInt();
-	    		
-	    		for (int j = 0; j < roi.size(); j++) {
-	    			if (roi.get(i).equals(plateau[j])) {
-	    				mapPlayer[j][x][y] = listedominos.get(indicetuile) + " 1    ";
-	    				mapPlayer[j][x1][y1] = listedominos.get(indicetuile) + " 2    ";
+	    		while (boo) {
+	    			try {
+	    				choixduplacement(i);
+	    				boo = false;
+	    			} catch (ArrayIndexOutOfBoundsException e) {
+	    				System.out.println("La tuile doit étre placé dans la plateau de taille 5*5 !");
 	    			}
-	    		}		
+	    		}
 	    	}
 	    	
+	    	//on affiche les plateaux
 	    	for (int i = 0; i < roi.size(); i++) {
-	    	    	for (int j = 0; j < 5; j++) {
-	    	    		System.out.print("[ ");
-	    	    		for (int k = 0; k < 5; k++) {
-	    	    			System.out.print(mapPlayer[i][j][k] + " ");
-	    	    		}
-	    	    		System.out.print("]");
-	    	    		System.out.println(" ");
-	    	    		System.out.println(" ");
-	    	    	}
-	    	    	System.out.println();
-	    	    	System.out.println();
-	    	    }
+	    	    affichageMap(i);
+	   	    }
+	    	
+	    	//on reeset les choix
+	    	for (int i = 0; i < roi.size(); i++) {
+	    		choixtuile[i] = 500;
+	    	}
+	    	
 	    	compteurtour+=1;
     	}
     }
