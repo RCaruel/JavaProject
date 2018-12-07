@@ -1,73 +1,62 @@
 package mainPackage;
-
-import java.util.Scanner;
-
 //type database
-class Joueurs {
-    private int choixTuile;
-    private String pseudo;
-    private String couleur;
-    private int score;
-    private String[][] map;
-    private String statut;
+public class Joueurs {
+    int choixTuile;
+    String pseudo;
+    String couleur;
+    int score;
+    String[][] map;
+    String statut;
 
-    int getScore() {
+    public int getScore() {
         return score;
     }
 
-    String getCouleur() {
+    public String getCouleur() {
         return couleur;
     }
 
-    String getPseudo() {
+    public String getPseudo() {
         return pseudo;
     }
 
-    int getChoixTuile() {
+    public int getChoixTuile() {
         return choixTuile;
     }
 
-    String getStatut() {
+    public String getStatut() {
         return statut;
     }
 
-    String[][] getMap() {
+    public String[][] getMap() {
         return map;
     }
 
-    void setCouleur(String couleur) {
+    public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
 
-    void setPseudo(String pseudo) {
+    public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
 
-    void setScore(int score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
-    void setChoixTuile(int choixTuile) {
+    public void setChoixTuile(int choixTuile) {
         this.choixTuile = choixTuile;
     }
 
-    void setMap(String[][] map) {
+    public void setMap(String[][] map) {
         this.map = map;
     }
 
-    void ajoutMap(String value, int x, int y){
+    public void ajoutMap(String value, int x, int y){
         this.map[x][y] = value;
     }
 
-    void setStatut(String statut) {
+    public void setStatut(String statut) {
         this.statut = statut;
-    }
-
-    void Joue(Scanner scanner, int[] listcartes){
-        if (this.statut == "IA"){
-            //IA.choose(listcartes, this);
-        }else{
-            System.out.println("Veuillez saisir les coordonnées:");
-        }
     }
 }

@@ -42,9 +42,6 @@ public class Main {
     }
 
     public static void lanceLeJeu(){
-        Composant composant;
-        Parametre parametre = new Parametre();
-        composant = parametre.parametrage(scanner);
         Jouer.play();
     }
 
