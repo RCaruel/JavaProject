@@ -7,28 +7,28 @@ import java.util.Map;
 //type database, variable final
 public class Composant {
 
-    int nombreDominos;
-    int nombreJoueurs;
-    Joueurs[] listJoueurs;
-    Map<String , String[]> dominos = new HashMap<>();
+    private int nombreDominos;
+    private int nombreJoueurs;
+    private Joueurs[] listJoueurs;
+    private Map<String , String[]> dominos = new HashMap<>();
 
-    public int getNombreDominos() {
+    int getNombreDominos() {
         return this.nombreDominos;
     }
 
-    public int getNombreJoueurs() {
+    int getNombreJoueurs() {
         return this.nombreJoueurs;
     }
 
-    public Map<String, String[]> getDominos() {
+    Map<String, String[]> getDominos() {
         return this.dominos;
     }
 
-    public Joueurs[] getListJoueurs() {
+    Joueurs[] getListJoueurs() {
         return listJoueurs;
     }
 
-    public void setDominos() {
+    void setDominos() {
         String RESOURCES_PATH = "src/ressources/";
         String DOMINOS_FILE_NAME = "dominos.csv";
         String ligne = "";
@@ -65,12 +65,13 @@ public class Composant {
         }
     }
 
-    public void setNombreDominos(int nombreDominos) {
+    void setNombreDominos(int nombreDominos) {
         this.nombreDominos = nombreDominos;
     }
 
-    public void setNombreJoueurs(int nombreJoueurs) {
+    void setNombreJoueurs(int nombreJoueurs) {
         this.nombreJoueurs = nombreJoueurs;
         this.listJoueurs = new Joueurs[nombreJoueurs];
     }
+
 }

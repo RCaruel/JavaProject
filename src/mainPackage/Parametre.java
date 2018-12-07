@@ -3,33 +3,53 @@ package mainPackage;
 import java.util.Scanner;
 
 // demande aux joueuers les paramétres de la partie
-public class Parametre {
+class Parametre {
 
-    Composant composant = new Composant();
+    private Composant composant = new Composant();
 
-    public Composant parametrage(Scanner scanner){
+    Composant parametrage(Scanner scanner){
 
-        System.out.println("Veuillez saisir le nombres de joueurs présent sur le terrain:");
+        String couleur;
+
+        System.out.println("Veuillez saisir le nombre de joueurs présent sur le terrain:");
         composant.setNombreJoueurs(scanner.nextInt());
 
         for (int i = 0; i < composant.getNombreJoueurs(); i++){
 
-            composant.listJoueurs[i] = new Joueurs();
+            composant.getListJoueurs()[i] = new Joueurs();
             System.out.println("Veuillez saisir le pseudo du joueur " + i);
-            composant.listJoueurs[i].setPseudo(scanner.nextLine());
+
+            composant.getListJoueurs()[i].setPseudo(scanner.nextLine());
             System.out.println("Est-ce une IA ? Oui / Non.");
+
             if (scanner.nextLine().equals("Oui")){
-                //composant.listJoueurs[i].setStatut("IA");
+                composant.getListJoueurs()[i].setStatut("IA");
             }else{
-                //composant.listJoueurs[i].setStatut("HUMAN");
+                composant.getListJoueurs()[i].setStatut("HUMAN");
             }
-            System.out.println("Veuillez saisir sa couleur : BLEU / ROUGE / VERT");
-            composant.listJoueurs[i].setCouleur(scanner.nextLine());
+            do {
+                System.out.println("Veuillez saisir sa couleur : BLEU / ROUGE / VERT / JAUNE");
+                couleur = scanner.nextLine();
+            }while(istake(couleur, i, composant) || isNormal(couleur));
+            composant.getListJoueurs()[i].setCouleur(couleur);
         }
 
         composant.setNombreDominos(48 - 16 * (4 - composant.getNombreJoueurs()));
         composant.setDominos();
         return composant;
+    }
+
+    private boolean istake(String couleur, int max, Composant composant){
+        for (int i = 0; i < max; i++){
+            if (composant.getListJoueurs()[i].getCouleur().equals(couleur)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isNormal(String couleur){
+        return couleur.equals("BLEU") || couleur.equals("ROUGE") || couleur.equals("VERT") || couleur.equals("JAUNE");
     }
 
 }

@@ -1,62 +1,73 @@
 package mainPackage;
-//type database
-public class Joueurs {
-    int choixTuile;
-    String pseudo;
-    String couleur;
-    int score;
-    String[][] map;
-    String statut;
 
-    public int getScore() {
+import java.util.Scanner;
+
+//type database
+class Joueurs {
+    private int choixTuile;
+    private String pseudo;
+    private String couleur;
+    private int score;
+    private String[][] map;
+    private String statut;
+
+    int getScore() {
         return score;
     }
 
-    public String getCouleur() {
+    String getCouleur() {
         return couleur;
     }
 
-    public String getPseudo() {
+    String getPseudo() {
         return pseudo;
     }
 
-    public int getChoixTuile() {
+    int getChoixTuile() {
         return choixTuile;
     }
 
-    public String getStatut() {
+    String getStatut() {
         return statut;
     }
 
-    public String[][] getMap() {
+    String[][] getMap() {
         return map;
     }
 
-    public void setCouleur(String couleur) {
+    void setCouleur(String couleur) {
         this.couleur = couleur;
     }
 
-    public void setPseudo(String pseudo) {
+    void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
 
-    public void setScore(int score) {
+    void setScore(int score) {
         this.score = score;
     }
 
-    public void setChoixTuile(int choixTuile) {
+    void setChoixTuile(int choixTuile) {
         this.choixTuile = choixTuile;
     }
 
-    public void setMap(String[][] map) {
+    void setMap(String[][] map) {
         this.map = map;
     }
 
-    public void ajoutMap(String value, int x, int y){
+    void ajoutMap(String value, int x, int y){
         this.map[x][y] = value;
     }
 
-    public void setStatut(String statut) {
+    void setStatut(String statut) {
         this.statut = statut;
+    }
+
+    void Joue(Scanner scanner, int[] listcartes){
+        if (this.statut == "IA"){
+            //IA.choose(listcartes, this);
+        }else{
+            System.out.println("Veuillez saisir les coordonnées:");
+        }
     }
 }
