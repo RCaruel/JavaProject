@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     static Scanner scanner = new Scanner(System.in);
-    static Database database = new Database();
 
     public static void main(String[] args) {
 

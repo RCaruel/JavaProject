@@ -16,7 +16,7 @@ public class Parametre {
 
             composant.listJoueurs[i] = new Joueurs();
             System.out.println("Veuillez saisir le pseudo du joueur " + i);
-            composant.listJoueurs[i].setPseudoJoueur(scanner.nextLine());
+            composant.listJoueurs[i].setPseudo(scanner.nextLine());
             System.out.println("Est-ce une IA ? Oui / Non.");
             if (scanner.nextLine().equals("Oui")){
                 //composant.listJoueurs[i].setStatut("IA");
@@ -24,7 +24,7 @@ public class Parametre {
                 //composant.listJoueurs[i].setStatut("HUMAN");
             }
             System.out.println("Veuillez saisir sa couleur : BLEU / ROUGE / VERT");
-            composant.listJoueurs[i].setCouleurJoueur(scanner.nextLine());
+            composant.listJoueurs[i].setCouleur(scanner.nextLine());
         }
 
         composant.setNombreDominos(48 - 16 * (4 - composant.getNombreJoueurs()));
