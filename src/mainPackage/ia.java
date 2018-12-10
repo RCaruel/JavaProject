@@ -9,7 +9,8 @@ public class ia {
 	public static void choixtuileia() {
 		for (int j = 0; j < Jouer.roi.size(); j++) {
 			if (Jouer.choixtuile[j] != Jouer.listedominos.get(j)) {
-				System.out.println(nbcouronne.add(Jouer.dominos.get()));
+				//System.out.println(nbcouronne.add(Jouer.dominos.get()));
+				System.out.println("ok");
 			}
 		}
 	}

@@ -21,8 +21,7 @@ public class CalcScore {
                 try {
                     if (not(joueurs.getMap()[i][j].equals("999"))) {
                         String value = joueurs.getMap()[i][j];
-                        sc = calcScore(joueurs.getMap(), composant, i, j, value, 1, 0);
-                        System.out.println(value + " - " + sc[0] + "x" + sc[1]);
+                        sc = calcScore(joueurs.getMap(), composant, i, j, value, 1, Integer.valueOf(composant.dominos.get(joueurs.getMap()[i][j])[0]));
                         score += sc[1] * sc[0];
                     }
                 }catch (NullPointerException e){}

@@ -16,6 +16,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Collections;
 
+//import static sun.swing.MenuItemLayoutHelper.max;
 
 
 public class Jouer {
@@ -163,18 +164,18 @@ public class Jouer {
     	System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
 		
 		System.out.println("abscisse de la premiére demi tuile :");
-		x = scanner.nextInt();
+		//x = scanner.nextInt();
 		System.out.println(x);
 		System.out.println("ordonnée de la premiére demi tuile :");
-		y = scanner.nextInt();
+		//y = scanner.nextInt();
 		System.out.println(y);
 		System.out.println("abscisse de la deuxiéme demi tuile :");
-		x1 = scanner.nextInt();
+		//x1 = scanner.nextInt();
 		System.out.println(x1);
 		System.out.println("ordonnée de la deuxiéme demi tuile :");
-		y1 = scanner.nextInt();
+		//y1 = scanner.nextInt();
 		System.out.println(y1);
-/*
+
 		y += 2;
 		y1 += 2;
 		if (y > 4){
@@ -183,8 +184,12 @@ public class Jouer {
 		}
 		if (y1 > 5){
 			y1 = y1 - 5;
-			x++;
-		}*/
+			x1++;
+		}
+		if (x > 4 || x1 > 4){
+			x = 0;
+			x1 = 0;
+		}
 
 		
 		for (int j = 0; j < roi.size(); j++) {
@@ -268,8 +273,17 @@ public class Jouer {
 	    	compteurtour+=1;
     	}
 
+    	int max = 0;
+    	int winner = 0;
+    	int score;
+
     	for (int i = 0; i < roi.size(); i++){
-			System.out.println(CalcScore.play(composant.getListJoueurs()[i], composant));
+    		if ((score = CalcScore.play(composant.getListJoueurs()[i], composant)) > max){
+    			max = score;
+    			winner = i;
+			}
+
+			System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[i].getPseudo());
 		}
     }
 }
