@@ -6,13 +6,26 @@ public class ia {
 	
 	static ArrayList<Integer> nbcouronne = new ArrayList<Integer>();
 	
-	public static void choixtuileia() {
-		for (int j = 0; j < Jouer.roi.size(); j++) {
-			if (Jouer.choixtuile[j] != Jouer.listedominos.get(j)) {
-				//System.out.println(nbcouronne.add(Jouer.dominos.get()));
-				System.out.println("ok");
+	public static int[] choixtuileia(Joueurs ia, String[] listdominos) {
+		int[] pos = new int[4];
+		for (int i = 0; i < listdominos.length; i++) {
+			for (int x = 0; x < ia.getMap().length; x++){
+				for (int y = 0; y < ia.getMap().length; y++){
+					try{
+						//modifier : test sur la moitié de la tuile.
+						if (ia.getMap()[x][y].equals(ia.getMap()[x][y-1])){
+							calculscorepot();
+						}
+					}catch(Exception e){}
+				}
 			}
 		}
+		return pos;
+	}
+
+	static int calculscorepot(){
+		int scoremax = 0;
+		return scoremax;
 	}
 
 }

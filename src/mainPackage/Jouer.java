@@ -282,8 +282,7 @@ public class Jouer {
     			max = score;
     			winner = i;
 			}
-
-			System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[i].getPseudo());
 		}
+		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo());
     }
 }
