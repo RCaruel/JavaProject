@@ -9,7 +9,7 @@ public class Joueurs {
     String couleur;
     int score;
     String[][] map;
-    String statut;
+    String statut = "UNDETERMINED";
 
     public int getScore() {
         return score;

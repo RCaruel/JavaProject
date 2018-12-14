@@ -9,7 +9,7 @@ public class Composant {
 
     int nombreDominos;
     int nombreJoueurs;
-    Joueurs[] listJoueurs;
+    Joueurs[] listJoueurs = new Joueurs[4];
     Map<String , String[]> dominos = new HashMap<>();
 
     public int getNombreDominos() {

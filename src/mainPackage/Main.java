@@ -2,7 +2,7 @@ package mainPackage;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main{
 
     static Scanner scanner = new Scanner(System.in);
 

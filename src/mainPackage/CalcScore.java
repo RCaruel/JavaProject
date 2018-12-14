@@ -1,6 +1,6 @@
 package mainPackage;
 
-public class CalcScore {
+class CalcScore {
 
     /**
      *
@@ -9,7 +9,7 @@ public class CalcScore {
      * @return
      */
 
-    public static int play(Joueurs joueurs, Composant composant){
+    static int play(Joueurs joueurs, Composant composant){
 
         int score = 0;
         int[] sc;
@@ -21,7 +21,7 @@ public class CalcScore {
                 try {
                     if (not(joueurs.getMap()[i][j].equals("999"))) {
                         String value = joueurs.getMap()[i][j];
-                        sc = calcScore(joueurs.getMap(), composant, i, j, value, 1, Integer.valueOf(composant.dominos.get(joueurs.getMap()[i][j])[0]));
+                        sc = calcScore(joueurs.getMap(), composant, i, j, value, 1, Integer.valueOf(composant.getDominos().get(joueurs.getMap()[i][j])[0]));
                         score += sc[1] * sc[0];
                     }
                 }catch (NullPointerException e){}
@@ -38,7 +38,7 @@ public class CalcScore {
      * @return not bool
      */
 
-    public static boolean not(boolean bool) {
+    static boolean not(boolean bool) {
         if (bool){
             return false;
         }else{
@@ -58,14 +58,14 @@ public class CalcScore {
      * @return
      */
 
-    public static int[] calcScore(String[][] map, Composant composant, int i, int j, String value, int score, int couronnes) {
+    static int[] calcScore(String[][] map, Composant composant, int i, int j, String value, int score, int couronnes) {
         int[] calcul;
         map[i][j]= "999";
 
         //Essai de calcul du score à partir de la map à la position [i][j+1]
         try {
-            if (composant.dominos.get(map[i][j+1])[1].equals(value)) {
-                calcul = calcScore(map, composant, i,j+1,value,score+1, couronnes + Integer.valueOf(composant.dominos.get(map[i][j+1])[0]));
+            if (composant.getDominos().get(map[i][j+1])[1].equals(value)) {
+                calcul = calcScore(map, composant, i,j+1,value,score+1, couronnes + Integer.valueOf(composant.getDominos().get(map[i][j+1])[0]));
                 score = calcul[0];
                 couronnes = calcul[1];
             }
@@ -75,8 +75,8 @@ public class CalcScore {
 
         //Essai de calcul du score à partir de la map à la position [i+1][j]
         try {
-            if (composant.dominos.get(map[i+1][j])[1].equals(value)) {
-                calcul = calcScore(map, composant, i+1,j, value,score+1, couronnes + Integer.valueOf(composant.dominos.get(map[i+1][j])[0]));
+            if (composant.getDominos().get(map[i+1][j])[1].equals(value)) {
+                calcul = calcScore(map, composant, i+1,j, value,score+1, couronnes + Integer.valueOf(composant.getDominos().get(map[i+1][j])[0]));
                 score = calcul[0];
                 couronnes = calcul[1];
 
@@ -87,8 +87,8 @@ public class CalcScore {
 
         //Essai de calcul du score à partir de la map à la position [i][j-1]
         try {
-            if (composant.dominos.get(map[i][j-1])[1].equals(value)) {
-                calcul = calcScore(map, composant, i,j-1, value,score+1, couronnes + Integer.valueOf(composant.dominos.get(map[i][j-1])[0]));
+            if (composant.getDominos().get(map[i][j-1])[1].equals(value)) {
+                calcul = calcScore(map, composant, i,j-1, value,score+1, couronnes + Integer.valueOf(composant.getDominos().get(map[i][j-1])[0]));
                 score = calcul[0];
                 couronnes = calcul[1];
             }
@@ -98,8 +98,8 @@ public class CalcScore {
 
         //Essai de calculer le score à partir de la map à la position [i-1][j]
         try {
-            if (composant.dominos.get(map[i-1][j])[1].equals(value)) {
-                calcul = calcScore(map, composant, i-1,j, value,score+1, couronnes + Integer.valueOf(composant.dominos.get(map[i-1][j])[0]));
+            if (composant.getDominos().get(map[i-1][j])[1].equals(value)) {
+                calcul = calcScore(map, composant, i-1,j, value,score+1, couronnes + Integer.valueOf(composant.getDominos().get(map[i-1][j])[0]));
                 score = calcul[0];
                 couronnes = calcul[1];
             }
