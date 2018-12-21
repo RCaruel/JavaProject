@@ -23,7 +23,7 @@ class Jouer {
 	private static int compteurtour = 0;
 	private static String[] newroi;
 	private static int[] domi = new int[48];
-	private static ArrayList<Integer> listedominos = new ArrayList<Integer>();
+	private static ArrayList<Integer> listedominos = new ArrayList<>();
 	private static ArrayList<Integer> listedominoscopy = new ArrayList<>();
 	private static int[] choixtuile;
 	
@@ -45,6 +45,10 @@ class Jouer {
 			}
 	    	composant.getListJoueurs()[i].ajoutMap("500", 2, 2);
 	    }
+
+	    for (int i = 0; i < 4; i++){
+	    	listedominoscopy.add(0,0);
+		}
 	    
 	    //on attribut le plateau 0 au jouer rouge 
 	    //                       1 au jouer bleu
@@ -140,10 +144,10 @@ class Jouer {
 
 			joueurs.ChoixTuile(convertisseur(listedominos), composant, scanner);
 
-    		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + listedominos.get(joueurs.getChoixTuile()));
+    		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
 
     		//indicetuile = scanner.nextInt();
-			indicetuile = joueurs.getChoixTuile();
+			indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
 
     		newroi[i] = roi.get(i);
 
@@ -153,8 +157,7 @@ class Jouer {
     			choixtuile[indicetuile] = listedominos.get(indicetuile);
     			bool =  false;
     		}
-
-			listedominoscopy.add(indicetuile, listedominos.get(indicetuile));
+			System.out.println(listedominoscopy);
 			listedominos.remove(indicetuile);
 		}
     }
@@ -168,17 +171,18 @@ class Jouer {
 	}
     
     private static void choixduplacement(int i, Scanner scanner, Composant composant) {
-    	
-    	System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-    	composant.getListJoueurs()[i].setPositions(scanner);
-		
+
+		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
+		composant.getListJoueurs()[i].setPositions(scanner);
+
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j])) {
-				composant.getListJoueurs()[i].ajoutMap(listedominoscopy.get(composant.getListJoueurs()[i].getChoixTuile()) + "1", composant.getListJoueurs()[i].getPositions()[0], composant.getListJoueurs()[i].getPositions()[1]);
-				composant.getListJoueurs()[i].ajoutMap(listedominoscopy.get(composant.getListJoueurs()[i].getChoixTuile()) + "2", composant.getListJoueurs()[i].getPositions()[2], composant.getListJoueurs()[i].getPositions()[3]);
+				composant.getListJoueurs()[i].ajoutMap(composant.getListJoueurs()[i].getChoixTuile() + "1", composant.getListJoueurs()[i].getPositions()[0], composant.getListJoueurs()[i].getPositions()[1]);
+				composant.getListJoueurs()[i].ajoutMap(composant.getListJoueurs()[i].getChoixTuile() + "2", composant.getListJoueurs()[i].getPositions()[2], composant.getListJoueurs()[i].getPositions()[3]);
+
 			}
-		}	
-    }
+		}
+	}
     
     private static void affichageMap(int i, Composant composant) {
     	for (int j = 0; j < 5; j++) {
@@ -203,7 +207,11 @@ class Jouer {
     		
     		//on tire les tuiles
     		tiretuile();
-	    	
+
+    		for (int i =0; i < listedominos.size(); i++) {
+				listedominoscopy.set(i, listedominos.get(i));
+			}
+
     		//chaque roi choisie sa tuile
 	    	for (int i = 0; i < roi.size(); i++) {
 	    		
@@ -267,6 +275,6 @@ class Jouer {
     			winner = i;
 			}
 		}
-		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo());
+		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + max);
     }
 }

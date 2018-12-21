@@ -7,7 +7,6 @@ class ia {
 
 	private static Random rand = new Random();
 
-	/*
 	static int[] choixtuileia(Joueurs joueurs, String[] listdominos, Composant composant) {
 		int[] pos = new int[4];
 		int scoremax = -1;
@@ -21,56 +20,56 @@ class ia {
 							if (joueurs.getMap()[x][y].equals("0")) {
 								try {
 									//modifier : test sur la moitié de la tuile.
-									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(joueurs.getMap()[x][y - 1]) || joueurs.getMap()[x][y - 1].equals("500")) {
+									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y - 1])) || joueurs.getMap()[x][y - 1].equals("500")) {
 										score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
 
 										if (score[0] > scoremax) {
 											scoremax = score[0];
 											if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
 											if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-											joueurs.setChoixTuile(i);
+											joueurs.setChoixTuile(listdominos[i]);
 										}
 									}
 								} catch (Exception e) {
 								}
 								try {
 									//modifier : test sur la moitié de la tuile.
-									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(joueurs.getMap()[x][y + 1]) || joueurs.getMap()[x][y + 1].equals("500")) {
+									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y + 1])) || joueurs.getMap()[x][y + 1].equals("500")) {
 										score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
 
 										if (score[0] > scoremax) {
 											scoremax = score[0];
 											if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
 											if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-											joueurs.setChoixTuile(i);
+											joueurs.setChoixTuile(listdominos[i]);
 										}
 									}
 								} catch (Exception e) {
 								}
 								try {
 									//modifier : test sur la moitié de la tuile.
-									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(joueurs.getMap()[x - 1][y]) || joueurs.getMap()[x - 1][y].equals("500")) {
+									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x - 1][y])) || joueurs.getMap()[x - 1][y].equals("500")) {
 										score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
 
 										if (score[0] > scoremax) {
 											scoremax = score[0];
 											if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
 											if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-											joueurs.setChoixTuile(i);
+											joueurs.setChoixTuile(listdominos[i]);
 										}
 									}
 								} catch (Exception e) {
 								}
 								try {
 									//modifier : test sur la moitié de la tuile.
-									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(joueurs.getMap()[x + 1][y]) || joueurs.getMap()[x + 1][y].equals("500")) {
+									if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x + 1][y])) || joueurs.getMap()[x + 1][y].equals("500")) {
 										score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
 
 										if (score[0] > scoremax) {
 											scoremax = score[0];
 											if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
 											if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-											joueurs.setChoixTuile(i);
+											joueurs.setChoixTuile(listdominos[i]);
 										}
 									}
 								} catch (Exception e) {
@@ -149,12 +148,45 @@ class ia {
 		return retour;
 	}
 
-	*/
+/*
+	private static boolean not(Boolean bool){
+		if (bool) return false;
+		else return true;
+	}
 
 	static int[] choixtuileia(Joueurs joueurs, String[] listdominos, Composant composant) {
-		joueurs.setChoixTuile(rand.nextInt(listdominos.length));
-		
-		return new int[]{0};
-	}
+		int x;
+		int y;
+		int[] position = new int[]{0,0,0,0};
+		joueurs.setChoixTuile(listdominos[0]);
+		while (not(joueurs.getMap()[x = rand.nextInt(4)][y = rand.nextInt(4)].equals("0"))){}
+		position[0] = x;
+		position[1] = y;
+		try{
+			if (joueurs.getMap()[x][y-1].equals("0")){
+				position[2] = x;
+				position[3] = y - 1;
+			}
+		}catch (Exception e) {}
+		try{
+			if (joueurs.getMap()[x][y+1].equals("0")){
+				position[2] = x;
+				position[3] = y + 1;
+			}
+		}catch (Exception e) {}
+		try{
+			if (joueurs.getMap()[x-1][y].equals("0")){
+				position[2] = x-1;
+				position[3] = y;
+			}
+		}catch (Exception e) {}
+		try{
+			if (joueurs.getMap()[x+1][y].equals("0")){
+				position[2] = x+1;
+				position[3] = y;
+			}
+		}catch (Exception e) {}
+		return position;
+	}*/
 
 }

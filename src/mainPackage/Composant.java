@@ -57,6 +57,7 @@ public class Composant {
 
             //Ajout du chateau dans le dictionnaire des dominos
             this.dominos.put("500", new String[]{"0", "chateau"});
+            this.dominos.put("0", new String[]{"0", "vide"});
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

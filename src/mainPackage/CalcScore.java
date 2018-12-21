@@ -10,18 +10,28 @@ class CalcScore {
      */
 
     static int play(Joueurs joueurs, Composant composant){
+        String[][] map = new String[5][5];
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 5; j++){
+                map[i][j] = joueurs.getMap()[i][j];
+            }
+        }
+        return calcule(map, composant);
+    }
+
+    static int calcule(String[][] map, Composant composant){
 
         int score = 0;
         int[] sc;
 
-        for (int i = 0; i < joueurs.getMap().length; i++) {
-            for (int j = 0; j < joueurs.getMap().length; j++) {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map.length; j++) {
 
                 //calcul du score à partir de cette tuile si elle n'a pas la valeur "999"
                 try {
-                    if (not(joueurs.getMap()[i][j].equals("999"))) {
-                        String value = joueurs.getMap()[i][j];
-                        sc = calcScore(joueurs.getMap(), composant, i, j, value, 1, Integer.valueOf(composant.getDominos().get(joueurs.getMap()[i][j])[0]));
+                    if (not(map[i][j].equals("999"))) {
+                        String value = map[i][j];
+                        sc = calcScore(map, composant, i, j, value, 1, Integer.valueOf(composant.getDominos().get(map[i][j])[0]));
                         score += sc[1] * sc[0];
                     }
                 }catch (NullPointerException e){}

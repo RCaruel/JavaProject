@@ -6,7 +6,7 @@ import java.util.Scanner;
 //type database
 public class Joueurs {
 	
-    private int choixTuile;
+    private String choixTuile;
     private String pseudo;
     private String couleur;
     private String[][] map;
@@ -17,7 +17,7 @@ public class Joueurs {
         return couleur;
     }
 
-    int getChoixTuile() {
+    String getChoixTuile() {
         return choixTuile;
     }
 
@@ -25,12 +25,12 @@ public class Joueurs {
         return pseudo;
     }
 
-    int ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
+    String ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
         if (this.statut.equals("IA")){
-            positions = ia.choixtuileia(this, listdominos, composant);
+            this.positions = ia.choixtuileia(this, listdominos, composant);
             return this.choixTuile;
         }else{
-            this.choixTuile = scanner.nextInt();
+            this.choixTuile = scanner.nextLine();
             return this.choixTuile;
         }
     }
@@ -47,7 +47,7 @@ public class Joueurs {
         this.pseudo = pseudo;
     }
 
-    void setChoixTuile(int choixTuile) {
+    void setChoixTuile(String choixTuile) {
         this.choixTuile = choixTuile;
     }
 
