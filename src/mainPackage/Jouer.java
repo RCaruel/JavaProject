@@ -4,13 +4,7 @@
 
 
 package mainPackage;
-import java.io.BufferedReader;
-import java.util.HashMap;
-import java.util.Map;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,35 +13,36 @@ import java.util.Collections;
 //import static sun.swing.MenuItemLayoutHelper.max;
 
 
-public class Jouer {
+class Jouer {
 	
-	static Random rand = new Random();
+	private static Random rand = new Random();
 	
-	static ArrayList<String> roi = new ArrayList<String>();
-	static String[] plateau = new String[4];
-	static int indicetuile;
-	static int compteurtour = 0;
-	static String[] newroi;
-	static int[] domi = new int[48];
-	static ArrayList<Integer> listedominos = new ArrayList<Integer>();
-	static int[] choixtuile;
-
-	static int x = 0;
-	static int y = 0;
-	static int x1 = 0;
-	static int y1 = 1;
+	private static ArrayList<String> roi = new ArrayList<String>();
+	private static String[] plateau = new String[4];
+	private static int indicetuile;
+	private static int compteurtour = 0;
+	private static String[] newroi;
+	private static int[] domi = new int[48];
+	private static ArrayList<Integer> listedominos = new ArrayList<Integer>();
+	private static ArrayList<Integer> listedominoscopy = new ArrayList<>();
+	private static int[] choixtuile;
 	
-	public static void play(Composant composant, Scanner scanner) {
-		debutjeux(composant, scanner);
+	static void play(Composant composant, Scanner scanner) {
+		debutjeux(composant);
 		tour(composant, scanner);
 	}
 
-    public static void debutjeux(Composant composant, Scanner scanner) {
+    private static void debutjeux(Composant composant) {
 
 		
 	    // initialisation des plateaux
 	    for (int i = 0; i < composant.getNombreJoueurs(); i++) {
 	    	composant.getListJoueurs()[i].setMap(new String[5][5]);
+	    	for (int x = 0; x < composant.getListJoueurs()[i].getMap().length; x++){
+	    		for (int y = 0; y < composant.getListJoueurs()[i].getMap().length; y++ ){
+	    			composant.getListJoueurs()[i].ajoutMap("0", x, y);
+				}
+			}
 	    	composant.getListJoueurs()[i].ajoutMap("500", 2, 2);
 	    }
 	    
@@ -108,8 +103,7 @@ public class Jouer {
 	    
 	    System.out.println(" ");
 	    System.out.println("Ordre de jeux");
-	    System.out.println(roi);
-	    System.out.println("");
+	    System.out.println(roi + "\n");
 	    
 	    //Affichage plateau
 	    for (int i = 0; i < composant.getNombreJoueurs(); i++) {
@@ -119,7 +113,7 @@ public class Jouer {
 	    }
 	}
 
-    public static void tiretuile() {
+    private static void tiretuile() {
     	//tire nb de roi cartes
 		listedominos = new ArrayList<>();
     	for (int i = 0; i < roi.size(); i++) {
@@ -128,7 +122,7 @@ public class Jouer {
     	Collections.sort(listedominos);
     }
     
-    public static void choixdetuile(int i, Scanner scanner) {
+    private static void choixdetuile(int i, Scanner scanner, Joueurs joueurs, Composant composant) {
     	
     	boolean bool = true;
 	
@@ -137,18 +131,21 @@ public class Jouer {
  
     		System.out.println("Tuile disponible : ");
     		System.out.print("[ ");
-    	    for (int j = 0; j < roi.size(); j++) {
-    	    	System.out.print(listedominos.get(j) + " ");
-    	    }
+
+			for (Integer listedomino : listedominos) {
+				System.out.print(listedomino + " ");
+			}
+
     	    System.out.print("]");
 
-    		System.out.println("le joueur : " + roi.get(i) + " place son roi sur une tuile.");
+			joueurs.ChoixTuile(convertisseur(listedominos), composant, scanner);
+
+    		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + listedominos.get(joueurs.getChoixTuile()));
 
     		//indicetuile = scanner.nextInt();
-			indicetuile = i;
-			System.out.println(i);
+			indicetuile = joueurs.getChoixTuile();
 
-    		newroi[indicetuile] = roi.get(i);
+    		newroi[i] = roi.get(i);
 
     		if (choixtuile[indicetuile] == listedominos.get(indicetuile)) {
     			System.out.print("Cette tuile a déja été choisie ! >Choisissez une autre tuile");
@@ -156,51 +153,34 @@ public class Jouer {
     			choixtuile[indicetuile] = listedominos.get(indicetuile);
     			bool =  false;
     		}
+
+			listedominoscopy.add(indicetuile, listedominos.get(indicetuile));
+			listedominos.remove(indicetuile);
 		}
     }
+
+    private static String[] convertisseur (ArrayList<Integer> liste){
+		String[] listeConv = new String[liste.size()];
+		for (int i = 0; i < liste.size(); i++){
+			listeConv[i] = String.valueOf(liste.get(i));
+		}
+		return listeConv;
+	}
     
-    public static void choixduplacement(int i, Scanner scanner, Composant composant) {
+    private static void choixduplacement(int i, Scanner scanner, Composant composant) {
     	
     	System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-		
-		System.out.println("abscisse de la premiére demi tuile :");
-		//x = scanner.nextInt();
-		System.out.println(x);
-		System.out.println("ordonnée de la premiére demi tuile :");
-		//y = scanner.nextInt();
-		System.out.println(y);
-		System.out.println("abscisse de la deuxiéme demi tuile :");
-		//x1 = scanner.nextInt();
-		System.out.println(x1);
-		System.out.println("ordonnée de la deuxiéme demi tuile :");
-		//y1 = scanner.nextInt();
-		System.out.println(y1);
-
-		y += 2;
-		y1 += 2;
-		if (y > 4){
-			y = y - 5;
-			x++;
-		}
-		if (y1 > 5){
-			y1 = y1 - 5;
-			x1++;
-		}
-		if (x > 4 || x1 > 4){
-			x = 0;
-			x1 = 0;
-		}
-
+    	composant.getListJoueurs()[i].setPositions(scanner);
 		
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j])) {
-				composant.getListJoueurs()[j].ajoutMap(choixtuile[j] + "1", x, y);
-				composant.getListJoueurs()[j].ajoutMap(choixtuile[j] + "2", x1, y1);
+				composant.getListJoueurs()[i].ajoutMap(listedominoscopy.get(composant.getListJoueurs()[i].getChoixTuile()) + "1", composant.getListJoueurs()[i].getPositions()[0], composant.getListJoueurs()[i].getPositions()[1]);
+				composant.getListJoueurs()[i].ajoutMap(listedominoscopy.get(composant.getListJoueurs()[i].getChoixTuile()) + "2", composant.getListJoueurs()[i].getPositions()[2], composant.getListJoueurs()[i].getPositions()[3]);
 			}
 		}	
     }
     
-    public static void affichageMap(int i, Composant composant) {
+    private static void affichageMap(int i, Composant composant) {
     	for (int j = 0; j < 5; j++) {
 	    	System.out.print("[ ");
 	    	for (int k = 0; k < 5; k++) {
@@ -214,7 +194,7 @@ public class Jouer {
 	    	System.out.println();
     }
     
-    public static void tour(Composant composant, Scanner scanner){
+    private static void tour(Composant composant, Scanner scanner){
 
     	choixtuile = new int[roi.size()];
     	newroi = new String[roi.size()];
@@ -231,11 +211,15 @@ public class Jouer {
 	    		
 	    		while(bo) {
 		    		try {
-		    			choixdetuile(i, scanner);
+		    			choixdetuile(i, scanner, composant.getListJoueurs()[i], composant);
 		    			bo = false;
 		    		} catch (ArrayIndexOutOfBoundsException e) {
+						System.out.println(composant.getListJoueurs()[0].getChoixTuile());
+						System.out.println(composant.getListJoueurs()[1].getChoixTuile());
 		    			System.out.println("Attention il faut choisir l'indice de la tuile !");
-		    			System.out.println("Les indices commencent à 0 !");	
+		    			System.out.println("Les indices commencent à 0 !");
+		    			String[] args =new String[]{};
+		    			Main.main(args);
 		    		}
 	    		}
 	    	}

@@ -1,67 +1,82 @@
 package mainPackage;
 
 
+import java.util.Scanner;
+
 //type database
 public class Joueurs {
 	
-    int choixTuile;
-    String pseudo;
-    String couleur;
-    int score;
-    String[][] map;
-    String statut = "UNDETERMINED";
-
-    public int getScore() {
-        return score;
-    }
+    private int choixTuile;
+    private String pseudo;
+    private String couleur;
+    private String[][] map;
+    private String statut = "UNDETERMINED";
+    private int[] positions = new int[4];
 
     public String getCouleur() {
         return couleur;
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public int getChoixTuile() {
+    int getChoixTuile() {
         return choixTuile;
     }
 
-    public String getStatut() {
-        return statut;
+    String getPseudo() {
+        return pseudo;
     }
 
-    public String[][] getMap() {
+    int ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
+        if (this.statut.equals("IA")){
+            positions = ia.choixtuileia(this, listdominos, composant);
+            return this.choixTuile;
+        }else{
+            this.choixTuile = scanner.nextInt();
+            return this.choixTuile;
+        }
+    }
+
+    String[][] getMap() {
         return map;
     }
 
-    public void setCouleur(String couleur) {
+    void setCouleur(String couleur) {
         this.couleur = couleur;
     }
 
-    public void setPseudo(String pseudo) {
+    void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public void setChoixTuile(int choixTuile) {
+    void setChoixTuile(int choixTuile) {
         this.choixTuile = choixTuile;
     }
 
-    public void setMap(String[][] map) {
+    void setMap(String[][] map) {
         this.map = map;
-
     }
 
-    public void ajoutMap(String value, int x, int y){
+    void ajoutMap(String value, int x, int y){
         this.map[y][x] = value;
     }
 
-    public void setStatut(String statut) {
+    void setStatut(String statut) {
         this.statut = statut;
     }
-    
+
+    int[] getPositions() {
+        return positions;
+    }
+
+    void setPositions(Scanner scanner) {
+        if (statut.equals("HUMAN")){
+            System.out.println("abscisse de la premiere demi tuile :");
+            this.positions[0] = scanner.nextInt();
+            System.out.println("ordonnee de la premiere demi tuile :");
+            this.positions[1] = scanner.nextInt();
+            System.out.println("abscisse de la deuxieme demi tuile :");
+            this.positions[2] = scanner.nextInt();
+            System.out.println("ordonnee de la deuxieme demi tuile :");
+            this.positions[3] = scanner.nextInt();
+        }
+    }
 }
