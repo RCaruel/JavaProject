@@ -1,6 +1,8 @@
 package mainPackage;
 
+import javax.swing.*;
 import java.util.Scanner;
+import javax.swing.JPanel;
 
 public class Main{
 
@@ -17,6 +19,9 @@ public class Main{
             choix = lectureDuChoix();
 
             switch (choix){
+                case 0:
+                    test();
+                    break;
                 case 1:
                     lanceLeJeu();
                     break;
@@ -32,6 +37,7 @@ public class Main{
 
     public static void afficheMenu(){
         System.out.println("Que voulez-vous faire?\n" +
+                "0. test\n" +
                 "1. Jouer\n" +
                 "2. Tutoriel\n" +
                 "3. Quitter");
@@ -50,6 +56,11 @@ public class Main{
 
     public static void afficheLeTutoriel(){
         Tutoriel.play(scanner);
+    }
+
+    public static void test(){
+        Fenetre fenetre = new Fenetre();
+        fenetre.setVisible(true);
     }
 
 }
