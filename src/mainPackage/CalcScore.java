@@ -9,17 +9,17 @@ class CalcScore {
      * @return
      */
 
-    static int play(Joueurs joueurs, Composant composant){
+    static int play(Joueurs joueurs, Composant composant, boolean bool){
         String[][] map = new String[5][5];
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 5; j++){
                 map[i][j] = joueurs.getMap()[i][j];
             }
         }
-        return calcule(map, composant);
+        return calcule(map, composant, bool);
     }
 
-    static int calcule(String[][] map, Composant composant){
+    static int calcule(String[][] map, Composant composant, boolean bool){
 
         int score = 0;
         int[] sc;
@@ -30,14 +30,16 @@ class CalcScore {
                 //calcul du score à partir de cette tuile si elle n'a pas la valeur "999"
                 try {
                     if (not(map[i][j].equals("999"))) {
-                        String value = map[i][j];
+                        String value = composant.getDominos().get(map[i][j])[1];
                         sc = calcScore(map, composant, i, j, value, 1, Integer.valueOf(composant.getDominos().get(map[i][j])[0]));
+                        if (bool) System.out.println(sc[1] + "*" + sc[0]);
                         score += sc[1] * sc[0];
                     }
                 }catch (NullPointerException e){}
             }
         }
 
+        if (bool) System.out.println("------------------------------------");
         return score;
 
     }

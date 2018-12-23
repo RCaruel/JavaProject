@@ -5,6 +5,6 @@ import javax.swing.JPanel;
 
 public class Panneau extends JPanel {
     public void paintComponent(Graphics g){
-        g.drawString("Menu de sophiane BOUCHAMA", 10, 20);
+        g.drawString("Menu de sofiane BOUCHAMA", 10, 20);
     }
 }

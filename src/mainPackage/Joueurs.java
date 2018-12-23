@@ -28,6 +28,7 @@ public class Joueurs {
     String ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
         if (this.statut.equals("IA")){
             this.positions = ia.choixtuileia(this, listdominos, composant);
+            System.out.println(this.positions[0] + this.positions[1] + this.positions[2] + this.positions[3]);
             return this.choixTuile;
         }else{
             this.choixTuile = scanner.nextLine();
@@ -56,7 +57,8 @@ public class Joueurs {
     }
 
     void ajoutMap(String value, int x, int y){
-        this.map[y][x] = value;
+        //9
+        this.map[x][y] = value;
     }
 
     void setStatut(String statut) {

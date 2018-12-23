@@ -188,7 +188,7 @@ class Jouer {
     	for (int j = 0; j < 5; j++) {
 	    	System.out.print("[ ");
 	    	for (int k = 0; k < 5; k++) {
-	   			System.out.print(composant.getListJoueurs()[i].getMap()[j][k] + " ");
+	   			System.out.print(composant.getDominos().get(composant.getListJoueurs()[i].getMap()[j][k])[1] + "," + composant.getDominos().get(composant.getListJoueurs()[i].getMap()[j][k])[0] + " ");
 	   		}
 	   		System.out.print("]");
 	   		System.out.println(" ");
@@ -231,6 +231,10 @@ class Jouer {
 		    		}
 	    		}
 	    	}
+
+			for (String aNewroi : newroi) {
+				System.out.println(aNewroi);
+			}
 	    	
 	    	//on redéfinie l'ordre de jeux en fonction du placement
 	    	for (int i = 0; i < roi.size(); i++) {
@@ -270,7 +274,7 @@ class Jouer {
     	int score;
 
     	for (int i = 0; i < roi.size(); i++){
-    		if ((score = CalcScore.play(composant.getListJoueurs()[i], composant)) > max){
+    		if ((score = CalcScore.play(composant.getListJoueurs()[i], composant, true)) > max){
     			max = score;
     			winner = i;
 			}
