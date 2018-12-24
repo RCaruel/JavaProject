@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -47,26 +48,28 @@ public class Panneau extends JPanel {
        imgPlateau = resizePicture(imgTmp1, 400,400).getImage();
        ImageIcon imgTmp2 = new ImageIcon("header.jpg");
        imgPlateau = resizePicture(imgTmp2, 400,400).getImage();
-       JTextField j1 = new JTextField("Joueur 1");
-       JTextField j2 = new JTextField("Joueur 2");
+       //JTextField j1 = new JTextField("Joueur 1");
+       //JTextField j2 = new JTextField("Joueur 2");
        //JTextField j1 = new JTextField("Joueur 3"); A RAJOUTER AVEC LE SCAN
        //JTextField j2 = new JTextField("Joueur 4");
 
        setLayout(null);
-       j1.setSize(new Dimension(150,60));
+       /*j1.setSize(new Dimension(150,60));
        j2.setSize(new Dimension(150,60));
        j1.setLocation(200,350);
-       j2.setLocation(450,350);
+       j2.setLocation(450,350);*/
        b.setSize(new Dimension(200,40));
-       b.setLocation(350,450);
+       b.setLocation(400,450);
        c.setSize(new Dimension(200,40));
-       c.setLocation(750,900);
+       c.setLocation(400,500);
        this.button1  = b;
+       button1.addActionListener(this::actionPerformed);
        this.button2 = c;
-       this.j1 = j1;
+       button2.addActionListener(this::actionPerformed);
+       /*this.j1 = j1;
        this.j2 = j2;
        add(j1);
-       add(j2);
+       add(j2);*/
        add(b);
        add(c);
        JPanel panel = new JPanel();
@@ -84,7 +87,10 @@ public class Panneau extends JPanel {
 			System.out.println("Vous avez cliqué ici.");
 
 		}if(arg0.getSource() == button2){
-			System.out.println("Vous avez cliqué là.");	
+			System.out.println("Vous quittez le jeu");
+			Main.quitter();
+
+            this.setVisible(true);
 		}
 	}
  

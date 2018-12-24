@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 
 public class Fenetre extends JFrame{
+
     private Panneau pan = new Panneau();
     private JButton bouton = new JButton("mon bouton");
     private JPanel container = new JPanel();
@@ -22,7 +23,6 @@ public class Fenetre extends JFrame{
         this.setContentPane(new Panneau()); //Association du panneau a la fenetre
         
         this.setVisible(true);
-        
     }
 }
 

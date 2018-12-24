@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 public class Main{
 
     static Scanner scanner = new Scanner(System.in);
+    static Fenetre fenetre = new Fenetre();
 
     public static void main(String[] args) {
 
@@ -59,8 +60,11 @@ public class Main{
     }
 
     public static void test(){
-        Fenetre fenetre = new Fenetre();
         fenetre.setVisible(true);
+    }
+
+    static void quitter(){
+        fenetre.dispose();
     }
 
 }
