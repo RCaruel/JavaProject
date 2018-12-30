@@ -48,16 +48,16 @@ public class Panneau extends JPanel {
        imgPlateau = resizePicture(imgTmp1, 400,400).getImage();
        ImageIcon imgTmp2 = new ImageIcon("header.jpg");
        imgPlateau = resizePicture(imgTmp2, 400,400).getImage();
-       //JTextField j1 = new JTextField("Joueur 1");
-       //JTextField j2 = new JTextField("Joueur 2");
+       JTextField j1 = new JTextField("Joueur 1");
+       JTextField j2 = new JTextField("Joueur 2");
        //JTextField j1 = new JTextField("Joueur 3"); A RAJOUTER AVEC LE SCAN
        //JTextField j2 = new JTextField("Joueur 4");
 
        setLayout(null);
-       /*j1.setSize(new Dimension(150,60));
+       j1.setSize(new Dimension(150,60));
        j2.setSize(new Dimension(150,60));
        j1.setLocation(200,350);
-       j2.setLocation(450,350);*/
+       j2.setLocation(450,350);
        b.setSize(new Dimension(200,40));
        b.setLocation(400,450);
        c.setSize(new Dimension(200,40));
@@ -66,15 +66,15 @@ public class Panneau extends JPanel {
        button1.addActionListener(this::actionPerformed);
        this.button2 = c;
        button2.addActionListener(this::actionPerformed);
-       /*this.j1 = j1;
+       this.j1 = j1;
        this.j2 = j2;
        add(j1);
-       add(j2);*/
+       add(j2);
        add(b);
        add(c);
        JPanel panel = new JPanel();
        panel.setLayout(new FlowLayout());
-   }catch(IOException e) {//Necessite try/catch car action suceptible de mal s'executer
+   }catch(IOException e) {//Necessite try/catch car action succeptible de mal s'executer
    	e.printStackTrace();
    }
    
