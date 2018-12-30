@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Main{
 
     static Scanner scanner = new Scanner(System.in);
-    static Fenetre fenetre = new Fenetre();
+    static Fenetr fenetre = new Fenetr();
 
     public static void main(String[] args) {
 

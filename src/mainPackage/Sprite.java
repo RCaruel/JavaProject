@@ -1,12 +1,25 @@
 package mainPackage;
 
-public class Position { //Position de la piece a completer apres
-	private int x;
+import java.awt.Image;
+
+public class Sprite {
+	
+    private Image image;
+    private int x;
     private int y;
 
-    public Position(int x, int y) {
+    public Sprite(Image image, int x, int y) {
+        this.image = image;
         this.x = x;
         this.y = y;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public int getX() {
