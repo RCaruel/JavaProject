@@ -21,8 +21,6 @@ public class Fenetre extends JFrame{
         this.setLocationRelativeTo(null);  
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(new Panneau()); //Association du panneau a la fenetre
-        
-        this.setVisible(true);
     }
 }
 

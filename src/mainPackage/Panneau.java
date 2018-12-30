@@ -34,16 +34,16 @@ public class Panneau extends JPanel {
 	
 	 
    try {
-   	super.paintComponent(g);
-   	
-   	Graphics g2 = (Graphics2D)g;//Amelioration du rendu 2d
-   	
-   	Image img1 = ImageIO.read(new File("parchemin.jpg"));
-   	Image img2 = ImageIO.read(new File("header.jpg"));
-   	g.drawImage(img1, 0, 0, this.getWidth(), this.getHeight(), this);//Image de fond
-   	g.drawImage(img2, 0, 0, this);
-   	imgBg1 = img1 ;
-   	imgBg2 = img2;
+        super.paintComponent(g);
+
+        Graphics g2 = (Graphics2D)g;//Amelioration du rendu 2d
+
+        Image img1 = ImageIO.read(new File("parchemin.jpg"));
+        Image img2 = ImageIO.read(new File("header.jpg"));
+        g.drawImage(img1, 0, 0, this.getWidth(), this.getHeight(), this);//Image de fond
+        g.drawImage(img2, 0, 0, this);
+        imgBg1 = img1 ;
+        imgBg2 = img2;
        ImageIcon imgTmp1 = new ImageIcon("parchemin.jpg");
        imgPlateau = resizePicture(imgTmp1, 400,400).getImage();
        ImageIcon imgTmp2 = new ImageIcon("header.jpg");
@@ -85,12 +85,12 @@ public class Panneau extends JPanel {
 
 		if(arg0.getSource() == button1){
 			System.out.println("Vous avez cliqué ici.");
+			Main.lanceLeJeu();
 
 		}if(arg0.getSource() == button2){
 			System.out.println("Vous quittez le jeu");
 			Main.quitter();
 
-            this.setVisible(true);
 		}
 	}
  
