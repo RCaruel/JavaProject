@@ -13,7 +13,7 @@ public class Domino {
 	    private Piece pieceFace2;
 	    private boolean isDroit;
 
-	    public Domino(ImageIcon image1, ImageIcon image2, Piece pieceFace1, Piece pieceFace2) {
+	    public Domino(ImageIcon image1, ImageIcon image2, Piece pieceFace1, Piece pieceFace2) {// un domino a sur une face 2 image et l'autre face 2 numeros
 	        this.image1 = image1.getImage();
 	        this.image2 = image2.getImage();
 	        this.pieceFace1 = pieceFace1;

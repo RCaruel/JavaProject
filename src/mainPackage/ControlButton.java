@@ -18,7 +18,22 @@ public class ControlButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		// CODE POUR COMMENCER LE JEU QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
+		
+		System.out.println("Début de la partie");
+        f.switchFrame();
+        String j1 = ((PlateauGraphic)f.getImageMenu()).getJ1().getText();
+        if (j1.length() == 0)
+            j1 = "Joueur 1";
+        String j2 = ((PlateauGraphic)f.getImageMenu()).getJ2().getText();
+        if (j2.length() == 0)
+            j2 = "Joueur 2";
+        System.out.println("Le joueur 1 s'appele : " + j1 );
+        System.out.println("Le joueur 2 s'appele : " + j2 );
+        p.initGame(j1, j2);
+        
+        //SUITE A FAIRE 
+        
 		
 	}
 

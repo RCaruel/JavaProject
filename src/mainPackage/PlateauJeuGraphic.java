@@ -22,39 +22,14 @@ public class PlateauJeuGraphic extends JPanel {
 
 	    public PlateauJeuGraphic(){
 	     // imgBg = img;
-	       ImageIcon imgTmp = new ImageIcon("parchemin.jpg");
-	       // imgHeader = resizePicture(imgTmp, 400,200).getImage();
-	        imgBg = resizePicture(imgTmp, 990,750).getImage();
+	        ImageIcon imgTmp = new ImageIcon("parchemin.jpg");
+	        imgBg = resizePicture(imgTmp, 990,990).getImage();
 	        listDeSprite = new ArrayList<Object>();
 	        listDeSpriteTemporaire = new ArrayList<Object>();
 
 
 	    }
 
-
-	    @Override
-	    protected void paintComponent(Graphics g){
-
-	        super.paintComponent(g);
-	        //* optimisation 2d
-	        Graphics2D g2 = (Graphics2D) g;
-
-	       g2.drawImage(imgBg, 0,0,null);
-	        for (Object s: listDeSprite){
-	            if (s instanceof Domino){
-	                g2.drawImage(((Domino) s).getImage1(), ((Domino) s).getPieceFace1().getX(),((Domino) s).getPieceFace1().getY(),null);
-	                g2.drawImage(((Domino) s).getImage2(), ((Domino) s).getPieceFace2().getX(),((Domino) s).getPieceFace2().getY(),null);
-
-	            }else if (s instanceof  Chateau){
-	                g2.drawImage(((Chateau) s).getImg(), ((Chateau) s).getX(),((Chateau) s).getY(),null);
-
-	            }
-
-	        }
-
-
-
-	    }
 	    public ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
 
 

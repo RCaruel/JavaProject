@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 
+
 public class Chateau {
 	
 	 private String nomJoueur;
@@ -73,6 +74,12 @@ public class Chateau {
 	        imageIcon=new ImageIcon(imgResize);
 
 	        return imageIcon;
+	    }
+	    
+	    public void placeDomino(Position pos, Domino domino){
+	    	/**Fonction qui doit placer le domino autour du chateau,
+	    	en fcontion de si il est horizontale/ verticale...**/
+	    	int newPosX = pos.getX()%5;
 	    }
 
 }

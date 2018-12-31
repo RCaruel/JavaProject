@@ -33,8 +33,8 @@ public class Fenetre extends JFrame {
 
     public Fenetre(Plateau plateau){
         this.petiteFenetre = true;
-        this.xFenetre = 800;
-        this.yFenetre = 850;
+        this.xFenetre = 1000;
+        this.yFenetre = 1000;
         this.plateau = plateau;
         //* Création fenêtre
         creerFenetre();
@@ -55,14 +55,10 @@ public class Fenetre extends JFrame {
         //* Création de tout les composants graphiques de la fenetre ( sauf Menu )
         ImageIcon imageIcon =new ImageIcon( "bg.jpg");
         ImageIcon imgNull =new ImageIcon( "fond3.png");
-       //Image img2 = ImageIO.read(new File("header.jpg"));
-        //g.drawImage(img2, 0, 0, this);
-      //  imgBg2 = img2;
-       ImageIcon imgTmp2 = new ImageIcon("header.jpg");
-      // imgPlateau = resizePicture(imgTmp2, 400,400).getImage();
 
-        this.imageMenu = new PlateauGraphic(resizePicture(imageIcon, 800,850).getImage());
-        JLabel image = new JLabel(resizePicture(imgNull, 800,850));
+        this.imageMenu = new PlateauGraphic(resizePicture(imageIcon, 1000,1000).getImage());
+        
+        JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
         this.imagePlateau = new PlateauJeuGraphic();
 
@@ -86,7 +82,7 @@ public class Fenetre extends JFrame {
             setContentPane(imagePlateau);
             revalidate();
             this.imagePlateau.repaint();
-            setSize(1000,800);
+            setSize(1000,1000);
 
         }else{
             ImageIcon imageIcon =new ImageIcon( "bg.jpg");
@@ -95,8 +91,8 @@ public class Fenetre extends JFrame {
             
             ImageIcon imgTmp2 = new ImageIcon("header.jpg");
 
-            this.imageMenu = new PlateauGraphic(resizePicture(imageIcon, 800,850).getImage());
-            JLabel image = new JLabel(resizePicture(imgNull, 800,850));
+            this.imageMenu = new PlateauGraphic(resizePicture(imageIcon, 1000,1000).getImage());
+            JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
             this.imageMenu.add(image);
 

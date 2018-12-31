@@ -4,7 +4,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -12,7 +15,7 @@ import javax.swing.JTextField;
 
 public class PlateauGraphic extends JPanel {
 
-
+	  private JPanel jp = new JPanel();
 	  private Image imgBg;
 	  private JButton button;
 	  private Image imgHeader;
@@ -29,12 +32,13 @@ public class PlateauGraphic extends JPanel {
 	        JTextField j2 = new JTextField("Joueur 2");
 
 	        setLayout(null);
+	        
 	        j1.setSize(new Dimension(150,30));
 	        j2.setSize(new Dimension(150,30));
-	        j1.setLocation(200,350);
-	        j2.setLocation(400,350);
+	        j1.setLocation(250,450);
+	        j2.setLocation(500,450);
 	        b.setSize(new Dimension(200,40));
-	        b.setLocation(280,400);
+	        b.setLocation(350,500);
 	        this.button = b;
 	        this.j1 = j1;
 	        this.j2 = j2;
@@ -53,6 +57,17 @@ public class PlateauGraphic extends JPanel {
 
 	        g2.drawImage(imgBg, 0,0,null);
 	        g2.drawImage(imgHeader, 200,0,null);
+	        
+	        Image img2;
+			try {
+				img2 = ImageIO.read(new File("header.jpg"));
+				g.drawImage(img2, 0, 0, this);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	        
+	        
 
 
 
