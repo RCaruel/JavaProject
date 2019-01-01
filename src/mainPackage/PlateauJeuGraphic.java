@@ -29,6 +29,27 @@ public class PlateauJeuGraphic extends JPanel {
 
 
 	    }
+	    
+	    protected void paintComponent(Graphics g){
+
+	        super.paintComponent(g);
+	        //* optimisation 2d
+	        Graphics2D g2 = (Graphics2D) g;
+
+	       g2.drawImage(imgBg, 0,0,null);
+	        for (Object s: listDeSprite){
+	            if (s instanceof Domino){
+	                g2.drawImage(((Domino) s).getImage1(), 500,((Domino) s).getPieceFace1().getY(),null);
+	                g2.drawImage(((Domino) s).getImage2(), 400,((Domino) s).getPieceFace2().getY(),null);
+
+	            }else if (s instanceof  Chateau){
+	                g2.drawImage(((Chateau) s).getImg(), ((Chateau) s).getX(),((Chateau) s).getY(),null);
+
+	            }
+
+	        }
+	        
+	    }
 
 	    public ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
 

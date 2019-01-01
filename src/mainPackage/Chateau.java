@@ -14,15 +14,12 @@ public class Chateau {
 	    private Image img;
 	    private int x;
 	    private int y;
-	    private final int  tailleX = 100;
-	    private final int  tailleY = 100;
-
 
 	    public Chateau(String nomJoueur, int x, int y) {
 	        this.nomJoueur = nomJoueur;
 	        listeDomino = new ArrayList<Domino>();
 	        ImageIcon imgTmp = new ImageIcon("chateau.jpg");
-	        img = resizePicture(imgTmp, 100,100).getImage();
+	        img = resizePicture(imgTmp, 80,80).getImage();
 	        this.x = x;
 	        this.y = y;
 	    }

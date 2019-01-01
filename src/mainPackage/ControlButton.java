@@ -31,7 +31,12 @@ public class ControlButton implements ActionListener {
         System.out.println("Le joueur 1 s'appele : " + j1 );
         System.out.println("Le joueur 2 s'appele : " + j2 );
         p.initGame(j1, j2);
-        
+        Chateau cht1 = p.getChateau(0);
+        ((PlateauJeuGraphic)f.getImagePlateau()).addSpritToDisplay(cht1);
+        Domino domino = p.getListeDomino().get(1);
+        ((PlateauJeuGraphic)f.getImagePlateau()).addSpritToDisplay(domino);
+        ((PlateauJeuGraphic)f.getImagePlateau()).repaint();
+    
         //SUITE A FAIRE 
         
 		
