@@ -5,21 +5,40 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+ 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-
-
-
-public class ControlMouse implements MouseListener {
-
-    private Plateau plateau;
-    private Fenetre fenetre;
-    private int caseClicked;
-    
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+ 
+public class MoveComponents extends JPanel {
+ 
+    public MoveComponents() {
+ 
+        setLayout(null); // on supprime le layout manager
+ 
+        ComponentMove listener = new ComponentMove(this);
+        for(int i=0; i<10; i++) {
+            add(createComponent());
+        }
+        addMouseListener(listener);
+        addMouseMotionListener(listener);
+ 
+    }
+ 
+    private final static Color[] COLORS= {Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.PINK, Color.WHITE, Color.BLACK};
+ 
+    private JComponent createComponent() {
+        JPanel component=new JPanel(); // ici on peut faire n'importe quel JComponent, JLabel, par exemple
+        component.setLocation((int)(Math.random()*100), (int)(Math.random()*100)); // position aléatoire
+        component.setSize(10+(int)(Math.random()*100), 10+(int)(Math.random()*100)); // taille aléatoire
+        component.setBackground(COLORS[(int)(Math.random()*COLORS.length)]); // couleur aléatoire
+        component.setEnabled(false); // les composants ne doivent pas intercepter la souris
+        return component;
+    }
+ 
     private static class ComponentMove extends MouseAdapter {
-    	 
+ 
         private boolean move;
         private int relx;
         private JComponent component;
@@ -68,48 +87,18 @@ public class ControlMouse implements MouseListener {
         }
  
     }
-    
-
-    public ControlMouse(Plateau p, Fenetre f){
-        this.plateau = p;
-        this.fenetre = f;
-        this.fenetre.setControlClick(this);
-
+ 
+    public static void main(String[] args) {
+ 
+        JFrame frame = new JFrame("exemple");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 
+        frame.setContentPane(new MoveComponents());
+ 
+        frame.setSize(300, 300);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+ 
     }
-
-
-    @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-        int x = mouseEvent.getX();
-        int y = mouseEvent.getY();
-        //A FINIR
-        }
-
-    
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-
-    }
-
-    public void initCasesPetitPlateau(){
-
-    }
-
-
+ 
 }

@@ -60,6 +60,7 @@ public class PlateauJeuGraphic extends JPanel {
 
 	        return imageIcon;
 	    }
+	    
 
 	    public void addSpritToDisplay(Object s){
 	        listDeSprite.add(s);
