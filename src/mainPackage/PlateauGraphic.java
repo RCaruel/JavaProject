@@ -97,4 +97,5 @@ public class PlateauGraphic extends JPanel {
 	    public JTextField getJ2() {
 	        return j2;
 	    }
+	    
 	}

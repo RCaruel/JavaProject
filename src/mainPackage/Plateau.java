@@ -16,10 +16,12 @@ public class Plateau {
     public Plateau() {
         tabChateau = new Chateau[2];
         listeDomino = new ArrayList<Domino>();
+        
     }
 
     public void initGame(String j1, String j2) { //Pour 2 joeurs pour l'instant
-        tabChateau[0] = new Chateau(j1, 450,600);
+       
+    	tabChateau[0] = new Chateau(j1, 450,600);
         tabChateau[1] = new Chateau(j2,450,300);
         listeDomino.add(new Domino(resizePicture(new ImageIcon("mines.png"), 80,80), resizePicture(new ImageIcon("water.png"),80,80), new Piece(5),new Piece(3))); //numero des pieces a prendre de la bibliotheque
         listeDomino.add(new Domino(resizePicture(new ImageIcon("desert.png"), 80,80), resizePicture(new ImageIcon("grass.png"),80,80), new Piece(5),new Piece(3)));

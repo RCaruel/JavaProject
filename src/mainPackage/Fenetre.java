@@ -12,6 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+
+
 	
 public class Fenetre extends JFrame {
 
@@ -41,12 +43,13 @@ public class Fenetre extends JFrame {
         initMenu();
         addToWindow();
         pack();
-
+       
         setSize(this.xFenetre, this.yFenetre);
         setTitle("Kingdomino");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setResizable(false);
+        setResizable(false); 
+       
         switchFrame();
     }
 
@@ -100,6 +103,7 @@ public class Fenetre extends JFrame {
             setContentPane(imageMenu);
             revalidate();
             this.imageMenu.repaint();
+            
         }
 
     }

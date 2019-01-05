@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 public class PlateauJeuGraphic extends JPanel {
 	
 	  private Image imgBg;
+	  private Plateau p;
 	    private JButton button;
 	    private Image imgHeader;
 	    private ArrayList<Object> listDeSpriteTemporaire; //* listes des sprites à afficher
@@ -21,6 +22,10 @@ public class PlateauJeuGraphic extends JPanel {
 
 
 	    public PlateauJeuGraphic(){
+	    	setLayout(null);
+	         ComponentMove listener = new ComponentMove(this);
+	         addMouseListener(listener);
+	         addMouseMotionListener(listener);
 	     // imgBg = img;
 	        ImageIcon imgTmp = new ImageIcon("parchemin.jpg");
 	        imgBg = resizePicture(imgTmp, 990,990).getImage();
@@ -31,7 +36,7 @@ public class PlateauJeuGraphic extends JPanel {
 	    }
 	    
 	    protected void paintComponent(Graphics g){
-
+	    	 
 	        super.paintComponent(g);
 	        //* optimisation 2d
 	        Graphics2D g2 = (Graphics2D) g;
@@ -41,6 +46,7 @@ public class PlateauJeuGraphic extends JPanel {
 	            if (s instanceof Domino){
 	                g2.drawImage(((Domino) s).getImage1(), 500,((Domino) s).getPieceFace1().getY(),null);
 	                g2.drawImage(((Domino) s).getImage2(), 400,((Domino) s).getPieceFace2().getY(),null);
+	               
 
 	            }else if (s instanceof  Chateau){
 	                g2.drawImage(((Chateau) s).getImg(), ((Chateau) s).getX(),((Chateau) s).getY(),null);
@@ -48,6 +54,7 @@ public class PlateauJeuGraphic extends JPanel {
 	            }
 
 	        }
+	        
 	        
 	    }
 
