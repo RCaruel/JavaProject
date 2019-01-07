@@ -44,7 +44,8 @@ public class PlateauJeuGraphic extends JPanel {
 	       g2.drawImage(imgBg, 0,0,null);
 	        for (Object s: listDeSprite){
 	            if (s instanceof Domino){
-	                g2.drawImage(((Domino) s).getImage1(), 500,((Domino) s).getPieceFace1().getY(),null);
+	                g2.drawImage(((Domino) s).getImage1(), 500,600,null);
+	                g2.drawString("0",500,((Domino) s).getPieceFace1().getY());
 	                g2.drawImage(((Domino) s).getImage2(), 400,((Domino) s).getPieceFace2().getY(),null);
 	               
 

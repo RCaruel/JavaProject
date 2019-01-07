@@ -28,14 +28,14 @@ public class MoveComponents extends JPanel {
  
     private final static Color[] COLORS= {Color.RED, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.BLUE, Color.CYAN, Color.MAGENTA, Color.PINK, Color.WHITE, Color.BLACK};
  
-    /**private JComponent createComponent() {
+    private JComponent createComponent() {
         JPanel component=new JPanel(); // ici on peut faire n'importe quel JComponent, JLabel, par exemple
         component.setLocation((int)(Math.random()*100), (int)(Math.random()*100)); // position aléatoire
         component.setSize(10+(int)(Math.random()*100), 10+(int)(Math.random()*100)); // taille aléatoire
         component.setBackground(COLORS[(int)(Math.random()*COLORS.length)]); // couleur aléatoire
         component.setEnabled(false); // les composants ne doivent pas intercepter la souris
         return component;
-    }**/
+    }
     
     private JComponent createComponent() {
     	PlateauJeuGraphic a = new PlateauJeuGraphic();
@@ -95,7 +95,7 @@ public class MoveComponents extends JPanel {
  
     }
  
-    /**public static void main(String[] args) {
+    public static void main(String[] args) {
  
         JFrame frame = new JFrame("exemple");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,6 +106,6 @@ public class MoveComponents extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
  
-    }**/
+    }
  
 }
