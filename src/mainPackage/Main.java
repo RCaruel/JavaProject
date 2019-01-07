@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Main{
 
     static Scanner scanner = new Scanner(System.in);
-    static Fenetr fenetre = new Fenetr();
+    
 
     public static void main(String[] args) {
 
@@ -60,11 +60,12 @@ public class Main{
     }
 
     public static void test(){
-        fenetre.setVisible(true);
+    	Plateau p = new Plateau(); //* Création du model
+	     Controleur c = new Controleur(p); //* Création du controleur
     }
 
     static void quitter(){
-        fenetre.dispose();
+    	
     }
 
 }

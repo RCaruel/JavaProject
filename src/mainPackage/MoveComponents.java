@@ -34,15 +34,10 @@ public class MoveComponents extends JPanel {
         component.setSize(10+(int)(Math.random()*100), 10+(int)(Math.random()*100)); // taille aléatoire
         component.setBackground(COLORS[(int)(Math.random()*COLORS.length)]); // couleur aléatoire
         component.setEnabled(false); // les composants ne doivent pas intercepter la souris
-        return component;
+        return component; 
     }
     
-    private JComponent createComponent() {
-    	PlateauJeuGraphic a = new PlateauJeuGraphic();
-    	
-    	return a;
-    	
-    }
+
  
     private static class ComponentMove extends MouseAdapter {
  

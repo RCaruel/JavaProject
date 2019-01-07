@@ -22,15 +22,16 @@ public class PlateauJeuGraphic extends JPanel {
 
 
 	    public PlateauJeuGraphic(){
-	    	setLayout(null);
-	         ComponentMove listener = new ComponentMove(this);
-	         addMouseListener(listener);
-	         addMouseMotionListener(listener);
+	    	
 	     // imgBg = img;
 	        ImageIcon imgTmp = new ImageIcon("parchemin.jpg");
 	        imgBg = resizePicture(imgTmp, 990,990).getImage();
 	        listDeSprite = new ArrayList<Object>();
 	        listDeSpriteTemporaire = new ArrayList<Object>();
+	        setLayout(null);
+	         ComponentMove listener = new ComponentMove(this);
+	         addMouseListener(listener);
+	         addMouseMotionListener(listener);
 
 
 	    }
