@@ -1,10 +1,6 @@
 package mainPackage;
 
-import java.util.Random;
-
 class ia {
-
-    private static Random rand = new Random();
 
     static int[] choixtuileia(Joueurs joueurs, String[] listdominos, Composant composant) {
         int[] pos = new int[4];
@@ -17,12 +13,10 @@ class ia {
                     for (int y = 0; y < joueurs.getMap().length; y++) {
                         try {
                             if (joueurs.getMap()[x][y].equals("0")) {
-                                //System.out.println(x + " " + y);
                                 try {
                                     //modifier : test sur la moitié de la tuile.
                                     if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y - 1])[1]) || joueurs.getMap()[x][y - 1].equals("500")) {
                                         score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
-                                        //System.out.println("1. score : " + score[0] + ", i : " + i);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
@@ -37,7 +31,6 @@ class ia {
                                     //modifier : test sur la moitié de la tuile.
                                     if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y + 1])[1]) || joueurs.getMap()[x][y + 1].equals("500")) {
                                         score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
-                                        //System.out.println("2. score : " + score[0] + ", i : " + i);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
@@ -52,7 +45,6 @@ class ia {
                                     //modifier : test sur la moitié de la tuile.
                                     if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x - 1][y])[1]) || joueurs.getMap()[x - 1][y].equals("500")) {
                                         score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
-                                        //System.out.println("3. score : " + score[0] + ", i : " + i);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
@@ -67,7 +59,6 @@ class ia {
                                     //modifier : test sur la moitié de la tuile.
                                     if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x + 1][y])[1]) || joueurs.getMap()[x + 1][y].equals("500")) {
                                         score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
-                                        //System.out.println("4. score : " + score[0] + ", i : " + i);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];

@@ -61,19 +61,19 @@ class Jouer {
 	    	
 	    // initialisation des rois
 	    if (composant.getNombreJoueurs() == 2) {
-	    	roi.add("rouge");
-	    	roi.add("rouge");
-	   		roi.add("bleu");
-	   		roi.add("bleu");
+	    	roi.add(composant.getListJoueurs()[0].getCouleur());
+	    	roi.add(composant.getListJoueurs()[0].getCouleur());
+	   		roi.add(composant.getListJoueurs()[1].getCouleur());
+	   		roi.add(composant.getListJoueurs()[1].getCouleur());
 	   	} else if (composant.getNombreJoueurs() == 3) {
-	   		roi.add("rouge");
-    		roi.add("bleu");	    		
-    		roi.add("vert");
+	   		roi.add(composant.getListJoueurs()[0].getCouleur());
+    		roi.add(composant.getListJoueurs()[1].getCouleur());
+    		roi.add(composant.getListJoueurs()[2].getCouleur());
 	   	} else {
-	    	roi.add("rouge");
-	    	roi.add("bleu");
-	   		roi.add("vert");
-	   		roi.add("jaune");
+			roi.add(composant.getListJoueurs()[0].getCouleur());
+			roi.add(composant.getListJoueurs()[1].getCouleur());
+			roi.add(composant.getListJoueurs()[2].getCouleur());
+			roi.add(composant.getListJoueurs()[3].getCouleur());
 	   	}
 	    	
 	    // initialisation ordre de jeux
@@ -149,7 +149,7 @@ class Jouer {
     		//indicetuile = scanner.nextInt();
 			indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
 
-    		newroi[i] = roi.get(i);
+    		newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
 
     		if (choixtuile[indicetuile] == listedominos.get(indicetuile)) {
     			System.out.print("Cette tuile a déja été choisie ! >Choisissez une autre tuile");
@@ -173,12 +173,12 @@ class Jouer {
     private static void choixduplacement(int i, Scanner scanner, Composant composant) {
 
 		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-		composant.getListJoueurs()[i].setPositions(scanner);
+		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
 
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j])) {
-				composant.getListJoueurs()[i].ajoutMap(composant.getListJoueurs()[i].getChoixTuile() + "1", composant.getListJoueurs()[i].getPositions()[0], composant.getListJoueurs()[i].getPositions()[1]);
-				composant.getListJoueurs()[i].ajoutMap(composant.getListJoueurs()[i].getChoixTuile() + "2", composant.getListJoueurs()[i].getPositions()[2], composant.getListJoueurs()[i].getPositions()[3]);
+				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[0], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[1]);
+				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[2], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[3]);
 
 			}
 		}
@@ -197,11 +197,21 @@ class Jouer {
 	    	System.out.println();
 	    	System.out.println();
     }
+
+    private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur){
+		for (int i = 0; i < listjoueur.length; i++){
+			if (listjoueur[i].getCouleur().equals(couleur)){
+				return listjoueur[i];
+			}
+		}
+		return listjoueur[0];
+	}
     
     private static void tour(Composant composant, Scanner scanner){
 
     	choixtuile = new int[roi.size()];
     	newroi = new String[roi.size()];
+
 
     	while (roi.size()*compteurtour < composant.getNombreDominos()) {
     		
@@ -219,7 +229,8 @@ class Jouer {
 	    		
 	    		while(bo) {
 		    		try {
-		    			choixdetuile(i, scanner, composant.getListJoueurs()[i], composant);
+		    			choixdetuile(i, scanner, getJoueur(composant.getListJoueurs(),roi.get(i)), composant);
+
 		    			bo = false;
 		    		} catch (ArrayIndexOutOfBoundsException e) {
 						System.out.println(composant.getListJoueurs()[0].getChoixTuile());
@@ -257,7 +268,7 @@ class Jouer {
 	    	}
 	    	
 	    	//on affiche les plateaux
-	    	for (int i = 0; i < roi.size(); i++) {
+	    	for (int i = 0; i < composant.getListJoueurs().length; i++) {
 	    	    affichageMap(i, composant);
 	   	    }
 	    	
@@ -273,7 +284,7 @@ class Jouer {
     	int winner = 0;
     	int score;
 
-    	for (int i = 0; i < roi.size(); i++){
+    	for (int i = 0; i < composant.getListJoueurs().length; i++){
     		if ((score = CalcScore.play(composant.getListJoueurs()[i], composant, true)) > max){
     			max = score;
     			winner = i;
