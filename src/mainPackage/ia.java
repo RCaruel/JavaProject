@@ -3,7 +3,8 @@ package mainPackage;
 class ia {
 
     static int[] choixtuileia(Joueurs joueurs, String[] listdominos, Composant composant) {
-        int[] pos = new int[4];
+        int[] pos = new int[]{-1, -1, -1, -1};
+        joueurs.setChoixTuile(listdominos[0]);
         int scoremax = -1;
         int[] score;
 

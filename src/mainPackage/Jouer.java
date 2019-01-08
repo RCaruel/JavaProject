@@ -17,14 +17,14 @@ class Jouer {
 	
 	private static Random rand = new Random();
 	
-	private static ArrayList<String> roi = new ArrayList<String>();
+	private static ArrayList<String> roi;
 	private static String[] plateau = new String[4];
 	private static int indicetuile;
-	private static int compteurtour = 0;
+	private static int compteurtour;
 	private static String[] newroi;
 	private static int[] domi = new int[48];
-	private static ArrayList<Integer> listedominos = new ArrayList<>();
-	private static ArrayList<Integer> listedominoscopy = new ArrayList<>();
+	private static ArrayList<Integer> listedominos;
+	private static ArrayList<Integer> listedominoscopy;
 	private static int[] choixtuile;
 	
 	static void play(Composant composant, Scanner scanner) {
@@ -33,6 +33,10 @@ class Jouer {
 	}
 
     private static void debutjeux(Composant composant) {
+
+		roi = new ArrayList<>();
+		listedominos = new ArrayList<>();
+		listedominoscopy = new ArrayList<>();
 
 		
 	    // initialisation des plateaux
@@ -176,7 +180,7 @@ class Jouer {
 		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
 
 		for (int j = 0; j < roi.size(); j++) {
-			if (roi.get(i).equals(plateau[j])) {
+			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {
 				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[0], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[1]);
 				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[2], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[3]);
 
@@ -211,6 +215,7 @@ class Jouer {
 
     	choixtuile = new int[roi.size()];
     	newroi = new String[roi.size()];
+    	compteurtour = 0;
 
 
     	while (roi.size()*compteurtour < composant.getNombreDominos()) {

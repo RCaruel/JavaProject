@@ -25,10 +25,15 @@ public class Joueurs {
         return pseudo;
     }
 
+    String getStatut(){ return statut; }
+
     String ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
         if (this.statut.equals("IA")){
             this.positions = ia.choixtuileia(this, listdominos, composant);
-            System.out.println(this.positions[0] + this.positions[1] + this.positions[2] + this.positions[3]);
+            if (this.positions[0] != -1) {
+                this.ajoutMap(this.choixTuile + "1", this.positions[0], this.positions[1]);
+                this.ajoutMap(this.choixTuile + "1", this.positions[2], this.positions[3]);
+            }
             return this.choixTuile;
         }else{
             this.choixTuile = scanner.nextLine();
