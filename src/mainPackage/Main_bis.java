@@ -9,6 +9,6 @@ public class Main_bis {
 		 //Plateau p = new Plateau(); //* Création du model
 	     Controleur c = new Controleur(); //* Création du controleur
 
-	} 
+	}  
 
 }

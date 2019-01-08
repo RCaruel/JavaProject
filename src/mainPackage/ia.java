@@ -12,7 +12,7 @@ class ia {
             for (int j = 1; j <= 2; j++) {
                 for (int x = 0; x < joueurs.getMap().length; x++) {
                     for (int y = 0; y < joueurs.getMap().length; y++) {
-                        try {
+                        try { 
                             if (joueurs.getMap()[x][y].equals("0")) {
                                 try {
                                     //modifier : test sur la moitié de la tuile.

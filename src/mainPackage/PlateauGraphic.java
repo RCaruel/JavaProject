@@ -16,7 +16,11 @@ import javax.swing.JTextField;
 public class PlateauGraphic extends JPanel {
 
 	  
-	  private Image imgBg;
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Image imgBg;
 	  private JButton button;
 	  private Image imgHeader;
 	  private JTextField j1, j2;

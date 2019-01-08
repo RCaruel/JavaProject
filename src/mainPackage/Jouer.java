@@ -177,7 +177,7 @@ class Jouer {
     private static void choixduplacement(int i, Scanner scanner, Composant composant) {
 
 		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
+		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner); 
 
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {

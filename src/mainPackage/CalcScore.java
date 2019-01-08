@@ -35,7 +35,7 @@ class CalcScore {
                         if (bool) System.out.println(sc[1] + "*" + sc[0]);
                         score += sc[1] * sc[0];
                     }
-                }catch (NullPointerException e){}
+                }catch (NullPointerException e){} 
             }
         }
 

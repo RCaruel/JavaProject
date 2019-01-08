@@ -64,7 +64,7 @@ public class Joueurs {
     void ajoutMap(String value, int x, int y){
         //9
         this.map[x][y] = value;
-    }
+    } 
 
     void setStatut(String statut) {
         this.statut = statut;
