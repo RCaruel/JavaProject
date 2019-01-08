@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 public class PlateauGraphic extends JPanel {
 
-	  private JPanel jp = new JPanel();
+	  
 	  private Image imgBg;
 	  private JButton button;
 	  private Image imgHeader;
@@ -39,7 +39,7 @@ public class PlateauGraphic extends JPanel {
 	        j2.setLocation(500,450);
 	        b.setSize(new Dimension(200,40));
 	        b.setLocation(350,500);
-	        this.button = b;
+	        this.button = b; 
 	        this.j1 = j1;
 	        this.j2 = j2;
 	        add(j1);

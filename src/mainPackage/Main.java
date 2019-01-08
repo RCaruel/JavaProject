@@ -23,7 +23,7 @@ public class Main{
                 case 0:
                     test();
                     break;
-                case 1:
+                case 1: 
                     lanceLeJeu();
                     break;
                 case 2:
@@ -60,8 +60,7 @@ public class Main{
     }
 
     public static void test(){
-    	Plateau p = new Plateau(); //* Création du model
-	     Controleur c = new Controleur(p); //* Création du controleur
+	     Controleur c = new Controleur(); //* Création du controleur
     }
 
     static void quitter(){

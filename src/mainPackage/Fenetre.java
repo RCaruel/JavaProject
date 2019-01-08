@@ -25,7 +25,7 @@ public class Fenetre extends JFrame {
     private JMenu menuPrincipal, menuAutre;
     private JMenuItem quitItem, resizeItem, newgameItem;
     //* Autres
-    private Plateau plateau;
+    //private Plateau plateau;
     private boolean petiteFenetre;
     private int xFenetre;
     private int yFenetre;
@@ -33,11 +33,11 @@ public class Fenetre extends JFrame {
 
 
 
-    public Fenetre(Plateau plateau){
+    public Fenetre(){
         this.petiteFenetre = true;
-        this.xFenetre = 1000;
+        this.xFenetre = 1000; 
         this.yFenetre = 1000;
-        this.plateau = plateau;
+        //this.plateau = plateau;
         //* Création fenêtre
         creerFenetre();
         initMenu();
@@ -162,11 +162,11 @@ public class Fenetre extends JFrame {
 
     }
 
-    public void setControlClick(ControlMouse controlMouse) {
+   /** public void setControlClick(ControlMouse controlMouse) {
         //* initialiser le ControlClick
         this.imagePlateau.addMouseListener(controlMouse);
 
-    }
+    }**/
 
     public void setControlButton(ControlButton cb){
         ((PlateauGraphic)this.imageMenu).getButton().addActionListener(cb);

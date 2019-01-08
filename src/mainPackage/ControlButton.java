@@ -3,15 +3,19 @@ package mainPackage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import mainPackage.Grille.GameBoard;
+import mainPackage.Grille.Pawn;
+import mainPackage.Grille.Player;
+
 
 
 public class ControlButton implements ActionListener {
 
-    private Plateau p;
+    //private Plateau p;
     private Fenetre f;
 
-    public ControlButton(Plateau p, Fenetre f) {
-        this.p = p;
+    public ControlButton(Fenetre f) {
+        //this.p = p;
         this.f = f;
         this.f.setControlButton(this);
     }
@@ -30,12 +34,22 @@ public class ControlButton implements ActionListener {
             j2 = "Joueur 2";
         System.out.println("Le joueur 1 s'appele : " + j1 );
         System.out.println("Le joueur 2 s'appele : " + j2 );
-        p.initGame(j1, j2);
-        Chateau cht1 = p.getChateau(0);
-        ((PlateauJeuGraphic)f.getImagePlateau()).addSpritToDisplay(cht1);
-        Domino domino = p.getListeDomino().get(1);
-        ((PlateauJeuGraphic)f.getImagePlateau()).addSpritToDisplay(domino);
-        ((PlateauJeuGraphic)f.getImagePlateau()).repaint();
+       
+        GameBoard gameboard = new GameBoard(6,6);
+		
+		gameboard.setPiece(2,3,new Pawn(Player.CHATEAU));
+		gameboard.setPiece(0,0,new Pawn(Player.GRASS));
+		gameboard.setPiece(0,1,new Pawn(Player.MINES));
+		gameboard.setPiece(0,2,new Pawn(Player.DESERT));
+		gameboard.setPiece(0,3,new Pawn(Player.WATER));
+		gameboard.setPiece(0,4,new Pawn(Player.WHEAT));
+		gameboard.setPiece(0,5,new Pawn(Player.FORET));
+		f.add(gameboard);
+		gameboard.setLocation(500, 300); 
+		f.pack();
+		f.setSize(1000,1000);
+		f.setLocationRelativeTo(null);
+		f.setVisible(true);
     
         //SUITE A FAIRE 
         

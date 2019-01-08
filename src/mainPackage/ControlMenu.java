@@ -6,16 +6,16 @@ import java.awt.event.ActionListener;
 
 public class ControlMenu implements ActionListener {
 
-    private Plateau plateau;
+    //private Plateau plateau;
     private Fenetre fenetre;
 
     //* Constantes
 
 
 
-    public ControlMenu(Plateau p, Fenetre f){
-        this.plateau = p;
-        this.fenetre = f;
+    public ControlMenu(Fenetre f){
+        //this.plateau = p;
+        this.fenetre = f; 
         this.fenetre.setControlMenu(this);
 
     }
