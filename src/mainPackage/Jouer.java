@@ -176,7 +176,7 @@ class Jouer {
 		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
 
 		for (int j = 0; j < roi.size(); j++) {
-			if (roi.get(i).equals(plateau[j])) {
+			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {
 				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[0], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[1]);
 				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[2], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[3]);
 

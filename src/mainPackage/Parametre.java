@@ -28,7 +28,7 @@ public class Parametre {
             composant.listJoueurs[i].setCouleur(scanner.nextLine());
         }
 
-        composant.setNombreDominos(48 - 16 * (4 - composant.getNombreJoueurs()));
+        composant.setNombreDominos(48 - 12 * (4 - composant.getNombreJoueurs()));
         composant.setDominos();
         return composant;
     }
