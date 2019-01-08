@@ -17,7 +17,11 @@ import javax.swing.JPanel;
 	
 public class Fenetre extends JFrame {
 
-    //* Composants graphiques
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//* Composants graphiques
     //* Panel principal
     private JPanel fenetre, imagePlateau, imageMenu;
     //* Menu
@@ -49,7 +53,7 @@ public class Fenetre extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setResizable(false); 
-       
+        setLocationRelativeTo(null);//Mettre la fenetre au milieu de l'ecran
         switchFrame();
     }
 
@@ -162,18 +166,10 @@ public class Fenetre extends JFrame {
 
     }
 
-   /** public void setControlClick(ControlMouse controlMouse) {
-        //* initialiser le ControlClick
-        this.imagePlateau.addMouseListener(controlMouse);
-
-    }**/
-
     public void setControlButton(ControlButton cb){
         ((PlateauGraphic)this.imageMenu).getButton().addActionListener(cb);
     }
-    public void update(){
-    }
-
+    
     public JPanel getImagePlateau() {
         return imagePlateau;
     }

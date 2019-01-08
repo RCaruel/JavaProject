@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,32 +41,6 @@ public class Grille {
 
 	        return imageIcon;
 	    }
- 
-	/**public static void main(String[] args) {
- 
-		JFrame frame = new JFrame("Démo");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
- 
-		GameBoard gameboard = new GameBoard(10,10);
-		
-			gameboard.setPiece(6,6,new Pawn(Player.CHATEAU));
-			gameboard.setPiece(0,2,new Pawn(Player.GRASS));
-			gameboard.setPiece(0,3,new Pawn(Player.MINES));
-			gameboard.setPiece(0,4,new Pawn(Player.DESERT));
-			gameboard.setPiece(0,5,new Pawn(Player.WATER));
-			gameboard.setPiece(0,7,new Pawn(Player.WHEAT));
-			gameboard.setPiece(0,8,new Pawn(Player.FORET));
-			
-			
-		
-		frame.add(gameboard);
-		frame.pack();
-		frame.setSize(1000,1000);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
- 
-	}**/
  
 	public static class GameBoard extends JPanel {
  
@@ -315,14 +288,11 @@ public class Grille {
  
 		private void moveTo(Square fromSquare, Square toSquare) {
 			final Piece piece = fromSquare.getPiece();
-			if ( piece==null ) throw new IllegalStateException("Pas de pièce dans la case de départ");
+			if ( piece==null ) throw new IllegalStateException("Pas de domino dans la case de départ");
 			if ( moveIsAllowed(piece, fromSquare, toSquare) ) {
 				toSquare.setPiece(piece);
 				fromSquare.setPiece(null);
 			}
-			/**else {
-				JOptionPane.showMessageDialog(board, "Ce mouvement n'est pas autorisé par les règles des Echecs","Mouvement impossible", JOptionPane.WARNING_MESSAGE);
-			}**/
 		}
  
 		private void stopMove() {
@@ -331,11 +301,6 @@ public class Grille {
 				currentMove=null;
 			}
 		} 
- 
-		/**private void doCapture(Square square) {
-			// TODO
-			square.setPiece(null); // temp
-		}**/
  
 		private boolean moveIsAllowed(Piece piece, Square fromSquare, Square toSquare) {
 			return true; // TODO

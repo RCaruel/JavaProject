@@ -68,7 +68,7 @@ public class Initialisation {
 	   	}
 	    	
 	    //mélange de la liste
-	    for (int i = 0; i < 48; i++) {
+	    for (int i = 0; i < 48; i++) { 
 	   		int nb = rand.nextInt(48-i);
 	   		int transition = domi[nb];
 	   		domi[nb] = domi[48-i-1];

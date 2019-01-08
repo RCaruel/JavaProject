@@ -1,6 +1,5 @@
 package mainPackage;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,18 +14,18 @@ import mainPackage.Grille.Player;
 
 public class ControlButton implements ActionListener {
 
-    //private Plateau p;
+    
     private Fenetre f;
 
     public ControlButton(Fenetre f) {
-        //this.p = p;
+        
         this.f = f;
         this.f.setControlButton(this); 
     }
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// CODE POUR COMMENCER LE JEU QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
+		// LE JEU COMMENCE QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
 		
 		System.out.println("Début de la partie");
         f.switchFrame();

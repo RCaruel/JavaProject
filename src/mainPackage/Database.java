@@ -9,7 +9,7 @@ public class Database {
     //--- Données pour lire le fichier dominos.csv ---//
 
     static String RESOURCES_PATH = "src/ressources/";
-    static String DOMINOS_FILE_NAME = "dominos.csv";
+    static String DOMINOS_FILE_NAME = "dominos.csv"; 
     static String ligne = "";
     static String SEPARATOR = ",";
     static String[] cartes;

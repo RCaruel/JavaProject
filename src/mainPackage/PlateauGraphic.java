@@ -13,9 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PlateauGraphic extends JPanel {
-
-	  
+public class PlateauGraphic extends JPanel { 
 	  /**
 	 * 
 	 */
