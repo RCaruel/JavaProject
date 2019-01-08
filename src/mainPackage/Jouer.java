@@ -17,14 +17,14 @@ class Jouer {
 	
 	private static Random rand = new Random();
 	
-	private static ArrayList<String> roi = new ArrayList<String>();
+	private static ArrayList<String> roi;
 	private static String[] plateau = new String[4];
 	private static int indicetuile;
 	private static int compteurtour;
 	private static String[] newroi;
 	private static int[] domi = new int[48];
-	private static ArrayList<Integer> listedominos = new ArrayList<>();
-	private static ArrayList<Integer> listedominoscopy = new ArrayList<>();
+	private static ArrayList<Integer> listedominos;
+	private static ArrayList<Integer> listedominoscopy;
 	private static int[] choixtuile;
 	
 	static void play(Composant composant, Scanner scanner) {
@@ -33,6 +33,10 @@ class Jouer {
 	}
 
     private static void debutjeux(Composant composant) {
+
+		roi = new ArrayList<>();
+		listedominos = new ArrayList<>();
+		listedominoscopy = new ArrayList<>();
 
 		
 	    // initialisation des plateaux
