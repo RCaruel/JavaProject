@@ -20,7 +20,6 @@ class Jouer {
 	private static ArrayList<String> roi = new ArrayList<String>();
 	private static String[] plateau = new String[4];
 	private static int indicetuile;
-	private static int compteurtour = 0;
 	private static String[] newroi;
 	private static int[] domi = new int[48];
 	private static ArrayList<Integer> listedominos = new ArrayList<>();
@@ -211,6 +210,7 @@ class Jouer {
 
     	choixtuile = new int[roi.size()];
     	newroi = new String[roi.size()];
+    	int compteurtour = 0;
 
 
     	while (roi.size()*compteurtour < composant.getNombreDominos()) {
