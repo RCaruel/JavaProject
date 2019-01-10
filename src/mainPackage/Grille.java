@@ -254,6 +254,7 @@ public class Grille {
 						else {//selection de l'image
 							startMove(square);
 							board.repaint();
+							JOptionPane.showMessageDialog(board, "Une pièce à vous est déjà dans cette case","Mouvement impossible", JOptionPane.WARNING_MESSAGE);
 						}
 					}
 					else if ( isMoving() ) {//deposer l'image

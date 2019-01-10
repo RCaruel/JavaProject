@@ -28,6 +28,9 @@ public class ControlMenu implements ActionListener {
             System.exit(0);
             //fenetre.switchFrame();
         }
+        if (e.getActionCommand().equals("Quitter")) {
+        	
+        }
 
     }
 }

@@ -75,8 +75,6 @@ public class PlateauGraphic extends JPanel {
 
 	    }
 	    public ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
-
-
 	        Image img = imageIcon.getImage();
 	        Image imgResize = img.getScaledInstance(width,height,Image.SCALE_DEFAULT);
 	        imageIcon=new ImageIcon(imgResize);
