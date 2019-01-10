@@ -177,7 +177,7 @@ class Jouer {
     private static void choixduplacement(int i, Scanner scanner, Composant composant) {
 
 		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
+		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner); 
 
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {
@@ -290,11 +290,17 @@ class Jouer {
     	int score;
 
     	for (int i = 0; i < composant.getListJoueurs().length; i++){
-    		if ((score = CalcScore.play(composant.getListJoueurs()[i], composant, true)) > max){
+    		if ((score = calculScore(composant.getListJoueurs()[i], composant)) > max){
     			max = score;
     			winner = i;
 			}
 		}
 		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + max);
     }
+
+	static int calculScore(Joueurs joueurs, Composant composant){
+		joueurs.setScore(CalcScore.play(joueurs, composant, true));
+		return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap(), composant))*100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);
+	}
+
 }

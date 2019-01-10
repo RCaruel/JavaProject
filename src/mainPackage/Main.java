@@ -1,8 +1,8 @@
 package mainPackage;
 
-import javax.swing.*;
+
 import java.util.Scanner;
-import javax.swing.JPanel;
+
 
 public class Main{
 

@@ -8,8 +8,8 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,7 +21,7 @@ public class Grille {
 	private static final int PREFERRED_SIZE = 70;
 	 
 	private static final Color BROWN_SQUARE = new Color(0x99, 0x66, 0x00);
-	private static final Color BEIGE_SQUARE = new Color(0xff, 0xcc, 0x66);
+	private static final Color BEIGE_SQUARE = new Color(0x99, 0x66, 0x00);
 	private static final Color SELECTION_COLOR = new Color(0xFF,0xA4,0x77);
 	public static final ImageIcon CHATEAU = resizePicture(new ImageIcon("chateau.jpg"),60,60);
 	public static final ImageIcon GRASS = resizePicture(new ImageIcon("grass.png"),60,60);
@@ -41,32 +41,6 @@ public class Grille {
 
 	        return imageIcon;
 	    }
- 
-	public static void main(String[] args) {
- 
-		JFrame frame = new JFrame("Démo");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
- 
-		GameBoard gameboard = new GameBoard(10,10);
-		
-			gameboard.setPiece(6,6,new Pawn(Player.CHATEAU));
-			gameboard.setPiece(0,2,new Pawn(Player.GRASS));
-			gameboard.setPiece(0,3,new Pawn(Player.MINES));
-			gameboard.setPiece(0,4,new Pawn(Player.DESERT));
-			gameboard.setPiece(0,5,new Pawn(Player.WATER));
-			gameboard.setPiece(0,7,new Pawn(Player.WHEAT));
-			gameboard.setPiece(0,8,new Pawn(Player.FORET));
-			
-			
-		
-		frame.add(gameboard);
-		frame.pack();
-		frame.setSize(1000,1000);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
- 
-	} 
  
 	public static class GameBoard extends JPanel {
  
@@ -198,6 +172,7 @@ public class Grille {
 			setBackground(color);
 			this.column=column;
 			this.line=line;
+			setBorder(BorderFactory.createMatteBorder (3, 3, 3, 3, Color.black));
 			setPreferredSize(new Dimension(PREFERRED_SIZE, PREFERRED_SIZE));
 		}
  
@@ -262,9 +237,12 @@ public class Grille {
 								// cancel move
 								stopMove();
 								board.repaint();
+								
+								
 							}
 							else if ( square.getPiece().getPlayer()==currentMove.getPiece().getPlayer() ) {
 								JOptionPane.showMessageDialog(board, "Une pièce à vous est déjà dans cette case","Mouvement impossible", JOptionPane.WARNING_MESSAGE);
+								
 							}
 							/**else if ( moveIsAllowed(currentMove.getPiece(), currentMove, square) ) {
 								doCapture(square);
@@ -273,14 +251,15 @@ public class Grille {
 								board.repaint();
 							}**/
 						}
-						else {
+						else {//selection de l'image
 							startMove(square);
 							board.repaint();
 						}
 					}
-					else if ( isMoving() ) {
+					else if ( isMoving() ) {//deposer l'image
 						moveTo(currentMove, square);
 						stopMove();
+						
 					}
 				}
  
@@ -309,14 +288,11 @@ public class Grille {
  
 		private void moveTo(Square fromSquare, Square toSquare) {
 			final Piece piece = fromSquare.getPiece();
-			if ( piece==null ) throw new IllegalStateException("Pas de pièce dans la case de départ");
+			if ( piece==null ) throw new IllegalStateException("Pas de domino dans la case de départ");
 			if ( moveIsAllowed(piece, fromSquare, toSquare) ) {
 				toSquare.setPiece(piece);
 				fromSquare.setPiece(null);
 			}
-			/**else {
-				JOptionPane.showMessageDialog(board, "Ce mouvement n'est pas autorisé par les règles des Echecs","Mouvement impossible", JOptionPane.WARNING_MESSAGE);
-			}**/
 		}
  
 		private void stopMove() {
@@ -325,11 +301,6 @@ public class Grille {
 				currentMove=null;
 			}
 		} 
- 
-		private void doCapture(Square square) {
-			// TODO
-			square.setPiece(null); // temp
-		}
  
 		private boolean moveIsAllowed(Piece piece, Square fromSquare, Square toSquare) {
 			return true; // TODO

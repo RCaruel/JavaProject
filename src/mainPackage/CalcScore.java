@@ -35,7 +35,7 @@ class CalcScore {
                         if (bool) System.out.println(sc[1] + "*" + sc[0]);
                         score += sc[1] * sc[0];
                     }
-                }catch (NullPointerException e){}
+                }catch (NullPointerException e){} 
             }
         }
 
@@ -120,5 +120,31 @@ class CalcScore {
         }catch (NullPointerException e){}
 
         return new int[]{score, couronnes};
+    }
+
+    static int scoreMap(String[][] map, Composant composant){
+        int score = 0;
+
+        for (int i = 0; i < map.length; i++){
+            for (int j = 0; j < map.length; j++){
+                if (!(map[i][j].equals("0"))){
+                    score++;
+                }
+            }
+        }
+
+        return score;
+    }
+
+    static int nbCouronnes(String[][] map, Composant composant){
+        int score = 0;
+
+        for (int i = 0; i < map.length; i++){
+            for (int j = 0; j < map.length; j++){
+                score += Integer.valueOf(composant.getDominos().get(map[i][j])[0]);
+            }
+        }
+
+        return score;
     }
 }

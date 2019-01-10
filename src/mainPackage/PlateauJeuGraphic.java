@@ -4,7 +4,6 @@ package mainPackage;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -13,28 +12,23 @@ import javax.swing.JPanel;
 
 public class PlateauJeuGraphic extends JPanel {
 	
-	
-	/////////////////////////////////////////////////////////////////////////////////////
-	
 	  /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Image imgBg;
-	  private Image imgBg2;
-	  //private Plateau p;
-	  //private JButton button;
-	  //private Image imgHeader;
+	private Image img;
+	private Image img2;
+	 
 
 
 	    public PlateauJeuGraphic(){
 	    	
 	     // imgBg = img;
-	        ImageIcon imgTmp = new ImageIcon("parchemin.jpg"); 
-	        imgBg = resizePicture(imgTmp, 990,990).getImage();
+	        ImageIcon image = new ImageIcon("parchemin.jpg"); 
+	        img = resizePicture(image, 990,990).getImage();
 	        
-	        ImageIcon imgTmp2 = new ImageIcon("header.jpg");
-	        imgBg2 = resizePicture(imgTmp2, 800,200).getImage();
+	        ImageIcon image2 = new ImageIcon("header.jpg");
+	        img2 = resizePicture(image2, 800,200).getImage();
 	        
 	        
 
@@ -46,8 +40,8 @@ public class PlateauJeuGraphic extends JPanel {
 	        //* optimisation 2d
 	        Graphics2D g2 = (Graphics2D) g;
 
-	       g2.drawImage(imgBg, 0,0,null);
-	       g2.drawImage(imgBg2,50,700,null);
+	       g2.drawImage(img, 0,0,null);
+	       g2.drawImage(img2,50,700,null);
 	       
 	        
 	    }

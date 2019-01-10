@@ -1,7 +1,10 @@
 package mainPackage;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
 
 import mainPackage.Grille.GameBoard;
 import mainPackage.Grille.Pawn;
@@ -11,18 +14,18 @@ import mainPackage.Grille.Player;
 
 public class ControlButton implements ActionListener {
 
-    //private Plateau p;
+    
     private Fenetre f;
 
     public ControlButton(Fenetre f) {
-        //this.p = p;
+        
         this.f = f;
-        this.f.setControlButton(this);
+        this.f.setControlButton(this); 
     }
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// CODE POUR COMMENCER LE JEU QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
+		// LE JEU COMMENCE QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
 		
 		System.out.println("Début de la partie");
         f.switchFrame();
@@ -37,7 +40,7 @@ public class ControlButton implements ActionListener {
        
         GameBoard gameboard = new GameBoard(6,6);
 		
-		gameboard.setPiece(2,3,new Pawn(Player.CHATEAU));
+		gameboard.setPiece(2,3,new Pawn(Player.CHATEAU)); 
 		gameboard.setPiece(0,0,new Pawn(Player.GRASS));
 		gameboard.setPiece(0,1,new Pawn(Player.MINES));
 		gameboard.setPiece(0,2,new Pawn(Player.DESERT));
@@ -45,7 +48,8 @@ public class ControlButton implements ActionListener {
 		gameboard.setPiece(0,4,new Pawn(Player.WHEAT));
 		gameboard.setPiece(0,5,new Pawn(Player.FORET));
 		f.add(gameboard);
-		gameboard.setLocation(500, 300); 
+		gameboard.setBorder(BorderFactory.createMatteBorder (3, 3, 3, 3, Color.black));
+ 
 		f.pack();
 		f.setSize(1000,1000);
 		f.setLocationRelativeTo(null);

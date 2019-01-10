@@ -12,9 +12,14 @@ public class Joueurs {
     private String[][] map;
     private String statut = "UNDETERMINED";
     private int[] positions = new int[4];
+    private int score;
 
-    public String getCouleur() {
+    String getCouleur() {
         return couleur;
+    }
+
+    int getScore(){
+        return score;
     }
 
     String getChoixTuile() {
@@ -64,10 +69,13 @@ public class Joueurs {
     void ajoutMap(String value, int x, int y){
         //9
         this.map[x][y] = value;
-    }
+    } 
 
     void setStatut(String statut) {
         this.statut = statut;
+    }
+    void setScore(int score){
+        this.score = score;
     }
 
     int[] getPositions() {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 // demande aux joueuers les paramétres de la partie
 public class Parametre {
 
-    Composant composant = new Composant();
+    Composant composant = new Composant(); 
 
     public Composant parametrage(Scanner scanner){
 
