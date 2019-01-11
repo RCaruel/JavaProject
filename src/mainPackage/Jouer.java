@@ -15,8 +15,7 @@ import java.util.Collections;
 
 class Jouer {
 	
-	private static Random rand = new Random();
-	
+	private static Random rand = new Random();	
 	private static ArrayList<String> roi;
 	private static String[] plateau = new String[4];
 	private static int indicetuile;
