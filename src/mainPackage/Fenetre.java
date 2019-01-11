@@ -1,7 +1,8 @@
 package mainPackage;
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.imageio.ImageIO;
@@ -23,20 +24,21 @@ public class Fenetre extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	Composant composant;
 	//* Composants graphiques
     //* Panel principal
-    private JPanel fenetre, imagePlateau, imageMenu;
+    private JPanel fenetre, imagePlateau, imageMenu, imageParam;
     //* Menu
     private JMenuBar menuBar;
     private JMenu menuPrincipal, menuAutre;
     private JMenuItem quitItem, resizeItem, newgameItem;
+    //* Boutons Param partie
+    private JButton buttonLancePartie;
     //* Autres
     //private Plateau plateau;
     private boolean petiteFenetre;
     private int xFenetre;
     private int yFenetre;
-    private int test = 1;
-    private JButton bouton = new JButton("Parametres");
 
 
 
@@ -57,19 +59,13 @@ public class Fenetre extends JFrame {
         setAlwaysOnTop(true);
         setResizable(false); 
         setLocationRelativeTo(null);//Mettre la fenetre au milieu de l'ecran
-        switchFrame();
-        bouton.addActionListener(new ActionListenner() {
-        	public void actionPerformed(ActionEvent arg 0) {
-        		Param par = new Param(null, "Parametres des joueurs", true);
-        	}
-        	
-        });
+        switchFrame(0);
     }
 
     //* Méthodes pour créer la fenêtre
     public void creerFenetre() {
         //* Création de tout les composants graphiques de la fenetre ( sauf Menu )
-        ImageIcon imageIcon =new ImageIcon( "bg.jpg");
+        ImageIcon imageIcon =new ImageIcon( "fond1.png");
         ImageIcon imgNull =new ImageIcon( "fond3.png");
 
         this.imageMenu = new PlateauGraphic(resizePicture(imageIcon, 1000,1000).getImage());
@@ -85,22 +81,25 @@ public class Fenetre extends JFrame {
 
 
     }
-    public void switchFrame(){
-        if (test == 0){
+
+    void switchFrame(int test){
+        if (test == 1){
 
             ImageIcon imgNull =new ImageIcon( "fond3.png");
 
 
-
-
             // this.imagePlateau.add(image);
-            test = 1;
-            setContentPane(imagePlateau);
+            this.imageParam = new Param(resizePicture(imgNull, 1000,1000).getImage(), composant);
+            JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
+            //imagePlateau.add();
+            setContentPane(imageParam);
+            //for(int i = 0; i < )
+            this.imagePlateau.add(image);
             revalidate();
-            this.imagePlateau.repaint();
+            this.imageParam.repaint();
             setSize(1000,1000);
 
-        }else{
+        }else if(test == 0){
             ImageIcon imageIcon =new ImageIcon( "bg.jpg");
 
             ImageIcon imgNull =new ImageIcon( "fond3.png");
@@ -111,8 +110,6 @@ public class Fenetre extends JFrame {
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
             this.imageMenu.add(image);
-
-            test = 0;
             setContentPane(imageMenu);
             revalidate();
             this.imageMenu.repaint();
@@ -131,7 +128,7 @@ public class Fenetre extends JFrame {
     }
 
     public void initMenu() {
-        //* Création des componsants du menu
+        //* Création des componsants du menu *\\
 
         //* Barre de menu *\\
         this.menuBar = new JMenuBar();
@@ -158,6 +155,7 @@ public class Fenetre extends JFrame {
         setJMenuBar(this.menuBar);
 
     }
+
     public void addToWindow() {
         //* Ajouts des composants graphique dans la fenêtre principales
         this.fenetre = new JPanel();
@@ -178,6 +176,10 @@ public class Fenetre extends JFrame {
     public void setControlButton(ControlButton cb){
         ((PlateauGraphic)this.imageMenu).getButton().addActionListener(cb);
     }
+
+    void setComposant(Composant composant){
+        this.composant = composant;
+    }
     
     public JPanel getImagePlateau() {
         return imagePlateau;
@@ -186,6 +188,4 @@ public class Fenetre extends JFrame {
     public JPanel getImageMenu() {
         return imageMenu;
     }
-
-
 }

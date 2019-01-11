@@ -17,17 +17,17 @@ public class Parametre {
 
         for (int i = 0; i < composant.getNombreJoueurs(); i++){
 
-            composant.listJoueurs[i] = new Joueurs();
+            composant.getListJoueurs()[i] = new Joueurs();
             System.out.println("Veuillez saisir le pseudo du joueur " + i);
-            composant.listJoueurs[i].setPseudo(scanner.nextLine());
+            composant.getListJoueurs()[i].setPseudo(scanner.nextLine());
             System.out.println("Est-ce une IA ? Oui / Non.");
             if (scanner.nextLine().equals("Oui")){
-                composant.listJoueurs[i].setStatut("IA");
+                composant.getListJoueurs()[i].setStatut("IA");
             }else{
-                composant.listJoueurs[i].setStatut("HUMAN");
+                composant.getListJoueurs()[i].setStatut("HUMAN");
             }
             System.out.println("Veuillez saisir sa couleur : bleu / rouge / vert / jaune");
-            composant.listJoueurs[i].setCouleur(scanner.nextLine());
+            composant.getListJoueurs()[i].setCouleur(scanner.nextLine());
         }
 
         composant.setNombreDominos(48 - 12 * (4 - composant.getNombreJoueurs()));

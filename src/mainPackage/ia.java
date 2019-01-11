@@ -8,72 +8,62 @@ class ia {
         int scoremax = -1;
         int[] score;
 
-        for (int i = 0; i < listdominos.length; i++) {
+        for (String listdomino : listdominos) {
             for (int j = 1; j <= 2; j++) {
                 for (int x = 0; x < joueurs.getMap().length; x++) {
                     for (int y = 0; y < joueurs.getMap().length; y++) {
-                        try { 
+                        try {
                             if (joueurs.getMap()[x][y].equals("0")) {
                                 try {
                                     //modifier : test sur la moitié de la tuile.
-                                    if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y - 1])[1]) || joueurs.getMap()[x][y - 1].equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
+                                    if ((composant.getDominos().get(listdomino + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y - 1])[1]) || joueurs.getMap()[x][y - 1].equals("500")) {
+                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
-                                            if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
-                                            if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-                                            joueurs.setChoixTuile(listdominos[i]);
+                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
+                                            joueurs.setChoixTuile(listdomino);
                                         }
                                     }
-                                } catch (Exception e) {
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
-                                    if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y + 1])[1]) || joueurs.getMap()[x][y + 1].equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
+                                    if ((composant.getDominos().get(listdomino + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x][y + 1])[1]) || joueurs.getMap()[x][y + 1].equals("500")) {
+                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
-                                            if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
-                                            if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-                                            joueurs.setChoixTuile(listdominos[i]);
+                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
+                                            joueurs.setChoixTuile(listdomino);
                                         }
                                     }
-                                } catch (Exception e) {
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
-                                    if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x - 1][y])[1]) || joueurs.getMap()[x - 1][y].equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
+                                    if ((composant.getDominos().get(listdomino + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x - 1][y])[1]) || joueurs.getMap()[x - 1][y].equals("500")) {
+                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
-                                            if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
-                                            if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-                                            joueurs.setChoixTuile(listdominos[i]);
+                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
+                                            joueurs.setChoixTuile(listdomino);
                                         }
                                     }
-                                } catch (Exception e) {
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
-                                    if ((composant.getDominos().get(listdominos[i] + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x + 1][y])[1]) || joueurs.getMap()[x + 1][y].equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdominos[i], j, composant);
+                                    if ((composant.getDominos().get(listdomino + String.valueOf(j)))[1].equals(composant.getDominos().get(joueurs.getMap()[x + 1][y])[1]) || joueurs.getMap()[x + 1][y].equals("500")) {
+                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
 
                                         if (score[0] > scoremax) {
                                             scoremax = score[0];
-                                            if (j == 1) pos = new int[]{score[1], score[2], score[3], score[4]};
-                                            if (j == 2) pos = new int[]{score[3], score[4], score[1], score[2]};
-                                            joueurs.setChoixTuile(listdominos[i]);
+                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
+                                            joueurs.setChoixTuile(listdomino);
                                         }
                                     }
-                                } catch (Exception e) {
-                                }
-
+                                } catch (Exception ignored) {}
                             }
-                        } catch (Exception e) {
-                        }
+                        } catch (Exception ignored) {}
                     }
                 }
             }
@@ -99,8 +89,7 @@ class ia {
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x][y - 1] = "0";
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception ignored) {}
 
         try {
             if (joueurs.getMap()[x][y + 1].equals("0")) {
@@ -115,8 +104,7 @@ class ia {
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x][y + 1] = "0";
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception ignored) {}
 
         try {
             if (joueurs.getMap()[x - 1][y].equals("0")) {
@@ -131,8 +119,7 @@ class ia {
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x - 1][y] = "0";
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception ignored) {}
 
         try {
             if (joueurs.getMap()[x + 1][y].equals("0")) {
@@ -147,8 +134,7 @@ class ia {
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x + 1][y] = "0";
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception ignored) {}
 
         return retour;
     }

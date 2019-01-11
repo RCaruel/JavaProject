@@ -4,9 +4,9 @@ class CalcScore {
 
     /**
      *
-     * @param joueurs
-     * @param composant
-     * @return
+     * @param joueurs le joueur dont on veut calculer le score.
+     * @param composant la boite du jeu.
+     * @return retourne la valeure du terrain.
      */
 
     static int play(Joueurs joueurs, Composant composant, boolean bool){
@@ -19,7 +19,7 @@ class CalcScore {
         return calcule(map, composant, bool);
     }
 
-    static int calcule(String[][] map, Composant composant, boolean bool){
+    private static int calcule(String[][] map, Composant composant, boolean bool){
 
         int score = 0;
         int[] sc;
@@ -35,7 +35,7 @@ class CalcScore {
                         if (bool) System.out.println(sc[1] + "*" + sc[0]);
                         score += sc[1] * sc[0];
                     }
-                }catch (NullPointerException e){} 
+                }catch (NullPointerException ignored){}
             }
         }
 
@@ -46,31 +46,27 @@ class CalcScore {
 
     /**
      * fct qui retroune faux si la condition est vraie et inversement.
-     * @param bool
+     * @param bool boolean
      * @return not bool
      */
 
-    static boolean not(boolean bool) {
-        if (bool){
-            return false;
-        }else{
-            return true;
-        }
+    private static boolean not(boolean bool) {
+        return !bool;
     }
 
     /**
      *
-     * @param map
-     * @param composant
-     * @param i
-     * @param j
-     * @param value
-     * @param score
-     * @param couronnes
-     * @return
+     * @param map map du joueur
+     * @param composant boite de jeu
+     * @param i position i sur la map du joueur
+     * @param j position j sur la map du joueur
+     * @param value valeur du type du terrain qu'on test
+     * @param score score actuel
+     * @param couronnes nombre actuel de couronne
+     * @return le score du joueur.
      */
 
-    static int[] calcScore(String[][] map, Composant composant, int i, int j, String value, int score, int couronnes) {
+    private static int[] calcScore(String[][] map, Composant composant, int i, int j, String value, int score, int couronnes) {
         int[] calcul;
         map[i][j]= "999";
 
@@ -81,9 +77,7 @@ class CalcScore {
                 score = calcul[0];
                 couronnes = calcul[1];
             }
-        }catch(IndexOutOfBoundsException e){
-
-        }catch (NullPointerException e){}
+        }catch(IndexOutOfBoundsException | NullPointerException ignored){ }
 
         //Essai de calcul du score à partir de la map à la position [i+1][j]
         try {
@@ -93,9 +87,7 @@ class CalcScore {
                 couronnes = calcul[1];
 
             }
-        }catch(IndexOutOfBoundsException e){
-
-        }catch (NullPointerException e){}
+        }catch(IndexOutOfBoundsException | NullPointerException ignored){}
 
         //Essai de calcul du score à partir de la map à la position [i][j-1]
         try {
@@ -104,9 +96,7 @@ class CalcScore {
                 score = calcul[0];
                 couronnes = calcul[1];
             }
-        }catch(IndexOutOfBoundsException e){
-
-        }catch (NullPointerException e){}
+        }catch(IndexOutOfBoundsException | NullPointerException ignored){}
 
         //Essai de calculer le score à partir de la map à la position [i-1][j]
         try {
@@ -115,19 +105,17 @@ class CalcScore {
                 score = calcul[0];
                 couronnes = calcul[1];
             }
-        }catch(IndexOutOfBoundsException e){
-
-        }catch (NullPointerException e){}
+        }catch(IndexOutOfBoundsException | NullPointerException ignored){}
 
         return new int[]{score, couronnes};
     }
 
-    static int scoreMap(String[][] map, Composant composant){
+    static int scoreMap(String[][] map){
         int score = 0;
 
-        for (int i = 0; i < map.length; i++){
-            for (int j = 0; j < map.length; j++){
-                if (!(map[i][j].equals("0"))){
+        for (String[] aMap : map) {
+            for (int j = 0; j < map.length; j++) {
+                if (!(aMap[j].equals("0"))) {
                     score++;
                 }
             }
@@ -139,9 +127,9 @@ class CalcScore {
     static int nbCouronnes(String[][] map, Composant composant){
         int score = 0;
 
-        for (int i = 0; i < map.length; i++){
-            for (int j = 0; j < map.length; j++){
-                score += Integer.valueOf(composant.getDominos().get(map[i][j])[0]);
+        for (String[] aMap : map) {
+            for (int j = 0; j < map.length; j++) {
+                score += Integer.valueOf(composant.getDominos().get(aMap[j])[0]);
             }
         }
 

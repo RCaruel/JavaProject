@@ -1,11 +1,10 @@
 package mainPackage;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import mainPackage.Grille.GameBoard;
 import mainPackage.Grille.Pawn;
@@ -15,37 +14,27 @@ import mainPackage.Grille.Player;
 
 public class ControlButton implements ActionListener {
 
-	Composant composant = new Composant(); 
+	Composant composant = new Composant();
 	
     private Fenetre f;
 
     public ControlButton(Fenetre f) {
         
         this.f = f;
-        this.f.setControlButton(this); 
+        this.f.setControlButton(this);
+        this.composant = composant;
     }
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// LE JEU COMMENCE QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
 		System.out.println("Début de la partie");
-		f.switchFrame();
-		
-		    
-		        
-		      
-		
-        
-        /**String j1 = ((PlateauGraphic)f.getImageMenu()).getJ1().getText();
-        if (j1.length() == 0)
-            j1 = "Joueur 1";
-        String j2 = ((PlateauGraphic)f.getImageMenu()).getJ2().getText();
-        if (j2.length() == 0)
-            j2 = "Joueur 2";
-        System.out.println("Le joueur 1 s'appele : " + j1 );
-        System.out.println("Le joueur 2 s'appele : " + j2 );**/
-       
-        GameBoard gameboard = new GameBoard(6,6);
+		composant.setNombreJoueurs(Integer.valueOf(((PlateauGraphic)f.getImageMenu()).getJ1().getText()));
+		System.out.println(composant.getNombreJoueurs());
+		f.setComposant(composant);
+		f.switchFrame(1);
+
+        /*GameBoard gameboard = new GameBoard(5,6);
 		
 		gameboard.setPiece(2,3,new Pawn(Player.CHATEAU)); 
 		gameboard.setPiece(0,0,new Pawn(Player.GRASS));
@@ -60,7 +49,7 @@ public class ControlButton implements ActionListener {
 		f.pack();
 		f.setSize(1000,1000);
 		f.setLocationRelativeTo(null);
-		f.setVisible(true);
+		f.setVisible(true);*/
         
 		
 	}

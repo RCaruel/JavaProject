@@ -11,6 +11,7 @@ public class Main{
 
     public static void main(String[] args) {
 
+        Composant composant = new Composant();
         byte choix;
 
         do {
@@ -24,7 +25,7 @@ public class Main{
                     test();
                     break;
                 case 1: 
-                    lanceLeJeu();
+                    lanceLeJeu(composant);
                     break;
                 case 2:
                     afficheLeTutoriel();
@@ -48,10 +49,7 @@ public class Main{
         return scanner.nextByte();
     }
 
-    public static void lanceLeJeu(){
-        Composant composant;
-        Parametre parametre = new Parametre();
-        composant = parametre.parametrage(scanner);
+    public static void lanceLeJeu(Composant composant){
         Jouer.play(composant, scanner);
     }
 

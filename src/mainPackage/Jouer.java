@@ -18,7 +18,6 @@ class Jouer {
 	private static Random rand = new Random();	
 	private static ArrayList<String> roi;
 	private static String[] plateau = new String[4];
-	private static int indicetuile;
 	private static int compteurtour;
 	private static String[] newroi;
 	private static int[] domi = new int[48];
@@ -152,7 +151,7 @@ class Jouer {
     		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
 
     		//indicetuile = scanner.nextInt();
-			indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
+			int indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
 
     		newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
 
@@ -209,9 +208,9 @@ class Jouer {
     }
 
     private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur){
-		for (int i = 0; i < listjoueur.length; i++){
-			if (listjoueur[i].getCouleur().equals(couleur)){
-				return listjoueur[i];
+		for (Joueurs aListjoueur : listjoueur) {
+			if (aListjoueur.getCouleur().equals(couleur)) {
+				return aListjoueur;
 			}
 		}
 		return listjoueur[0];
@@ -306,9 +305,9 @@ class Jouer {
 				" avec un score de " + composant.getListJoueurs()[winner].getScore(), "Fin de la partie.");
     }
 
-	static int calculScore(Joueurs joueurs, Composant composant){
+	private static int calculScore(Joueurs joueurs, Composant composant){
 		joueurs.setScore(CalcScore.play(joueurs, composant, true));
-		return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap(), composant))*100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);
+		return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap()))*100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);
 	}
 
 }

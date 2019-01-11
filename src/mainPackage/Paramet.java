@@ -9,15 +9,15 @@ public class Paramet {
 	 public static void main(String[] args) {
 		 Composant composant = new Composant();
 		 String[] Joueurs = { "2", "3", "4"};
-		    JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-		    String NbJoueurs = (String)JOptionPane.showInputDialog(null, 
+		 JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
+		 String NbJoueurs = (String)JOptionPane.showInputDialog(null,
 		      "Veuillez indiquer le nombre de joueurs!",
 		      "KingDomino !",
 		      JOptionPane.QUESTION_MESSAGE,
 		      null,
 		      Joueurs,
 		      Joueurs[0]);
-		    JOptionPane.showMessageDialog(null, "Le nombre de joueurs est " + NbJoueurs, "KingDomino", JOptionPane.INFORMATION_MESSAGE);
+		 JOptionPane.showMessageDialog(null, "Le nombre de joueurs est " + NbJoueurs, "KingDomino", JOptionPane.INFORMATION_MESSAGE);
 		    
 		    int k = Integer.parseInt(NbJoueurs);
 		    for (int i = 1; i<=k; i++) {
@@ -42,9 +42,9 @@ public class Paramet {
 				      couleurs[0]);
 		        String NomJoueurs = (String)JOptionPane.showInputDialog(null, "Indiquez le nom du joueur " +i , "Joueur " + i + "et sa couleur est " + color,JOptionPane.QUESTION_MESSAGE);
 		        JOptionPane.showMessageDialog(null, "Le joueur " + i + "est de type " + type[rang] + " et s'apelle " + NomJoueurs + " et sa couleur est " + color , "Description du joueur", JOptionPane.INFORMATION_MESSAGE);
-		        composant.listJoueurs[i].setStatut(type[rang]);
-		        composant.listJoueurs[i].setPseudo(NomJoueurs);
-		        composant.listJoueurs[i].setCouleur(NomJoueurs);
+				composant.getListJoueurs()[i].setStatut(type[rang]);
+				composant.getListJoueurs()[i].setPseudo(NomJoueurs);
+				composant.getListJoueurs()[i].setCouleur(NomJoueurs);
 		        
 		    }		        
 	}

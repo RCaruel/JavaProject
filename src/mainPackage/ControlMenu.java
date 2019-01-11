@@ -34,7 +34,7 @@ public class ControlMenu implements ActionListener {
         
         if (e.getActionCommand().equals("Nouvelle partie")) {
         	System.out.println("okkkkkkkkkkkkkkkk");
-        	fenetre.switchFrame();
+        	fenetre.switchFrame(1);
         	fenetre.setVisible(true);
         	
         }
