@@ -1,10 +1,12 @@
 package mainPackage;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.io.File;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -34,6 +36,7 @@ public class Fenetre extends JFrame {
     private int xFenetre;
     private int yFenetre;
     private int test = 1;
+    private JButton bouton = new JButton("Parametres");
 
 
 
@@ -55,6 +58,12 @@ public class Fenetre extends JFrame {
         setResizable(false); 
         setLocationRelativeTo(null);//Mettre la fenetre au milieu de l'ecran
         switchFrame();
+        bouton.addActionListener(new ActionListenner() {
+        	public void actionPerformed(ActionEvent arg 0) {
+        		Param par = new Param(null, "Parametres des joueurs", true);
+        	}
+        	
+        });
     }
 
     //* Méthodes pour créer la fenêtre
@@ -133,7 +142,7 @@ public class Fenetre extends JFrame {
 
         //* sous menu *\\
         this.newgameItem = new JMenuItem("Nouvelle partie");
-        this.resizeItem = new JMenuItem("Changer la taille");
+        this.resizeItem = new JMenuItem("Afficher les règles");
         this.quitItem = new JMenuItem("Quitter");
 
         //*  Ajout des items *\\

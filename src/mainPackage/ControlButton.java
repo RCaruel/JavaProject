@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 import mainPackage.Grille.GameBoard;
 import mainPackage.Grille.Pawn;
@@ -14,7 +15,8 @@ import mainPackage.Grille.Player;
 
 public class ControlButton implements ActionListener {
 
-    
+	Composant composant = new Composant(); 
+	
     private Fenetre f;
 
     public ControlButton(Fenetre f) {
@@ -26,17 +28,22 @@ public class ControlButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// LE JEU COMMENCE QUAND ON APPUIE SUR LE BOUTON "COMMNCER LA PARTIE"
-		
 		System.out.println("Début de la partie");
-        f.switchFrame();
-        String j1 = ((PlateauGraphic)f.getImageMenu()).getJ1().getText();
+		f.switchFrame();
+		
+		    
+		        
+		      
+		
+        
+        /**String j1 = ((PlateauGraphic)f.getImageMenu()).getJ1().getText();
         if (j1.length() == 0)
             j1 = "Joueur 1";
         String j2 = ((PlateauGraphic)f.getImageMenu()).getJ2().getText();
         if (j2.length() == 0)
             j2 = "Joueur 2";
         System.out.println("Le joueur 1 s'appele : " + j1 );
-        System.out.println("Le joueur 2 s'appele : " + j2 );
+        System.out.println("Le joueur 2 s'appele : " + j2 );**/
        
         GameBoard gameboard = new GameBoard(6,6);
 		
@@ -54,8 +61,6 @@ public class ControlButton implements ActionListener {
 		f.setSize(1000,1000);
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
-    
-        //SUITE A FAIRE 
         
 		
 	}

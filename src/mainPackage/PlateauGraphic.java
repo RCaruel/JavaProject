@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -44,8 +45,8 @@ public class PlateauGraphic extends JPanel {
 	        this.button = b; 
 	        this.j1 = j1;
 	        this.j2 = j2;
-	        add(j1);
-	        add(j2);
+	        //add(j1);
+	        //add(j2);
 	        add(b);
 	    }
 
@@ -68,6 +69,8 @@ public class PlateauGraphic extends JPanel {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
 	        
 	        
 

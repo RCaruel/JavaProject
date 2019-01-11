@@ -25,10 +25,21 @@ public class ControlMenu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Quitter")){
             System.out.println("A Bientot");
-            System.exit(0);
-            //fenetre.switchFrame();
+            
+            
         }
-        if (e.getActionCommand().equals("Quitter")) {
+        if (e.getActionCommand().equals("Afficher les règles")) {
+        	
+        }
+        
+        if (e.getActionCommand().equals("Nouvelle partie")) {
+        	System.out.println("okkkkkkkkkkkkkkkk");
+        	fenetre.switchFrame();
+        	fenetre.setVisible(true);
+        	
+        }
+        if (e.getActionCommand().equals("Commencer la partie")) {
+        	System.out.println("okkkk");
         	
         }
 
