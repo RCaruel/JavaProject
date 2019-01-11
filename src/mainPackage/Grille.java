@@ -58,6 +58,10 @@ public class Grille {
 			this.controller = new Controller(this); // le contrôleur doit avoir acces à la vue et au modèle
 			setSize(500,500);
 		}
+
+		Grille.Controller getController(){
+			return this.controller;
+		}
  
 		public int getNbLines() {
 			return nbLines;
@@ -270,6 +274,10 @@ public class Grille {
 					square.addMouseListener(mouseAdapter);
 				}
 			}
+		}
+
+		void afficheMessage(String message, String titre){
+			JOptionPane.showMessageDialog(board, message, titre, JOptionPane.WARNING_MESSAGE);
 		}
  
 		/**

@@ -93,5 +93,6 @@ public class Joueurs {
             System.out.println("ordonnee de la deuxieme demi tuile :");
             this.positions[3] = scanner.nextInt();
         }
+        //TODO afficher version graphique
     }
 }

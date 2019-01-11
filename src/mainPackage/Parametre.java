@@ -9,6 +9,8 @@ public class Parametre {
 
     public Composant parametrage(Scanner scanner){
 
+        //TODO faire la version graphique
+
         System.out.println("Veuillez saisir le nombres de joueurs présent sur le terrain:");
         composant.setNombreJoueurs(scanner.nextInt());
         scanner.nextLine();
@@ -24,7 +26,7 @@ public class Parametre {
             }else{
                 composant.listJoueurs[i].setStatut("HUMAN");
             }
-            System.out.println("Veuillez saisir sa couleur : BLEU / ROUGE / VERT");
+            System.out.println("Veuillez saisir sa couleur : bleu / rouge / vert / jaune");
             composant.listJoueurs[i].setCouleur(scanner.nextLine());
         }
 
