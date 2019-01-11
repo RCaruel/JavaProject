@@ -146,6 +146,8 @@ class Jouer {
 
     	    System.out.print("]");
 
+			//TODO afficher version graphique
+
 			joueurs.ChoixTuile(convertisseur(listedominos), composant, scanner);
 
     		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
@@ -157,6 +159,7 @@ class Jouer {
 
     		if (choixtuile[indicetuile] == listedominos.get(indicetuile)) {
     			System.out.print("Cette tuile a déja été choisie ! >Choisissez une autre tuile");
+				new Grille.GameBoard(3,3).getController().afficheMessage("Cette tuile a déja été choisie !\n -> Choisissez une autre tuile", "Erreur de choix");
     		} else {
     			choixtuile[indicetuile] = listedominos.get(indicetuile);
     			bool =  false;
@@ -177,7 +180,10 @@ class Jouer {
     private static void choixduplacement(int i, Scanner scanner, Composant composant) {
 
 		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
-		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner); 
+
+		new Grille.GameBoard(3,3).getController().afficheMessage("C'est au tour de " + getJoueur(composant.getListJoueurs(), roi.get(i)).getPseudo() + "De jouer", "A qui le tour ?");
+
+		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
 
 		for (int j = 0; j < roi.size(); j++) {
 			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {
@@ -197,9 +203,10 @@ class Jouer {
 	   		System.out.print("]");
 	   		System.out.println(" ");
     		System.out.println(" ");
-	    	}
-	    	System.out.println();
-	    	System.out.println();
+    	}
+    	System.out.println();
+    	System.out.println();
+		//TODO afficher version graphique
     }
 
     private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur){
@@ -238,12 +245,9 @@ class Jouer {
 
 		    			bo = false;
 		    		} catch (ArrayIndexOutOfBoundsException e) {
-						System.out.println(composant.getListJoueurs()[0].getChoixTuile());
-						System.out.println(composant.getListJoueurs()[1].getChoixTuile());
 		    			System.out.println("Attention il faut choisir l'indice de la tuile !");
 		    			System.out.println("Les indices commencent à 0 !");
-		    			String[] args =new String[]{};
-		    			Main.main(args);
+						new Grille.GameBoard(3,3).getController().afficheMessage("Attention, vous avez mal placé votre pion.\n Veuillez recommencer", "Erreur de placement");
 		    		}
 	    		}
 	    	}
@@ -251,6 +255,7 @@ class Jouer {
 			for (String aNewroi : newroi) {
 				System.out.println(aNewroi);
 			}
+			//TODO afficher version graphique
 	    	
 	    	//on redéfinie l'ordre de jeux en fonction du placement
 	    	for (int i = 0; i < roi.size(); i++) {
@@ -268,6 +273,7 @@ class Jouer {
 	    				boo = false;
 	    			} catch (ArrayIndexOutOfBoundsException e) {
 	    				System.out.println("La tuile doit étre placé dans la plateau de taille 5*5 !");
+						new Grille.GameBoard(3,3).getController().afficheMessage("Attention, vous ne pouvez pas placer votre tuile ici.", "Erreur de placement");
 	    			}
 	    		}
 	    	}
@@ -294,8 +300,11 @@ class Jouer {
     			max = score;
     			winner = i;
 			}
+			System.out.println("Le joueur " + composant.getListJoueurs()[i].getPseudo() + "a un score total de " + score);
 		}
-		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + max);
+		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + composant.getListJoueurs()[winner].getScore());
+		new Grille.GameBoard(3,3).getController().afficheMessage("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() +
+				" avec un score de " + composant.getListJoueurs()[winner].getScore(), "Fin de la partie.");
     }
 
 	static int calculScore(Joueurs joueurs, Composant composant){

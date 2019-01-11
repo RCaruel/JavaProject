@@ -271,6 +271,10 @@ public class Grille {
 				}
 			}
 		}
+
+		void afficheMessage(String message, String titre){
+			JOptionPane.showMessageDialog(board, message, titre, JOptionPane.WARNING_MESSAGE);
+		}
  
 		/**
                  * Cette méthode ne teste pas si la pièce à le droit de se trouver dans cette case

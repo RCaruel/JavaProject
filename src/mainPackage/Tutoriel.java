@@ -7,6 +7,7 @@ public class Tutoriel {
 
     public static void play(Scanner scanner){
         byte choix = 0;
+        //TODO afficher version graphique
         System.out.println("//--------------------------------------------------------------//\n" +
                 "//--------------------------------------------------------------//\n");
         do {
