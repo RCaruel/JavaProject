@@ -4,15 +4,20 @@
     <list default="true" id="2e170d87-ac1c-40e5-ae6d-bfd0d7f66025" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/IA.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/CalcScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/CalcScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Chateau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Chateau.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Composant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Composant.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Database.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Initialisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Initialisation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Jouer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Jouer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Joueurs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Joueurs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Parametre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Parametre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Tutoriel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaProject/mainPackage/Tutoriel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainPackage/PlateauGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainPackage/PlateauGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainPackage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainPackage/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,21 +29,18 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/JavaProject$Main.ic" NAME="Main Coverage Results" MODIFIED="1545500703851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
-<<<<<<< HEAD
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-=======
   <component name="FUSProjectUsageTrigger">
     <session id="970651552">
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1255" />
+          <entry key="JAVA" value="2098" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="2" />
-          <entry key="JAVA" value="25" />
+          <entry key="JAVA" value="39" />
+          <entry key="UML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -58,75 +60,321 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainPackage/Main.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1054">
+              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+              <folding>
+                <element signature="e#881#882#0" expanded="true" />
+                <element signature="e#922#923#0" expanded="true" />
+                <element signature="e#1179#1180#0" expanded="true" />
+                <element signature="e#1217#1218#0" expanded="true" />
+                <element signature="e#1249#1250#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/mainPackage">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>mainPackage</OriginalElement>
+              <nodes>
+                <node x="0.0" y="178.0">mainPackage.ControlButton</node>
+                <node x="225.75" y="465.0">mainPackage.Main_bis</node>
+                <node x="590.1619174265452" y="366.0">mainPackage.Parametre</node>
+                <node x="567.7378419452889" y="0.0">mainPackage.Composant</node>
+                <node x="298.0" y="539.0">mainPackage.Menu</node>
+                <node x="247.0" y="366.0">mainPackage.Controleur</node>
+                <node x="206.25310283687958" y="99.0">mainPackage.PlateauGraphic</node>
+                <node x="422.0" y="539.0">mainPackage.Grille</node>
+                <node x="144.0" y="178.0">mainPackage.PlateauJeuGraphic</node>
+                <node x="540.6619174265452" y="287.0">mainPackage.Joueurs</node>
+                <node x="591.9166666666667" y="465.0">mainPackage.Main</node>
+                <node x="157.0" y="539.0">mainPackage.Database</node>
+                <node x="0.0" y="539.0">mainPackage.Initialisation</node>
+                <node x="462.096441236069" y="366.0">mainPackage.Jouer</node>
+                <node x="256.0" y="287.0">mainPackage.Fenetre</node>
+                <node x="319.6666666666667" y="178.0">mainPackage.ControlMenu</node>
+                <node x="459.6666666666667" y="99.0">mainPackage.CalcScore</node>
+                <node x="713.5547745694023" y="366.0">mainPackage.Tutoriel</node>
+                <node x="527.4166666666667" y="178.0">mainPackage.ia</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="mainPackage.Jouer" target="mainPackage.CalcScore">
+                  <point x="0.0" y="-14.5" />
+                  <point x="500.096441236069" y="346.0" />
+                  <point x="486.81807244174274" y="346.0" />
+                  <point x="486.81807244174274" y="153.0" />
+                  <point x="476.33333333333337" y="153.0" />
+                  <point x="-33.333333333333336" y="14.5" />
+                </edge>
+                <edge source="mainPackage.ia" target="mainPackage.Joueurs">
+                  <point x="14.25" y="14.5" />
+                  <point x="570.1666666666667" y="267.0" />
+                  <point x="572.0904888551166" y="267.0" />
+                  <point x="-12.571428571428584" y="-14.5" />
+                </edge>
+                <edge source="mainPackage.Parametre" target="mainPackage.Composant">
+                  <point x="12.750000000000014" y="-14.5" />
+                  <point x="653.9119174265452" y="346.0" />
+                  <point x="662.0759245187437" y="346.0" />
+                  <point x="662.0759245187437" y="69.0" />
+                  <point x="652.7378419452889" y="69.0" />
+                  <point x="30.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Fenetre" target="mainPackage.ControlMenu">
+                  <point x="19.33333333333337" y="-14.5" />
+                  <point x="318.83333333333337" y="247.0" />
+                  <point x="334.5416666666667" y="247.0" />
+                  <point x="-44.625" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Parametre" target="mainPackage.Joueurs">
+                  <point x="-38.25" y="-14.5" />
+                  <point x="602.9119174265452" y="346.0" />
+                  <point x="606.6619174265452" y="346.0" />
+                  <point x="22.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Main" target="mainPackage.Controleur">
+                  <point x="-32.14285714285717" y="-14.5" />
+                  <point x="597.2738095238095" y="445.0" />
+                  <point x="312.625" y="445.0" />
+                  <point x="13.125" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Composant" target="mainPackage.Joueurs">
+                  <point x="10.0" y="14.5" />
+                  <point x="633.6666666666667" y="267.0" />
+                  <point x="622.3762031408309" y="267.0" />
+                  <point x="37.71428571428572" y="-14.5" />
+                </edge>
+                <edge source="mainPackage.ia" target="mainPackage.CalcScore">
+                  <point x="-14.25" y="-14.5" />
+                  <point x="541.6666666666667" y="153.0" />
+                  <point x="543.0" y="153.0" />
+                  <point x="33.33333333333334" y="14.5" />
+                </edge>
+                <edge source="mainPackage.ia" target="mainPackage.Composant">
+                  <point x="14.25" y="-14.5" />
+                  <point x="570.1666666666667" y="69.0" />
+                  <point x="592.7378419452889" y="69.0" />
+                  <point x="-30.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Fenetre" target="mainPackage.PlateauGraphic">
+                  <point x="0.0" y="-14.5" />
+                  <point x="299.5" y="153.0" />
+                  <point x="270.2531028368796" y="153.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Main" target="mainPackage.Jouer">
+                  <point x="-10.714285714285722" y="-14.5" />
+                  <point x="618.702380952381" y="425.0" />
+                  <point x="500.096441236069" y="425.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Fenetre" target="mainPackage.PlateauJeuGraphic">
+                  <point x="-9.666666666666629" y="-14.5" />
+                  <point x="289.83333333333337" y="227.0" />
+                  <point x="216.5" y="227.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Joueurs" target="mainPackage.ia">
+                  <point x="-25.142857142857167" y="-14.5" />
+                  <point x="559.519060283688" y="257.0" />
+                  <point x="541.6666666666667" y="257.0" />
+                  <point x="-14.25" y="14.5" />
+                </edge>
+                <edge source="mainPackage.ControlButton" target="mainPackage.PlateauGraphic">
+                  <point x="0.0" y="-14.5" />
+                  <point x="62.0" y="153.0" />
+                  <point x="227.5864361702129" y="153.0" />
+                  <point x="-42.666666666666686" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Controleur" target="mainPackage.Fenetre">
+                  <point x="13.125" y="-14.5" />
+                  <point x="312.625" y="346.0" />
+                  <point x="321.25" y="346.0" />
+                  <point x="21.75" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Controleur" target="mainPackage.ControlMenu">
+                  <point x="39.375" y="-14.5" />
+                  <point x="338.875" y="346.0" />
+                  <point x="418.2322695035462" y="346.0" />
+                  <point x="418.2322695035462" y="267.0" />
+                  <point x="423.7916666666667" y="267.0" />
+                  <point x="44.625" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Main" target="mainPackage.Parametre">
+                  <point x="10.714285714285722" y="-14.5" />
+                  <point x="640.1309523809524" y="425.0" />
+                  <point x="666.6619174265452" y="425.0" />
+                  <point x="25.5" y="14.5" />
+                </edge>
+                <edge source="mainPackage.ControlButton" target="mainPackage.Fenetre">
+                  <point x="46.5" y="14.5" />
+                  <point x="108.5" y="237.0" />
+                  <point x="280.1666666666667" y="237.0" />
+                  <point x="-19.333333333333314" y="-14.5" />
+                </edge>
+                <edge source="mainPackage.Joueurs" target="mainPackage.Composant">
+                  <point x="-1.4210854715202004E-14" y="-14.5" />
+                  <point x="584.6619174265452" y="237.0" />
+                  <point x="594.9166666666667" y="237.0" />
+                  <point x="594.9166666666667" y="79.0" />
+                  <point x="602.7378419452889" y="79.0" />
+                  <point x="-20.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Main_bis" target="mainPackage.Controleur">
+                  <point x="-23.75" y="-14.5" />
+                  <point x="249.5" y="445.0" />
+                  <point x="260.125" y="445.0" />
+                  <point x="-39.375" y="14.5" />
+                </edge>
+                <edge source="mainPackage.CalcScore" target="mainPackage.Composant">
+                  <point x="0.0" y="-14.5" />
+                  <point x="509.6666666666667" y="59.0" />
+                  <point x="582.7378419452889" y="59.0" />
+                  <point x="-40.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.ControlMenu" target="mainPackage.Fenetre">
+                  <point x="14.875" y="14.5" />
+                  <point x="394.0416666666667" y="267.0" />
+                  <point x="338.16666666666663" y="267.0" />
+                  <point x="38.66666666666663" y="-14.5" />
+                </edge>
+                <edge source="mainPackage.Jouer" target="mainPackage.Composant">
+                  <point x="-25.333333333333314" y="-14.5" />
+                  <point x="474.76310790273567" y="346.0" />
+                  <point x="449.1666666666667" y="346.0" />
+                  <point x="449.1666666666667" y="49.0" />
+                  <point x="572.7378419452889" y="49.0" />
+                  <point x="-50.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Fenetre" target="mainPackage.ControlButton">
+                  <point x="-38.66666666666663" y="-14.5" />
+                  <point x="260.83333333333337" y="257.0" />
+                  <point x="46.5" y="257.0" />
+                  <point x="-15.5" y="14.5" />
+                </edge>
+                <edge source="mainPackage.CalcScore" target="mainPackage.Joueurs">
+                  <point x="0.0" y="14.5" />
+                  <point x="509.6666666666667" y="153.0" />
+                  <point x="498.50000000000006" y="153.0" />
+                  <point x="498.50000000000006" y="267.0" />
+                  <point x="546.9476317122594" y="267.0" />
+                  <point x="-37.71428571428574" y="-14.5" />
+                </edge>
+                <edge source="mainPackage.Main" target="mainPackage.Tutoriel">
+                  <point x="32.14285714285714" y="-14.5" />
+                  <point x="661.5595238095239" y="445.0" />
+                  <point x="758.0547745694023" y="445.0" />
+                  <point x="0.0" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Main" target="mainPackage.Composant">
+                  <point x="21.428571428571416" y="-14.5" />
+                  <point x="650.8452380952381" y="435.0" />
+                  <point x="703.0547745694023" y="435.0" />
+                  <point x="703.0547745694023" y="49.0" />
+                  <point x="672.7378419452889" y="49.0" />
+                  <point x="49.999999999999986" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Controleur" target="mainPackage.ControlButton">
+                  <point x="-39.375" y="-14.5" />
+                  <point x="260.125" y="346.0" />
+                  <point x="41.901405775076" y="346.0" />
+                  <point x="41.901405775076" y="267.0" />
+                  <point x="15.5" y="267.0" />
+                  <point x="-46.5" y="14.5" />
+                </edge>
+                <edge source="mainPackage.Jouer" target="mainPackage.Joueurs">
+                  <point x="25.333333333333343" y="-14.5" />
+                  <point x="525.4297745694023" y="346.0" />
+                  <point x="562.6619174265452" y="346.0" />
+                  <point x="-22.0" y="14.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.1" x="102.18181818181816" y="198.18181818181816" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mainPackage/Fenetre.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mainPackage/Controleur.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mainPackage/Joueurs.java">
+        <entry file="file://$PROJECT_DIR$/src/mainPackage/Grille.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-782">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="405">
+              <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
               <folding>
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#401#402#0" expanded="true" />
-                <element signature="e#428#429#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#416#417#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#1134#1135#0" expanded="true" />
-                <element signature="e#1160#1161#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-                <element signature="e#1237#1238#0" expanded="true" />
-                <element signature="e#1274#1275#0" expanded="true" />
-                <element signature="e#1310#1311#0" expanded="true" />
-                <element signature="e#1355#1356#0" expanded="true" />
-                <element signature="e#1399#1400#0" expanded="true" />
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1464#1465#0" expanded="true" />
-                <element signature="e#1600#1601#0" expanded="true" />
-                <element signature="e#1636#1637#0" expanded="true" />
-                <element signature="e#1666#1667#0" expanded="true" />
-                <element signature="e#1700#1701#0" expanded="true" />
-                <element signature="e#1703#1704#0" expanded="true" />
-                <element signature="e#1735#1736#0" expanded="true" />
+                <element signature="e#2107#2108#0" expanded="true" />
+                <element signature="e#2137#2138#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#2120#2121#0" expanded="true" />
+                <element signature="e#2152#2153#0" expanded="true" />
+                <element signature="e#2177#2178#0" expanded="true" />
+                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="e#2288#2289#0" expanded="true" />
+                <element signature="e#2340#2341#0" expanded="true" />
+                <element signature="e#2390#2391#0" expanded="true" />
+                <element signature="e#3881#3882#0" expanded="true" />
+                <element signature="e#3901#3902#0" expanded="true" />
+                <element signature="e#3933#3934#0" expanded="true" />
+                <element signature="e#3955#3956#0" expanded="true" />
+                <element signature="e#3989#3990#0" expanded="true" />
+                <element signature="e#4031#4032#0" expanded="true" />
+                <element signature="e#4112#4113#0" expanded="true" />
+                <element signature="e#4149#4150#0" expanded="true" />
+                <element signature="e#4726#4727#0" expanded="true" />
+                <element signature="e#4746#4747#0" expanded="true" />
+                <element signature="e#4775#4776#0" expanded="true" />
+                <element signature="e#4797#4798#0" expanded="true" />
+                <element signature="e#5010#5011#0" expanded="true" />
+                <element signature="e#5031#5032#0" expanded="true" />
+                <element signature="e#5062#5063#0" expanded="true" />
+                <element signature="e#5089#5090#0" expanded="true" />
+                <element signature="e#5139#5140#0" expanded="true" />
+                <element signature="e#5194#5195#0" expanded="true" />
+                <element signature="e#5845#7012#0" expanded="true" />
+                <element signature="e#7011#7012#0" expanded="true" />
+                <element signature="e#7984#7985#0" expanded="true" />
+                <element signature="e#8012#8013#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mainPackage/Composant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#494#495#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mainPackage/Main_bis.java">
+        <entry file="file://$PROJECT_DIR$/src/mainPackage/Jouer.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="132">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-=======
-            <state relative-caret-position="357">
-              <caret line="292" column="37" selection-start-line="292" selection-start-column="37" selection-end-line="292" selection-end-column="37" />
+            <state relative-caret-position="68">
+              <caret line="161" column="48" selection-start-line="161" selection-start-column="48" selection-end-line="161" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#choixdetuile#0;class#Jouer#0" />
+                <element signature="method#debutjeux#0;class#Jouer#0" />
                 <element signature="method#convertisseur#0;class#Jouer#0" />
               </folding>
             </state>
@@ -134,41 +382,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ressources/dominos.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="370">
-              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mainPackage/ia.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mainPackage/CalcScore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainPackage/Parametre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+            <state relative-caret-position="187">
+              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -176,10 +393,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mainPackage/Tutoriel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            <state relative-caret-position="153">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mainPackage/ia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="90" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
+              <folding>
+                <element signature="method#choixtuileia#0;class#ia#0" />
+                <element signature="method#calculscorepot#0;class#ia#0" />
               </folding>
             </state>
           </provider>
@@ -209,7 +439,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/mainPackage/Tutoriel.java" />
         <option value="$PROJECT_DIR$/src/mainPackage/Database.java" />
         <option value="$PROJECT_DIR$/src/ressources/dominos.csv" />
         <option value="$PROJECT_DIR$/src/Panneau.java" />
@@ -218,17 +447,27 @@
         <option value="$PROJECT_DIR$/src/mainPackage/Fenetre.java" />
         <option value="$PROJECT_DIR$/src/mainPackage/Main.java" />
         <option value="$PROJECT_DIR$/src/mainPackage/MoveComponents.java" />
-        <option value="$PROJECT_DIR$/src/mainPackage/Parametre.java" />
         <option value="$PROJECT_DIR$/src/mainPackage/ia.java" />
         <option value="$PROJECT_DIR$/src/mainPackage/CalcScore.java" />
-        <option value="$PROJECT_DIR$/src/mainPackage/Jouer.java" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/mainPackage/PlateauGraphic.java" />
-=======
         <option value="$PROJECT_DIR$/src/mainPackage/Joueurs.java" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+        <option value="$PROJECT_DIR$/src/mainPackage/Tutoriel.java" />
+        <option value="$PROJECT_DIR$/src/mainPackage/Parametre.java" />
+        <option value="$PROJECT_DIR$/src/mainPackage/Jouer.java" />
+        <option value="$PROJECT_DIR$/src/mainPackage/Grille.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
@@ -241,8 +480,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,17 +508,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="1&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546963946918" />
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547112276893" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547208465648" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -306,7 +541,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main_bis">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="mainPackage.Main" />
       <module name="JavaProject" />
@@ -317,22 +552,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main_bis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mainPackage.Main_bis" />
-      <module name="JavaProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mainPackage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_bis" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -373,16 +594,11 @@
       <workItem from="1546106178289" duration="14313000" />
       <workItem from="1546635943036" duration="978000" />
       <workItem from="1546863362357" duration="7098000" />
-      <workItem from="1546961609738" duration="2350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="182633000" />
-=======
-    <option name="totallyTimeSpent" value="181463000" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+    <option name="totallyTimeSpent" value="195017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,9 +610,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="884" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15298508" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.03084833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -407,14 +624,10 @@
       <window_info anchor="bottom" id="Messages" order="1" weight="0.372" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.37733334" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Run" order="4" weight="0.22426869" />
-=======
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.006666667" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.033333335" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32933334" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.10666667" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.18933333" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32933334" />
@@ -428,24 +641,49 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.059125964" />
+      <window_info anchor="right" id="Database" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25835475" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.32827735" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.37733334" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.050666668" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.404" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32933334" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18933333" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32933334" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mainPackage/Jouer.java</url>
-          <line>265</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="choixtuile[indicetuile]" language="JAVA" />
@@ -467,25 +705,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/IdeaProjects/untitled/src/mainPackage/Main.java" />
-    <entry file="file://$USER_HOME$/IdeaProjects/untitled/untitled.iml" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/JComponent.java" />
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Chateau.java">
-=======
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Chateau.java" />
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Menu.java">
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="459">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/../Domi-Nations/Fenetre.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" />
-=======
+    <entry file="file://$USER_HOME$/IdeaProjects/untitled/src/mainPackage/Main.java" />
+    <entry file="file://$USER_HOME$/IdeaProjects/untitled/untitled.iml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/JComponent.java" />
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Chateau.java" />
     <entry file="file://$PROJECT_DIR$/../Domi-Nations/Fenetre.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -500,190 +730,69 @@
         </state>
       </provider>
     </entry>
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Panneau.java" />
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Fenetre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4627#4628#0" expanded="true" />
-            <element signature="e#4662#4663#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4730#4731#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Plateau.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Sprite.java">
-=======
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Plateau.java" />
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Sprite.java" />
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Tutoriel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Main_bis.java">
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/CalcScore.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Objects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+        <state relative-caret-position="153">
+          <caret line="371" selection-start-line="371" selection-end-line="371" />
+          <folding>
+            <element signature="e#13945#13946#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Objects.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/ArrayList.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/StringLatin1.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/String.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="458" selection-start-line="458" selection-end-line="458" />
+          <folding>
+            <element signature="e#16106#16107#0" expanded="true" />
+            <element signature="e#16151#16152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/StringLatin1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="1008" selection-start-line="1008" selection-end-line="1008" />
+          <folding>
+            <element signature="e#129105#129106#0" expanded="true" />
+            <element signature="e#129159#129160#0" expanded="true" />
+            <element signature="e#129243#129244#0" expanded="true" />
+            <element signature="e#129300#129301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="248" selection-start-line="248" selection-end-line="248" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/MoveComponents.java" />
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Initialisation.java">
-=======
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/util/Objects.java">
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/MoveComponents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Joueurs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding>
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Composant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Jouer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ressources/dominos.csv">
-=======
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/MoveComponents.java" />
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Initialisation.java">
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/ia.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="204">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Controleur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-=======
-        <state relative-caret-position="119">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Parametre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/PlateauGraphic.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="173">
-          <caret line="79" column="29" lean-forward="true" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-=======
-        <state relative-caret-position="204">
-          <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -699,27 +808,59 @@
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="370">
           <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/CalcScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1483">
+          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/ControlButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/ControlMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mainPackage/PlateauJeuGraphic.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="470">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="136">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Tutoriel.java">
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/PlateauGraphic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="32" />
+        <state relative-caret-position="-704">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Composant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
-=======
-        <state relative-caret-position="-782">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <element signature="e#605#606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Joueurs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
           <folding>
             <element signature="e#323#324#0" expanded="true" />
             <element signature="e#353#354#0" expanded="true" />
@@ -749,43 +890,371 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/CalcScore.java">
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/ia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+        <state relative-caret-position="68">
+          <caret line="4" column="90" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
+          <folding>
+            <element signature="method#choixtuileia#0;class#ia#0" />
+            <element signature="method#calculscorepot#0;class#ia#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Fenetre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MODULES/mdl-JavaProject">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-JavaProject</OriginalElement>
+          <nodes>
+            <node x="8.0" y="40.0">mdl-JavaProject</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-362.0" y="104.0" />
+          <SelectedNodes>
+            <node>mdl-JavaProject</node>
+          </SelectedNodes>
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/mainPackage">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>mainPackage</OriginalElement>
+          <nodes>
+            <node x="0.0" y="178.0">mainPackage.ControlButton</node>
+            <node x="225.75" y="465.0">mainPackage.Main_bis</node>
+            <node x="590.1619174265452" y="366.0">mainPackage.Parametre</node>
+            <node x="567.7378419452889" y="0.0">mainPackage.Composant</node>
+            <node x="298.0" y="539.0">mainPackage.Menu</node>
+            <node x="247.0" y="366.0">mainPackage.Controleur</node>
+            <node x="206.25310283687958" y="99.0">mainPackage.PlateauGraphic</node>
+            <node x="422.0" y="539.0">mainPackage.Grille</node>
+            <node x="144.0" y="178.0">mainPackage.PlateauJeuGraphic</node>
+            <node x="540.6619174265452" y="287.0">mainPackage.Joueurs</node>
+            <node x="591.9166666666667" y="465.0">mainPackage.Main</node>
+            <node x="157.0" y="539.0">mainPackage.Database</node>
+            <node x="0.0" y="539.0">mainPackage.Initialisation</node>
+            <node x="462.096441236069" y="366.0">mainPackage.Jouer</node>
+            <node x="256.0" y="287.0">mainPackage.Fenetre</node>
+            <node x="319.6666666666667" y="178.0">mainPackage.ControlMenu</node>
+            <node x="459.6666666666667" y="99.0">mainPackage.CalcScore</node>
+            <node x="713.5547745694023" y="366.0">mainPackage.Tutoriel</node>
+            <node x="527.4166666666667" y="178.0">mainPackage.ia</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="mainPackage.Jouer" target="mainPackage.CalcScore">
+              <point x="0.0" y="-14.5" />
+              <point x="500.096441236069" y="346.0" />
+              <point x="486.81807244174274" y="346.0" />
+              <point x="486.81807244174274" y="153.0" />
+              <point x="476.33333333333337" y="153.0" />
+              <point x="-33.333333333333336" y="14.5" />
+            </edge>
+            <edge source="mainPackage.ia" target="mainPackage.Joueurs">
+              <point x="14.25" y="14.5" />
+              <point x="570.1666666666667" y="267.0" />
+              <point x="572.0904888551166" y="267.0" />
+              <point x="-12.571428571428584" y="-14.5" />
+            </edge>
+            <edge source="mainPackage.Parametre" target="mainPackage.Composant">
+              <point x="12.750000000000014" y="-14.5" />
+              <point x="653.9119174265452" y="346.0" />
+              <point x="662.0759245187437" y="346.0" />
+              <point x="662.0759245187437" y="69.0" />
+              <point x="652.7378419452889" y="69.0" />
+              <point x="30.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Fenetre" target="mainPackage.ControlMenu">
+              <point x="19.33333333333337" y="-14.5" />
+              <point x="318.83333333333337" y="247.0" />
+              <point x="334.5416666666667" y="247.0" />
+              <point x="-44.625" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Parametre" target="mainPackage.Joueurs">
+              <point x="-38.25" y="-14.5" />
+              <point x="602.9119174265452" y="346.0" />
+              <point x="606.6619174265452" y="346.0" />
+              <point x="22.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Main" target="mainPackage.Controleur">
+              <point x="-32.14285714285717" y="-14.5" />
+              <point x="597.2738095238095" y="445.0" />
+              <point x="312.625" y="445.0" />
+              <point x="13.125" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Composant" target="mainPackage.Joueurs">
+              <point x="10.0" y="14.5" />
+              <point x="633.6666666666667" y="267.0" />
+              <point x="622.3762031408309" y="267.0" />
+              <point x="37.71428571428572" y="-14.5" />
+            </edge>
+            <edge source="mainPackage.ia" target="mainPackage.CalcScore">
+              <point x="-14.25" y="-14.5" />
+              <point x="541.6666666666667" y="153.0" />
+              <point x="543.0" y="153.0" />
+              <point x="33.33333333333334" y="14.5" />
+            </edge>
+            <edge source="mainPackage.ia" target="mainPackage.Composant">
+              <point x="14.25" y="-14.5" />
+              <point x="570.1666666666667" y="69.0" />
+              <point x="592.7378419452889" y="69.0" />
+              <point x="-30.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Fenetre" target="mainPackage.PlateauGraphic">
+              <point x="0.0" y="-14.5" />
+              <point x="299.5" y="153.0" />
+              <point x="270.2531028368796" y="153.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Main" target="mainPackage.Jouer">
+              <point x="-10.714285714285722" y="-14.5" />
+              <point x="618.702380952381" y="425.0" />
+              <point x="500.096441236069" y="425.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Fenetre" target="mainPackage.PlateauJeuGraphic">
+              <point x="-9.666666666666629" y="-14.5" />
+              <point x="289.83333333333337" y="227.0" />
+              <point x="216.5" y="227.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Joueurs" target="mainPackage.ia">
+              <point x="-25.142857142857167" y="-14.5" />
+              <point x="559.519060283688" y="257.0" />
+              <point x="541.6666666666667" y="257.0" />
+              <point x="-14.25" y="14.5" />
+            </edge>
+            <edge source="mainPackage.ControlButton" target="mainPackage.PlateauGraphic">
+              <point x="0.0" y="-14.5" />
+              <point x="62.0" y="153.0" />
+              <point x="227.5864361702129" y="153.0" />
+              <point x="-42.666666666666686" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Controleur" target="mainPackage.Fenetre">
+              <point x="13.125" y="-14.5" />
+              <point x="312.625" y="346.0" />
+              <point x="321.25" y="346.0" />
+              <point x="21.75" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Controleur" target="mainPackage.ControlMenu">
+              <point x="39.375" y="-14.5" />
+              <point x="338.875" y="346.0" />
+              <point x="418.2322695035462" y="346.0" />
+              <point x="418.2322695035462" y="267.0" />
+              <point x="423.7916666666667" y="267.0" />
+              <point x="44.625" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Main" target="mainPackage.Parametre">
+              <point x="10.714285714285722" y="-14.5" />
+              <point x="640.1309523809524" y="425.0" />
+              <point x="666.6619174265452" y="425.0" />
+              <point x="25.5" y="14.5" />
+            </edge>
+            <edge source="mainPackage.ControlButton" target="mainPackage.Fenetre">
+              <point x="46.5" y="14.5" />
+              <point x="108.5" y="237.0" />
+              <point x="280.1666666666667" y="237.0" />
+              <point x="-19.333333333333314" y="-14.5" />
+            </edge>
+            <edge source="mainPackage.Joueurs" target="mainPackage.Composant">
+              <point x="-1.4210854715202004E-14" y="-14.5" />
+              <point x="584.6619174265452" y="237.0" />
+              <point x="594.9166666666667" y="237.0" />
+              <point x="594.9166666666667" y="79.0" />
+              <point x="602.7378419452889" y="79.0" />
+              <point x="-20.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Main_bis" target="mainPackage.Controleur">
+              <point x="-23.75" y="-14.5" />
+              <point x="249.5" y="445.0" />
+              <point x="260.125" y="445.0" />
+              <point x="-39.375" y="14.5" />
+            </edge>
+            <edge source="mainPackage.CalcScore" target="mainPackage.Composant">
+              <point x="0.0" y="-14.5" />
+              <point x="509.6666666666667" y="59.0" />
+              <point x="582.7378419452889" y="59.0" />
+              <point x="-40.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.ControlMenu" target="mainPackage.Fenetre">
+              <point x="14.875" y="14.5" />
+              <point x="394.0416666666667" y="267.0" />
+              <point x="338.16666666666663" y="267.0" />
+              <point x="38.66666666666663" y="-14.5" />
+            </edge>
+            <edge source="mainPackage.Jouer" target="mainPackage.Composant">
+              <point x="-25.333333333333314" y="-14.5" />
+              <point x="474.76310790273567" y="346.0" />
+              <point x="449.1666666666667" y="346.0" />
+              <point x="449.1666666666667" y="49.0" />
+              <point x="572.7378419452889" y="49.0" />
+              <point x="-50.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Fenetre" target="mainPackage.ControlButton">
+              <point x="-38.66666666666663" y="-14.5" />
+              <point x="260.83333333333337" y="257.0" />
+              <point x="46.5" y="257.0" />
+              <point x="-15.5" y="14.5" />
+            </edge>
+            <edge source="mainPackage.CalcScore" target="mainPackage.Joueurs">
+              <point x="0.0" y="14.5" />
+              <point x="509.6666666666667" y="153.0" />
+              <point x="498.50000000000006" y="153.0" />
+              <point x="498.50000000000006" y="267.0" />
+              <point x="546.9476317122594" y="267.0" />
+              <point x="-37.71428571428574" y="-14.5" />
+            </edge>
+            <edge source="mainPackage.Main" target="mainPackage.Tutoriel">
+              <point x="32.14285714285714" y="-14.5" />
+              <point x="661.5595238095239" y="445.0" />
+              <point x="758.0547745694023" y="445.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Main" target="mainPackage.Composant">
+              <point x="21.428571428571416" y="-14.5" />
+              <point x="650.8452380952381" y="435.0" />
+              <point x="703.0547745694023" y="435.0" />
+              <point x="703.0547745694023" y="49.0" />
+              <point x="672.7378419452889" y="49.0" />
+              <point x="49.999999999999986" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Controleur" target="mainPackage.ControlButton">
+              <point x="-39.375" y="-14.5" />
+              <point x="260.125" y="346.0" />
+              <point x="41.901405775076" y="346.0" />
+              <point x="41.901405775076" y="267.0" />
+              <point x="15.5" y="267.0" />
+              <point x="-46.5" y="14.5" />
+            </edge>
+            <edge source="mainPackage.Jouer" target="mainPackage.Joueurs">
+              <point x="25.333333333333343" y="-14.5" />
+              <point x="525.4297745694023" y="346.0" />
+              <point x="562.6619174265452" y="346.0" />
+              <point x="-22.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1" x="102.18181818181816" y="198.18181818181816" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+          <folding>
+            <element signature="e#881#882#0" expanded="true" />
+            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#1249#1250#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Controleur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Grille.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+          <folding>
+            <element signature="e#2107#2108#0" expanded="true" />
+            <element signature="e#2137#2138#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2120#2121#0" expanded="true" />
+            <element signature="e#2152#2153#0" expanded="true" />
+            <element signature="e#2177#2178#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#2288#2289#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
+            <element signature="e#2390#2391#0" expanded="true" />
+            <element signature="e#3881#3882#0" expanded="true" />
+            <element signature="e#3901#3902#0" expanded="true" />
+            <element signature="e#3933#3934#0" expanded="true" />
+            <element signature="e#3955#3956#0" expanded="true" />
+            <element signature="e#3989#3990#0" expanded="true" />
+            <element signature="e#4031#4032#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
+            <element signature="e#4149#4150#0" expanded="true" />
+            <element signature="e#4726#4727#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#4775#4776#0" expanded="true" />
+            <element signature="e#4797#4798#0" expanded="true" />
+            <element signature="e#5010#5011#0" expanded="true" />
+            <element signature="e#5031#5032#0" expanded="true" />
+            <element signature="e#5062#5063#0" expanded="true" />
+            <element signature="e#5089#5090#0" expanded="true" />
+            <element signature="e#5139#5140#0" expanded="true" />
+            <element signature="e#5194#5195#0" expanded="true" />
+            <element signature="e#5845#7012#0" expanded="true" />
+            <element signature="e#7011#7012#0" expanded="true" />
+            <element signature="e#7984#7985#0" expanded="true" />
+            <element signature="e#8012#8013#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Parametre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainPackage/Tutoriel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mainPackage/Jouer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="292" column="37" selection-start-line="292" selection-start-column="37" selection-end-line="292" selection-end-column="37" />
+        <state relative-caret-position="68">
+          <caret line="161" column="48" selection-start-line="161" selection-start-column="48" selection-end-line="161" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#choixdetuile#0;class#Jouer#0" />
+            <element signature="method#debutjeux#0;class#Jouer#0" />
             <element signature="method#convertisseur#0;class#Jouer#0" />
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Grille.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="345" column="30" selection-start-line="345" selection-start-column="21" selection-end-line="345" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainPackage/Main_bis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> 1c2f2bbaecc2191eab0e6979f497a973e57e2a04
   </component>
   <component name="masterDetails">
     <states>
@@ -826,7 +1295,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
