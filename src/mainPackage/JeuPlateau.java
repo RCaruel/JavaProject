@@ -7,19 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
-import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class JeuPlateau extends JPanel{
 
     private Image imgBg;
-    private Image imgHeader;
     private JButton buttonLancePartie;
-    private Composant composant;
     private Image[][] imagesDominos = new Image[4][2];
     private String[] indexDominos = new String[4];
     private Image pion;
@@ -27,10 +22,8 @@ public class JeuPlateau extends JPanel{
     private int x;
     private int y;
     int i;
-    private String tuileChoisie;
 
-    JeuPlateau(Image img, Composant composant, ArrayList<Integer> listedominos, Joueurs joueurs, int x, int y, int i, Fenetre f) {
-        this.composant = composant;
+    JeuPlateau(Image img, final Composant composant, ArrayList<Integer> listedominos, Joueurs joueurs, int x, int y, int i, Fenetre f) {
         this.size = listedominos.size();
         imgBg = img;
         this.x = x;
@@ -70,6 +63,7 @@ public class JeuPlateau extends JPanel{
                 }
             });
         }
+
         soclePion.setSize(new Dimension(75,150));
         soclePion.setLocation(x, y);
         add(soclePion);
@@ -90,7 +84,7 @@ public class JeuPlateau extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (y != 600 || joueurs.getStatut().equals("IA")) {
-                    Jouer.choixdetuile(i, new Scanner(System.in), joueurs, composant, f, indexDominos[(x+37 - 180)/200]);
+                    Jouer.choixtuile(i, joueurs, composant, f, indexDominos[(x+37 - 180)/200]);
 
                 }
             }
@@ -106,7 +100,6 @@ public class JeuPlateau extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
 
         g2.drawImage(imgBg, 0, 0, null);
-        g2.drawImage(imgHeader, 200, 0, null);
 
         for (int i = 0; i < size; i++){
             g2.drawImage(imagesDominos[i][0], 100 + 200*i, 300, null);

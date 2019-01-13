@@ -25,7 +25,6 @@ public class Fenetre extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	Composant composant;
 	//* Composants graphiques
     //* Panel principal
     private JPanel fenetre, imagePlateau, imageMenu, imageParam, imageChoixTuiles, imagePlacementTuiles, imageVictoire;
@@ -43,7 +42,7 @@ public class Fenetre extends JFrame {
 
 
 
-    public Fenetre(){
+    public Fenetre(Composant composant){
         this.petiteFenetre = true;
         this.xFenetre = 1000; 
         this.yFenetre = 1000;
@@ -86,11 +85,12 @@ public class Fenetre extends JFrame {
     void switchFrame(int test, Joueurs joueurs, ArrayList<Integer> listedominos, Composant composant, int x1, int y1, int x2, int y2, int i){
         if (test == 1){
 
+            ImageIcon imageIcon =new ImageIcon( "parchemin.jpg");
             ImageIcon imgNull =new ImageIcon( "fond3.png");
-
+            ImageIcon imgTmp2 = new ImageIcon("header.jpg");
 
             // this.imagePlateau.add(image);
-            this.imageParam = new Param(resizePicture(imgNull, 1000,1000).getImage(), composant, this);
+            this.imageParam = new Param(resizePicture(imageIcon, 1000,1000).getImage(), composant, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
             //imagePlateau.add();
             //for(int i = 0; i < )
@@ -154,7 +154,7 @@ public class Fenetre extends JFrame {
 
             ImageIcon imgTmp2 = new ImageIcon("header.jpg");
 
-            this.imageVictoire = new PlateauVictory(resizePicture(imageIcon, 1000,1000).getImage(), joueurs);
+            this.imageVictoire = new PlateauVictory(resizePicture(imageIcon, 1000,1000).getImage(), joueurs, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
             this.imageVictoire.add(image);
@@ -188,14 +188,14 @@ public class Fenetre extends JFrame {
         this.newgameItem = new JMenuItem("Nouvelle partie");
         newgameItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		Controleur c = new Controleur(); //On relance la partie
+        		Controleur c = new Controleur();
         		
         	}
         });
         this.resizeItem = new JMenuItem("Afficher les règles");
         resizeItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		AffichageTuto aff = new AffichageTuto();//On affiche la JDialog qui affiche le tutoriel des regles 
+        		AffichageTuto aff = new AffichageTuto();
         		
         		
         	}
@@ -211,7 +211,7 @@ public class Fenetre extends JFrame {
         this.manualItem = new JMenuItem("Manuel d'utilisation");
         manualItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		Manuel manu = new Manuel();//On affiche la JDialog qui affiche le manuel d'utilisation
+        		Manuel manu = new Manuel();
         		
         	}
         });
@@ -247,10 +247,6 @@ public class Fenetre extends JFrame {
 
     public void setControlButton(ControlButton cb){
         ((PlateauGraphic)this.imageMenu).getButton().addActionListener(cb);
-    }
-
-    void setComposant(Composant composant){
-        this.composant = composant;
     }
     
     public JPanel getImagePlateau() {

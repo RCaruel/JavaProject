@@ -44,7 +44,7 @@ public class Param extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 if (verif(j)) {
                     Parametre parametre = new Parametre();
-                    parametre.param(composant, j, f);
+                    parametre.parametre(composant, j, f);
                 }
             }
         });

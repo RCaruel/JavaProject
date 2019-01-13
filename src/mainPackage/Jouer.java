@@ -7,7 +7,6 @@ package mainPackage;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Collections;
 
 class Jouer {
@@ -23,7 +22,7 @@ class Jouer {
     private static int[] choixtuile;
     private static boolean reponse = false;
 
-    static void play(Composant composant, Scanner scanner, Fenetre f) {
+    static void play(Composant composant, Fenetre f) {
         debutjeux(composant);
         tour(composant, f);
     }
@@ -120,13 +119,12 @@ class Jouer {
         Collections.sort(listedominos);
     }
 
-    static void choixdetuile(int i, Scanner scanner, Joueurs joueurs, Composant composant, Fenetre f, String indexTuile) {
+    static void choixtuile(int i, Joueurs joueurs, Composant composant, Fenetre f, String indexTuile) {
 
         joueurs.ChoixTuile(convertisseur(listedominos), composant, indexTuile);
 
         System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
 
-        //indicetuile = scanner.nextInt();
         int indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
 
         newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);

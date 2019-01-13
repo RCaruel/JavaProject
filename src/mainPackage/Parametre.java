@@ -1,11 +1,10 @@
 package mainPackage;
 
-import java.util.Scanner;
 
 // demande aux joueuers les paramétres de la partie
 public class Parametre {
 
-    public void param(Composant composant, ParamJoueur[] j, Fenetre f){
+    public void parametre(Composant composant, ParamJoueur[] j, Fenetre f){
 
         for (int i = 0; i < composant.getNombreJoueurs(); i++) {
 
@@ -22,7 +21,7 @@ public class Parametre {
 
         composant.setNombreDominos(48 - 12 * (4 - composant.getNombreJoueurs()));
         composant.setDominos();
-        Jouer.play(composant, new Scanner(System.in), f);
+        Jouer.play(composant, f);
     }
 
 }

@@ -10,15 +10,13 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class JeuTerrain extends JPanel{
     private Image imgBg;
     private Image imgPlateau;
     private JButton buttonLancePartie;
-    private Composant composant;
     private Image[][] imagesDominos = new Image[5][5];
-    private String[] indexDominos = new String[4];
     private Image pion;
     private int size;
     private int x1, x2;
@@ -26,8 +24,7 @@ public class JeuTerrain extends JPanel{
     private Joueurs joueurs;
     private Image imgTuile1, imgTuile2;
 
-    JeuTerrain(Image img, Composant composant, ArrayList<Integer> listedominos, Joueurs joueurs, int x1, int y1, int x2, int y2, int rang, Fenetre f) {
-        this.composant = composant;
+    JeuTerrain(Image img, final Composant composant, ArrayList<Integer> listedominos, Joueurs joueurs, int x1, int y1, int x2, int y2, int rang, Fenetre f) {
         this.size = listedominos.size();
         imgBg = img;
         this.x1 = x1;
@@ -146,7 +143,6 @@ public class JeuTerrain extends JPanel{
         this.buttonLancePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Classe JeuTerrain");
                 if (placementIsOk()){
                     System.out.println("Placement est ok");
                     joueurs.setChoixTuile1IsPlaced(!false);
@@ -169,8 +165,8 @@ public class JeuTerrain extends JPanel{
         g2.drawImage(imgPlateau, 100, 300, null);
         g2.drawImage(pion, 803, 650, null);
 
-        for (int pX = 0; pX < composant.getListJoueurs()[0].getMap().length; pX++){
-            for (int pY = 0; pY < composant.getListJoueurs()[0].getMap().length; pY++){
+        for (int pX = 0; pX < 5; pX++){
+            for (int pY = 0; pY < 5; pY++){
                 if(!joueurs.getMap()[pX][pY].equals("0")){
                     System.out.println("isInIF.paintComponent");
                     System.out.print(100+100*pX);
@@ -198,8 +194,8 @@ public class JeuTerrain extends JPanel{
         int posY = initY;
 
         if (y < 800 && y > 300 && x < 600 && x > 100){
-            for (int i = 0; i < composant.getListJoueurs()[0].getMap().length; i++){
-                for (int j = 0; j < composant.getListJoueurs()[0].getMap().length; j++) {
+            for (int i = 0; i < 5; i++){
+                for (int j = 0; j < 5; j++) {
                     if(joueurs.getMap()[i][j].equals("0")){
                         System.out.println("i = " + i + " j = " + j);
                         System.out.println("x = " + (100+100*i) + " y = " + (300+100*i));
