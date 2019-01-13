@@ -31,7 +31,7 @@ public class Fenetre extends JFrame {
     //* Menu
     private JMenuBar menuBar;
     private JMenu menuPrincipal, menuAutre;
-    private JMenuItem quitItem, resizeItem, newgameItem;
+    private JMenuItem quitItem, resizeItem, newgameItem, manualItem;
     //* Boutons Param partie
     private JButton buttonLancePartie;
     //* Autres
@@ -160,6 +160,15 @@ public class Fenetre extends JFrame {
         		
         	}
         });
+        
+        this.manualItem = new JMenuItem("Manuel d'utilisation");
+        manualItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		Manuel manu = new Manuel();
+        		
+        	}
+        });
+        
 
         //*  Ajout des items *\\
 
@@ -167,6 +176,8 @@ public class Fenetre extends JFrame {
         this.menuPrincipal.add(this.resizeItem);
         this.menuPrincipal.addSeparator();
         this.menuPrincipal.add(this.quitItem);
+        
+        this.menuAutre.add(this.manualItem);
 
         this.menuBar.add(this.menuPrincipal);
         this.menuBar.add(this.menuAutre);
