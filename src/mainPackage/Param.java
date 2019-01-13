@@ -1,24 +1,22 @@
 package mainPackage;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class Param extends JPanel{
-	
-	
-	//Le nom
-    JPanel panNom = new JPanel();
+
     private Image imgBg;
     private Image imgHeader;
     private JButton buttonLancePartie;
     private Composant composant;
-    private JTextField j1TF, j2TF, j3TF, j4TF;
-    private JCheckBox j1CB, j2CB, j3CB, j4CB;
     private ParamJoueur[] j = new ParamJoueur[4];
 
-    public Param(Image img, Composant composant){
+    Param(Image img, Composant composant, Fenetre f){
         this.composant = composant;
         imgBg = img;
         ImageIcon imgTmp = new ImageIcon("header.png");
@@ -44,24 +42,31 @@ public class Param extends JPanel{
         this.buttonLancePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < composant.getNombreJoueurs(); i++){
-
-                    composant.getListJoueurs()[i] = new Joueurs();
-                    composant.getListJoueurs()[i].setPseudo(((ParamJoueur)j[i]).getPseudo().getText());
-                    if (((ParamJoueur)j[i]).getIA().isSelected()){
-                        composant.getListJoueurs()[i].setStatut("IA");
-                    }else{
-                        composant.getListJoueurs()[i].setStatut("HUMAN");
-                    }
-                    System.out.println(String.valueOf(((ParamJoueur)j[i]).getCouleur()));
-                    composant.getListJoueurs()[i].setCouleur(String.valueOf(((ParamJoueur)j[i]).getCouleur()));
+                if (verif(j)) {
+                    Parametre parametre = new Parametre();
+                    parametre.param(composant, j, f);
                 }
-
-                composant.setNombreDominos(48 - 12 * (4 - composant.getNombreJoueurs()));
-                composant.setDominos();
             }
         });
         add(b);
+
+    }
+
+    @Override
+    protected void paintComponent(Graphics g){
+
+        super.paintComponent(g);
+        //* optimisation 2d
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.drawImage(imgBg, 0,0,null);
+        g2.drawImage(imgHeader, 200,0,null);
+
+        Image img2;
+        try {
+            img2 = ImageIO.read(new File("header.jpg"));
+            g.drawImage(img2, 0, 0, this);
+        } catch (IOException ignore) {}
 
     }
 
@@ -71,6 +76,18 @@ public class Param extends JPanel{
         imageIcon=new ImageIcon(imgResize);
 
         return imageIcon;
+    }
+
+    private boolean verif(ParamJoueur[] p){
+        for (int i = 0; i < composant.getNombreJoueurs(); i++){
+            for (int j = i+1; j < composant.getNombreJoueurs(); j++){
+                if (((ParamJoueur)p[i]).getCouleur().equals(((ParamJoueur)p[j]).getCouleur())){
+                    JOptionPane.showMessageDialog(this, "Deux joueurs ont la même couleur", "Paramétrage de la partie", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }

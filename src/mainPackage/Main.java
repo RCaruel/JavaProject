@@ -24,9 +24,6 @@ public class Main{
                 case 0:
                     test();
                     break;
-                case 1: 
-                    lanceLeJeu(composant);
-                    break;
                 case 2:
                     afficheLeTutoriel();
                     break;
@@ -40,17 +37,12 @@ public class Main{
     public static void afficheMenu(){
         System.out.println("Que voulez-vous faire?\n" +
                 "0. test\n" +
-                "1. Jouer\n" +
                 "2. Tutoriel\n" +
                 "3. Quitter");
     }
 
     public static byte lectureDuChoix(){
         return scanner.nextByte();
-    }
-
-    public static void lanceLeJeu(Composant composant){
-        Jouer.play(composant, scanner);
     }
 
     public static void afficheLeTutoriel(){

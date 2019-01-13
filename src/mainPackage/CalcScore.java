@@ -129,7 +129,9 @@ class CalcScore {
 
         for (String[] aMap : map) {
             for (int j = 0; j < map.length; j++) {
-                score += Integer.valueOf(composant.getDominos().get(aMap[j])[0]);
+                try {
+                    score += Integer.valueOf(composant.getDominos().get(aMap[j])[0]);
+                }catch (NullPointerException ignore){}
             }
         }
 

@@ -6,7 +6,9 @@ import java.util.Scanner;
 //type database
 public class Joueurs {
 	
-    private String choixTuile;
+    private String choixTuile = "";
+    private String choixTuile2;
+    private boolean choixTuile1IsPlaced = true;
     private String pseudo;
     private String couleur;
     private String[][] map;
@@ -16,6 +18,14 @@ public class Joueurs {
 
     String getCouleur() {
         return couleur;
+    }
+
+    int[] getPositions() {
+        return positions;
+    }
+
+    String getChoixTuile2(){
+        return choixTuile2;
     }
 
     int getScore(){
@@ -32,22 +42,35 @@ public class Joueurs {
 
     String getStatut(){ return statut; }
 
-    String ChoixTuile(String[] listdominos, Composant composant, Scanner scanner) {
+    public boolean isChoixTuile1IsPlaced() {
+        return choixTuile1IsPlaced;
+    }
+
+    void ChoixTuile(String[] listdominos, Composant composant, String indexDominos) {
         if (this.statut.equals("IA")){
+
             this.positions = ia.choixtuileia(this, listdominos, composant);
+
             if (this.positions[0] != -1) {
                 this.ajoutMap(this.choixTuile + "1", this.positions[0], this.positions[1]);
-                this.ajoutMap(this.choixTuile + "1", this.positions[2], this.positions[3]);
+                this.ajoutMap(this.choixTuile + "2", this.positions[2], this.positions[3]);
             }
-            return this.choixTuile;
         }else{
-            this.choixTuile = scanner.nextLine();
-            return this.choixTuile;
+            if (this.choixTuile.equals("")) {
+                this.choixTuile = indexDominos;
+            }else {
+                this.choixTuile2 = indexDominos;
+                this.choixTuile1IsPlaced = false;
+            }
         }
     }
 
     String[][] getMap() {
         return map;
+    }
+
+    public void setChoixTuile1IsPlaced(boolean choixTuile1IsPlaced) {
+        choixTuile1IsPlaced = choixTuile1IsPlaced;
     }
 
     void setCouleur(String couleur) {
@@ -76,10 +99,6 @@ public class Joueurs {
     }
     void setScore(int score){
         this.score = score;
-    }
-
-    int[] getPositions() {
-        return positions;
     }
 
     void setPositions(Scanner scanner) {

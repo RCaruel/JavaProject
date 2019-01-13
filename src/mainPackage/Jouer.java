@@ -10,304 +10,215 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Collections;
 
-//import static sun.swing.MenuItemLayoutHelper.max;
-
-
 class Jouer {
-	
-	private static Random rand = new Random();	
-	private static ArrayList<String> roi;
-	private static String[] plateau = new String[4];
-	private static int compteurtour;
-	private static String[] newroi;
-	private static int[] domi = new int[48];
-	private static ArrayList<Integer> listedominos;
-	private static ArrayList<Integer> listedominoscopy;
-	private static int[] choixtuile;
-	
-	static void play(Composant composant, Scanner scanner) {
-		debutjeux(composant);
-		tour(composant, scanner);
-	}
+
+    private static Random rand = new Random();
+    private static ArrayList<String> roi;
+    private static String[] plateau = new String[4];
+    private static int compteurtour = 0;
+    private static String[] newroi;
+    private static int[] domi = new int[48];
+    private static ArrayList<Integer> listedominos;
+    private static ArrayList<Integer> listedominoscopy;
+    private static int[] choixtuile;
+    private static boolean reponse = false;
+
+    static void play(Composant composant, Scanner scanner, Fenetre f) {
+        debutjeux(composant);
+        tour(composant, f);
+    }
 
     private static void debutjeux(Composant composant) {
 
-		roi = new ArrayList<>();
-		listedominos = new ArrayList<>();
-		listedominoscopy = new ArrayList<>();
+        roi = new ArrayList<>();
+        listedominos = new ArrayList<>();
+        listedominoscopy = new ArrayList<>();
 
-		
-	    // initialisation des plateaux
-	    for (int i = 0; i < composant.getNombreJoueurs(); i++) {
-	    	composant.getListJoueurs()[i].setMap(new String[5][5]);
-	    	for (int x = 0; x < composant.getListJoueurs()[i].getMap().length; x++){
-	    		for (int y = 0; y < composant.getListJoueurs()[i].getMap().length; y++ ){
-	    			composant.getListJoueurs()[i].ajoutMap("0", x, y);
-				}
-			}
-	    	composant.getListJoueurs()[i].ajoutMap("500", 2, 2);
-	    }
 
-	    for (int i = 0; i < 4; i++){
-	    	listedominoscopy.add(0,0);
-		}
-	    
-	    //on attribut le plateau 0 au jouer rouge 
-	    //                       1 au jouer bleu
-	    //                       2 au jouer vert
-	    //                       3 au jouer jaune
-	    plateau[0] = "rouge";
-	    plateau[1] = "bleu";
-	    plateau[2] = "vert";
-	    plateau[3] = "jaune";
-	    	
-	    // initialisation des rois
-	    if (composant.getNombreJoueurs() == 2) {
-	    	roi.add(composant.getListJoueurs()[0].getCouleur());
-	    	roi.add(composant.getListJoueurs()[0].getCouleur());
-	   		roi.add(composant.getListJoueurs()[1].getCouleur());
-	   		roi.add(composant.getListJoueurs()[1].getCouleur());
-	   	} else if (composant.getNombreJoueurs() == 3) {
-	   		roi.add(composant.getListJoueurs()[0].getCouleur());
-    		roi.add(composant.getListJoueurs()[1].getCouleur());
-    		roi.add(composant.getListJoueurs()[2].getCouleur());
-	   	} else {
-			roi.add(composant.getListJoueurs()[0].getCouleur());
-			roi.add(composant.getListJoueurs()[1].getCouleur());
-			roi.add(composant.getListJoueurs()[2].getCouleur());
-			roi.add(composant.getListJoueurs()[3].getCouleur());
-	   	}
-	    	
-	    // initialisation ordre de jeux
-	   	for (int i = 0; i < roi.size(); i++) {
-	   		int nb = rand.nextInt(roi.size()-i);
-	   		String transition = roi.get(nb);
-	   		roi.set(nb,roi.get(roi.size()-i-1));
-    		roi.set(roi.size()-i-1, transition);
-    	}
-	    	
-	    //initialisation du jeux de domino
-	    	
-	   	//creation d'une liste de dominos
-	   	for (int i = 1; i <= 48; i++) {
-	   		domi[i-1] = i;
-	   	}
-	    	
-	    //mélange de la liste
-	    for (int i = 0; i < 48; i++) {
-	   		int nb = rand.nextInt(48-i);
-	   		int transition = domi[nb];
-	   		domi[nb] = domi[48-i-1];
-	   		domi[48-i-1] = transition;
-    	}
-	    
-	    System.out.print("[ ");
-	    for (int i = 0; i < composant.getNombreDominos(); i++) {
-	    	System.out.print(domi[i] + " ");
-	    }
-	    System.out.print("]");
-	    
-	    System.out.println(" ");
-	    System.out.println("Ordre de jeux");
-	    System.out.println(roi + "\n");
-	    
-	    //Affichage plateau
-	    for (int i = 0; i < composant.getNombreJoueurs(); i++) {
-	    	affichageMap(i, composant);
-	    	System.out.println();
-	    	System.out.println();
-	    }
-	}
+        // initialisation des plateaux
+        for (int i = 0; i < composant.getNombreJoueurs(); i++) {
+            composant.getListJoueurs()[i].setMap(new String[5][5]);
+            for (int x = 0; x < composant.getListJoueurs()[i].getMap().length; x++) {
+                for (int y = 0; y < composant.getListJoueurs()[i].getMap().length; y++) {
+                    composant.getListJoueurs()[i].ajoutMap("0", x, y);
+                }
+            }
+            composant.getListJoueurs()[i].ajoutMap("500", 2, 2);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            listedominoscopy.add(0, 0);
+        }
+
+        //on attribut le plateau 0 au jouer rouge
+        //                       1 au jouer bleu
+        //                       2 au jouer vert
+        //                       3 au jouer jaune
+        plateau[0] = "rouge";
+        plateau[1] = "bleu";
+        plateau[2] = "vert";
+        plateau[3] = "jaune";
+
+        // initialisation des rois
+        if (composant.getNombreJoueurs() == 2) {
+            roi.add(composant.getListJoueurs()[0].getCouleur());
+            roi.add(composant.getListJoueurs()[0].getCouleur());
+            roi.add(composant.getListJoueurs()[1].getCouleur());
+            roi.add(composant.getListJoueurs()[1].getCouleur());
+        } else if (composant.getNombreJoueurs() == 3) {
+            roi.add(composant.getListJoueurs()[0].getCouleur());
+            roi.add(composant.getListJoueurs()[1].getCouleur());
+            roi.add(composant.getListJoueurs()[2].getCouleur());
+        } else {
+            roi.add(composant.getListJoueurs()[0].getCouleur());
+            roi.add(composant.getListJoueurs()[1].getCouleur());
+            roi.add(composant.getListJoueurs()[2].getCouleur());
+            roi.add(composant.getListJoueurs()[3].getCouleur());
+        }
+
+        // initialisation ordre de jeux
+        for (int i = 0; i < roi.size(); i++) {
+            int nb = rand.nextInt(roi.size() - i);
+            String transition = roi.get(nb);
+            roi.set(nb, roi.get(roi.size() - i - 1));
+            roi.set(roi.size() - i - 1, transition);
+        }
+
+        //initialisation du jeux de domino
+
+        //creation d'une liste de dominos
+        for (int i = 1; i <= 48; i++) {
+            domi[i - 1] = i;
+        }
+
+        //mélange de la liste
+        for (int i = 0; i < 48; i++) {
+            int nb = rand.nextInt(48 - i);
+            int transition = domi[nb];
+            domi[nb] = domi[48 - i - 1];
+            domi[48 - i - 1] = transition;
+        }
+
+        System.out.print("[ ");
+        for (int i = 0; i < composant.getNombreDominos(); i++) {
+            System.out.print(domi[i] + " ");
+        }
+        System.out.print("]");
+
+        System.out.println(" ");
+        System.out.println("Ordre de jeux");
+        System.out.println(roi + "\n");
+        newroi = new String[roi.size()];
+    }
 
     private static void tiretuile() {
-    	//tire nb de roi cartes
-		listedominos = new ArrayList<>();
-    	for (int i = 0; i < roi.size(); i++) {
-    		listedominos.add(domi[i+roi.size()*compteurtour]);
-    	}
-    	Collections.sort(listedominos);
-    }
-    
-    private static void choixdetuile(int i, Scanner scanner, Joueurs joueurs, Composant composant) {
-    	
-    	boolean bool = true;
-	
-    	// while pour vérifier qu'on ne choisie pas une tuile déja occupé
-		while (bool) {
- 
-    		System.out.println("Tuile disponible : ");
-    		System.out.print("[ ");
-
-			for (Integer listedomino : listedominos) {
-				System.out.print(listedomino + " ");
-			}
-
-    	    System.out.print("]");
-
-			//TODO afficher version graphique
-
-			joueurs.ChoixTuile(convertisseur(listedominos), composant, scanner);
-
-    		System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
-
-    		//indicetuile = scanner.nextInt();
-			int indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
-
-    		newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
-
-    		if (choixtuile[indicetuile] == listedominos.get(indicetuile)) {
-    			System.out.print("Cette tuile a déja été choisie ! >Choisissez une autre tuile");
-				new Grille.GameBoard(3,3).getController().afficheMessage("Cette tuile a déja été choisie !\n -> Choisissez une autre tuile", "Erreur de choix");
-    		} else {
-    			choixtuile[indicetuile] = listedominos.get(indicetuile);
-    			bool =  false;
-    		}
-			System.out.println(listedominoscopy);
-			listedominos.remove(indicetuile);
-		}
+        //tire nb de roi cartes
+        listedominos = new ArrayList<>();
+        for (int i = 0; i < roi.size(); i++) {
+            listedominos.add(domi[i + roi.size() * compteurtour]);
+        }
+        Collections.sort(listedominos);
     }
 
-    private static String[] convertisseur (ArrayList<Integer> liste){
-		String[] listeConv = new String[liste.size()];
-		for (int i = 0; i < liste.size(); i++){
-			listeConv[i] = String.valueOf(liste.get(i));
-		}
-		return listeConv;
-	}
-    
-    private static void choixduplacement(int i, Scanner scanner, Composant composant) {
+    static void choixdetuile(int i, Scanner scanner, Joueurs joueurs, Composant composant, Fenetre f, String indexTuile) {
 
-		System.out.println("le joueur : " + roi.get(i) + " place sa tuile.");
+        joueurs.ChoixTuile(convertisseur(listedominos), composant, indexTuile);
 
-		new Grille.GameBoard(3,3).getController().afficheMessage("C'est au tour de " + getJoueur(composant.getListJoueurs(), roi.get(i)).getPseudo() + "De jouer", "A qui le tour ?");
+        System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
 
-		getJoueur(composant.getListJoueurs(), roi.get(i)).setPositions(scanner);
+        //indicetuile = scanner.nextInt();
+        int indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
 
-		for (int j = 0; j < roi.size(); j++) {
-			if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN")) {
-				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[0], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[1]);
-				getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[2], getJoueur(composant.getListJoueurs(), roi.get(i)).getPositions()[3]);
+        newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
 
-			}
-		}
-	}
-    
-    private static void affichageMap(int i, Composant composant) {
-    	for (int j = 0; j < 5; j++) {
-	    	System.out.print("[ ");
-	    	for (int k = 0; k < 5; k++) {
-	   			System.out.print(composant.getDominos().get(composant.getListJoueurs()[i].getMap()[j][k])[1] + "," + composant.getDominos().get(composant.getListJoueurs()[i].getMap()[j][k])[0] + " ");
-	   		}
-	   		System.out.print("]");
-	   		System.out.println(" ");
-    		System.out.println(" ");
-    	}
-    	System.out.println();
-    	System.out.println();
-		//TODO afficher version graphique
+        System.out.println(listedominoscopy);
+        listedominos.remove(indicetuile);
+
+        if (i + 1 < roi.size()) {
+            i++;
+            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(i)), listedominos, composant, 450, 600, 0, 0, i);
+        } else {
+            f.switchFrame(3, getJoueur(composant.getListJoueurs(), roi.get(0)), listedominos, composant, 700, 500, 800, 500, 0);
+        }
+
     }
 
-    private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur){
-		for (Joueurs aListjoueur : listjoueur) {
-			if (aListjoueur.getCouleur().equals(couleur)) {
-				return aListjoueur;
-			}
-		}
-		return listjoueur[0];
-	}
-    
-    private static void tour(Composant composant, Scanner scanner){
-
-    	choixtuile = new int[roi.size()];
-    	newroi = new String[roi.size()];
-    	compteurtour = 0;
-
-
-    	while (roi.size()*compteurtour < composant.getNombreDominos()) {
-    		
-    		//on tire les tuiles
-    		tiretuile();
-
-    		for (int i =0; i < listedominos.size(); i++) {
-				listedominoscopy.set(i, listedominos.get(i));
-			}
-
-    		//chaque roi choisie sa tuile
-	    	for (int i = 0; i < roi.size(); i++) {
-	    		
-	    		boolean bo = true;
-	    		
-	    		while(bo) {
-		    		try {
-		    			choixdetuile(i, scanner, getJoueur(composant.getListJoueurs(),roi.get(i)), composant);
-
-		    			bo = false;
-		    		} catch (ArrayIndexOutOfBoundsException e) {
-		    			System.out.println("Attention il faut choisir l'indice de la tuile !");
-		    			System.out.println("Les indices commencent à 0 !");
-						new Grille.GameBoard(3,3).getController().afficheMessage("Attention, vous avez mal placé votre pion.\n Veuillez recommencer", "Erreur de placement");
-		    		}
-	    		}
-	    	}
-
-			for (String aNewroi : newroi) {
-				System.out.println(aNewroi);
-			}
-			//TODO afficher version graphique
-	    	
-	    	//on redéfinie l'ordre de jeux en fonction du placement
-	    	for (int i = 0; i < roi.size(); i++) {
-	    		roi.set(i, newroi[i]);
-	    	}
-	    	
-	    	//chaque roi place sa tuile
-	    	for (int i = 0; i < roi.size(); i++) {
-	    		
-	    		boolean boo = true;
-	    		
-	    		while (boo) {
-	    			try {
-	    				choixduplacement(i, scanner, composant);
-	    				boo = false;
-	    			} catch (ArrayIndexOutOfBoundsException e) {
-	    				System.out.println("La tuile doit étre placé dans la plateau de taille 5*5 !");
-						new Grille.GameBoard(3,3).getController().afficheMessage("Attention, vous ne pouvez pas placer votre tuile ici.", "Erreur de placement");
-	    			}
-	    		}
-	    	}
-	    	
-	    	//on affiche les plateaux
-	    	for (int i = 0; i < composant.getListJoueurs().length; i++) {
-	    	    affichageMap(i, composant);
-	   	    }
-	    	
-	    	//on reeset les choix
-	    	for (int i = 0; i < roi.size(); i++) {
-	    		choixtuile[i] = 500;
-	    	}
-	    	
-	    	compteurtour+=1;
-    	}
-
-    	int max = 0;
-    	int winner = 0;
-    	int score;
-
-    	for (int i = 0; i < composant.getListJoueurs().length; i++){
-    		if ((score = calculScore(composant.getListJoueurs()[i], composant)) > max){
-    			max = score;
-    			winner = i;
-			}
-			System.out.println("Le joueur " + composant.getListJoueurs()[i].getPseudo() + "a un score total de " + score);
-		}
-		System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + composant.getListJoueurs()[winner].getScore());
-		new Grille.GameBoard(3,3).getController().afficheMessage("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() +
-				" avec un score de " + composant.getListJoueurs()[winner].getScore(), "Fin de la partie.");
+    private static String[] convertisseur(ArrayList<Integer> liste) {
+        String[] listeConv = new String[liste.size()];
+        for (int i = 0; i < liste.size(); i++) {
+            listeConv[i] = String.valueOf(liste.get(i));
+        }
+        return listeConv;
     }
 
-	private static int calculScore(Joueurs joueurs, Composant composant){
-		joueurs.setScore(CalcScore.play(joueurs, composant, true));
-		return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap()))*100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);
-	}
+    static void choixduplacement(int i, Composant composant, int x1, int y1, int x2, int y2, Fenetre f) {
+
+        System.out.println("le joueur : " + roi.get(i) + " a place sa tuile.");
+
+        for (int j = 0; j < roi.size(); j++) {
+            if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN") && x1 != 800) {
+                getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", x1, y1);
+                getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", x2, y2);
+
+            }
+        }
+
+        if (i + 1 < roi.size()) {
+            i++;
+            f.switchFrame(3, getJoueur(composant.getListJoueurs(), roi.get(i)), listedominos, composant, 700, 500, 800, 500, i);
+        } else {
+            //on redéfinie l'ordre de jeux en fonction du placement
+            for (int j = 0; j < roi.size(); j++) {
+                roi.set(j, newroi[j]);
+                getJoueur(composant.getListJoueurs(), roi.get(j)).setChoixTuile("");
+            }
+            tour(composant, f);
+        }
+    }
+
+    private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur) {
+        for (Joueurs aListjoueur : listjoueur) {
+            if (aListjoueur.getCouleur().equals(couleur)) {
+                return aListjoueur;
+            }
+        }
+        return listjoueur[0];
+    }
+
+    private static void tour(Composant composant, Fenetre f) {
+
+        choixtuile = new int[roi.size()];
+
+        if (roi.size() * compteurtour < composant.getNombreDominos()) {
+            tiretuile();
+
+            for (int i = 0; i < listedominos.size(); i++) {
+                listedominoscopy.set(i, listedominos.get(i));
+            }
+
+            compteurtour++;
+
+
+            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(0)), listedominos, composant, 450, 600, 0, 0, 0);
+        }else{
+            int max = 0;
+            int winner = 0;
+            int score;
+
+            for (int i = 0; i < composant.getListJoueurs().length; i++){
+                if ((score = calculScore(composant.getListJoueurs()[i], composant)) > max){
+                    max = score;
+                    winner = i;
+                }
+                System.out.println("Le joueur " + composant.getListJoueurs()[i].getPseudo() + "a un score total de " + score);
+            }
+            System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + composant.getListJoueurs()[winner].getScore());
+            f.switchFrame(4, composant.getListJoueurs()[winner], listedominos, composant, 0,0,0,0,0);
+        }
+    }
+    private static int calculScore(Joueurs joueurs, Composant composant) {
+        joueurs.setScore(CalcScore.play(joueurs, composant, true));
+        return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap())) * 100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);
+    }
 
 }

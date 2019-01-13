@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ public class Fenetre extends JFrame {
 	Composant composant;
 	//* Composants graphiques
     //* Panel principal
-    private JPanel fenetre, imagePlateau, imageMenu, imageParam;
+    private JPanel fenetre, imagePlateau, imageMenu, imageParam, imageChoixTuiles, imagePlacementTuiles, imageVictoire;
     //* Menu
     private JMenuBar menuBar;
     private JMenu menuPrincipal, menuAutre;
@@ -59,7 +60,7 @@ public class Fenetre extends JFrame {
         setAlwaysOnTop(true);
         setResizable(false); 
         setLocationRelativeTo(null);//Mettre la fenetre au milieu de l'ecran
-        switchFrame(0);
+        switchFrame(0, new Joueurs(), new ArrayList<Integer>(), composant, 0,0,0,0,0);
     }
 
     //* Méthodes pour créer la fenêtre
@@ -82,19 +83,19 @@ public class Fenetre extends JFrame {
 
     }
 
-    void switchFrame(int test){
+    void switchFrame(int test, Joueurs joueurs, ArrayList<Integer> listedominos, Composant composant, int x1, int y1, int x2, int y2, int i){
         if (test == 1){
 
             ImageIcon imgNull =new ImageIcon( "fond3.png");
 
 
             // this.imagePlateau.add(image);
-            this.imageParam = new Param(resizePicture(imgNull, 1000,1000).getImage(), composant);
+            this.imageParam = new Param(resizePicture(imgNull, 1000,1000).getImage(), composant, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
             //imagePlateau.add();
-            setContentPane(imageParam);
             //for(int i = 0; i < )
-            this.imagePlateau.add(image);
+            this.imageParam.add(image);
+            setContentPane(imageParam);
             revalidate();
             this.imageParam.repaint();
             setSize(1000,1000);
@@ -114,6 +115,52 @@ public class Fenetre extends JFrame {
             revalidate();
             this.imageMenu.repaint();
             
+        }else if(test == 2){
+            ImageIcon imageIcon =new ImageIcon( "parchemin.jpg");
+            ImageIcon imgNull =new ImageIcon( "fond3.png");
+            ImageIcon imgTmp2 = new ImageIcon("header.jpg");
+
+
+            // this.imagePlateau.add(image);
+            this.imageChoixTuiles = new JeuPlateau(resizePicture(imageIcon, 1000,1000).getImage(), composant, listedominos, joueurs, x1, y1, i, this);
+            JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
+            //imagePlateau.add();
+            //for(int i = 0; i < )
+            this.imageChoixTuiles.add(image);
+            setContentPane(imageChoixTuiles);
+            revalidate();
+            this.imageChoixTuiles.repaint();
+            setSize(1000,1000);
+        }else if(test == 3){
+            ImageIcon imageIcon =new ImageIcon( "parchemin.jpg");
+            ImageIcon imgNull =new ImageIcon( "fond3.png");
+            ImageIcon imgTmp2 = new ImageIcon("header.jpg");
+
+
+            // this.imagePlateau.add(image);
+            this.imagePlacementTuiles = new JeuTerrain(resizePicture(imageIcon, 1000,1000).getImage(), composant, listedominos, joueurs, x1, y1, x2, y2, i, this);
+            JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
+            //imagePlateau.add();
+            //for(int i = 0; i < )
+            this.imagePlacementTuiles.add(image);
+            setContentPane(imagePlacementTuiles);
+            revalidate();
+            this.imagePlacementTuiles.repaint();
+            setSize(1000,1000);
+        }else if (test == 4){
+            ImageIcon imageIcon =new ImageIcon( "parchemin.jpg");
+
+            ImageIcon imgNull =new ImageIcon( "fond3.png");
+
+            ImageIcon imgTmp2 = new ImageIcon("header.jpg");
+
+            this.imageVictoire = new PlateauVictory(resizePicture(imageIcon, 1000,1000).getImage(), joueurs);
+            JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
+
+            this.imageVictoire.add(image);
+            setContentPane(imageVictoire);
+            revalidate();
+            this.imageVictoire.repaint();
         }
 
     }

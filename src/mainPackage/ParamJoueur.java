@@ -17,27 +17,27 @@ public class ParamJoueur extends JPanel{
 
         this.pseudo = new JTextField("joueur" + String.valueOf(i));
         this.pseudo.setSize(new Dimension(150,30));
-        this.pseudo.setLocation(100,150 + 150*(i-1));
+        this.pseudo.setLocation(100,300 + 75*(i-1));
         param.add(this.pseudo);
 
         this.IA = new JCheckBox("IA");
-        this.IA.setSize(new Dimension(50,50));
-        this.IA.setLocation(290,140 + 150*(i-1));
+        this.IA.setSize(new Dimension(40,20));
+        this.IA.setLocation(280,305 + 75*(i-1));
         param.add(this.IA);
 
         this.color = new JButton();
         this.color.setText("Couleur");
         this.color.setSize(new Dimension(150,30));
-        this.color.setLocation(350,150 + 150*(i-1));
+        this.color.setLocation(350,300 + 75*(i-1));
         this.color.setBackground(couleurs[i-1]);
         this.couleur = Scouleurs[i-1];
         this.color.addActionListener(new ActionListener() {
-            int j = i;
+            int y = i;
             public void actionPerformed(ActionEvent e) {
-                j++;
-                color.setBackground(couleurs[j-1]);
-                setCouleur(Scouleurs[j-1]);
-                j %= 4;
+                y++;
+                y %= 4;
+                color.setBackground(couleurs[y]);
+                setCouleur(Scouleurs[y]);
             }
         });
         param.add(this.color);
