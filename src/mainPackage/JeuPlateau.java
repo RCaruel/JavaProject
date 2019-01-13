@@ -133,7 +133,7 @@ public class JeuPlateau extends JPanel{
             for (int i = 0; i < size; i++){
                 if (abs((180+200 * i) - x) < distmin){
                     distmin = abs(x - (180+200 * i));
-                    posX = 180 + 200 * i - 37;
+                    posX = 180 + 200 * i - 37; 
                 }
             }
         }

@@ -23,7 +23,7 @@ public class Manuel extends JDialog {
 		  
 		  man = new JTextArea();
 		  man.setText("Pour une utilisation console lancez le Main.java et suivez les instruction de la console.\r\n" 
-		  		+ "Pour une utilisation graphique lancez le Main_bis.java puis réglez les paramétre de la partie en "
+		  		+ "Pour une utilisation graphique lancez le Main_bis.java puis réglez les paramétres de la partie en "
 		  		+ "appuyant sur “commencer la partie”. Une fois les paramètres remplis cliquez sur “lancer la partie”. "
 		  		+ "Pour déplacer une tuile placez votre souris sur la tuile et gardez le clic gauche de votre souris enfoncé, "
 		  		+ "relâchez le pour déposer votre tuile. Cliquez sur “ok” quand vous avez terminé votre tour.");
