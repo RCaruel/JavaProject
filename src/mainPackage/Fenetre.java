@@ -137,10 +137,29 @@ public class Fenetre extends JFrame {
         this.menuPrincipal = new JMenu("Option");
         this.menuAutre = new JMenu("Aide");
 
-        //* sous menu *\\
+        //* sous menu avec les actions pour chaque item du sous menu *\\
         this.newgameItem = new JMenuItem("Nouvelle partie");
+        newgameItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		Controleur c = new Controleur();
+        		
+        	}
+        });
         this.resizeItem = new JMenuItem("Afficher les règles");
+        resizeItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		AffichageTuto aff = new AffichageTuto();
+        		
+        		
+        	}
+        });
         this.quitItem = new JMenuItem("Quitter");
+        quitItem.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		setVisible(false);
+        		
+        	}
+        });
 
         //*  Ajout des items *\\
 
@@ -167,11 +186,6 @@ public class Fenetre extends JFrame {
 
 
     //* Méthodes pour initialiser les controleurs
-    public void  setControlMenu(ControlMenu cm){
-        //* initialiser le controlMenu
-        this.resizeItem.addActionListener(cm);
-
-    }
 
     public void setControlButton(ControlButton cb){
         ((PlateauGraphic)this.imageMenu).getButton().addActionListener(cb);
