@@ -42,7 +42,7 @@ public class AffichageTuto extends JDialog {
 		  sp.setEditable(false);
 		  
 		  fp = new JEditorPane();
-		  fp.setText(" Une fois que tous les dominos ont été placés, le jeu va calculer votre score en fonction de: \r\n" + 
+		  fp.setText(" Une fois que tous les dominos ont été placés, le jeu va calculer votre score en fonction de : \r\n" + 
 		  		"- du nombre de couronnes sur un bloc de terrain d'un type.\r\n" + 
 		  		" -de la taille d'un bloc de terrain du même type.\r\n" + 
 		  		"");
