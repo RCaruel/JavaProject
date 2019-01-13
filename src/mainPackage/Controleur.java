@@ -3,10 +3,12 @@ package mainPackage;
 public class Controleur {
 	
 	public Controleur() {
-		
-        Fenetre f = new Fenetre();
-        new ControlButton(f);
-       
+	    Composant composant = new Composant();
+        Fenetre f = new Fenetre(composant);
+
+        new ControlButton(f, composant);
+
+        f.setVisible(true);
     }
 
 }

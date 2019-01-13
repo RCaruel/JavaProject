@@ -1,8 +1,6 @@
 package mainPackage;
 
 
-import java.util.Scanner;
-
 //type database
 public class Joueurs {
 	
@@ -55,6 +53,7 @@ public class Joueurs {
                 this.ajoutMap(this.choixTuile + "1", this.positions[0], this.positions[1]);
                 this.ajoutMap(this.choixTuile + "2", this.positions[2], this.positions[3]);
             }
+
         }else{
             if (this.choixTuile.equals("")) {
                 this.choixTuile = indexDominos;
@@ -67,6 +66,10 @@ public class Joueurs {
 
     String[][] getMap() {
         return map;
+    }
+
+    String getMapId(int i, int j){
+        return map[i][j];
     }
 
     public void setChoixTuile1IsPlaced(boolean choixTuile1IsPlaced) {
@@ -101,17 +104,4 @@ public class Joueurs {
         this.score = score;
     }
 
-    void setPositions(Scanner scanner) {
-        if (statut.equals("HUMAN")){
-            System.out.println("abscisse de la premiere demi tuile :");
-            this.positions[0] = scanner.nextInt();
-            System.out.println("ordonnee de la premiere demi tuile :");
-            this.positions[1] = scanner.nextInt();
-            System.out.println("abscisse de la deuxieme demi tuile :");
-            this.positions[2] = scanner.nextInt();
-            System.out.println("ordonnee de la deuxieme demi tuile :");
-            this.positions[3] = scanner.nextInt();
-        }
-        //TODO afficher version graphique
-    }
 }

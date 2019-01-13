@@ -16,7 +16,7 @@ public class PlateauVictory extends JPanel{
     private Image imgHeader;
     private Image imgVictory, imgPion;
 
-    PlateauVictory(Image img, Joueurs joueurs){
+    PlateauVictory(Image img, Joueurs joueurs, Fenetre f){
 
         imgBg = img;
         ImageIcon imgTmp = new ImageIcon("header.png");
@@ -36,6 +36,7 @@ public class PlateauVictory extends JPanel{
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                f.dispose();
                 Main_bis.main(new String[]{});
             }
         });

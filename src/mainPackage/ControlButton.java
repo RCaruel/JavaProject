@@ -1,25 +1,18 @@
 package mainPackage;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
-import mainPackage.Grille.GameBoard;
-import mainPackage.Grille.Pawn;
-import mainPackage.Grille.Player;
-
-
 
 public class ControlButton implements ActionListener {
-
-	Composant composant = new Composant();
 	
     private Fenetre f;
+    private final Composant composant;
 
-    public ControlButton(Fenetre f) {
+    public ControlButton(Fenetre f, final Composant composant) {
         
         this.f = f;
         this.f.setControlButton(this);
@@ -33,29 +26,10 @@ public class ControlButton implements ActionListener {
             System.out.println("Début de la partie");
             composant.setNombreJoueurs(Integer.valueOf(((PlateauGraphic) f.getImageMenu()).getJ1().getText()));
             System.out.println(composant.getNombreJoueurs());
-            f.setComposant(composant);
-            f.switchFrame(1,composant.getListJoueurs()[0],new ArrayList<Integer>(), composant,0,0,0,0,0);
+            f.switchFrame(1,new Joueurs(),new ArrayList<Integer>(), composant,0,0,0,0,0);
         }else{
             JOptionPane.showMessageDialog(f, "le nombre minimum de joueur est de 2.", "Paramétrage de la partie", JOptionPane.WARNING_MESSAGE);
         }
-
-        /*GameBoard gameboard = new GameBoard(5,6);
-		
-		gameboard.setPiece(2,3,new Pawn(Player.CHATEAU)); 
-		gameboard.setPiece(0,0,new Pawn(Player.GRASS));
-		gameboard.setPiece(0,1,new Pawn(Player.MINES));
-		gameboard.setPiece(0,2,new Pawn(Player.DESERT));
-		gameboard.setPiece(0,3,new Pawn(Player.WATER));
-		gameboard.setPiece(0,4,new Pawn(Player.WHEAT));
-		gameboard.setPiece(0,5,new Pawn(Player.FORET));
-		f.add(gameboard);
-		gameboard.setBorder(BorderFactory.createMatteBorder (3, 3, 3, 3, Color.black));
- 
-		f.pack();
-		f.setSize(1000,1000);
-		f.setLocationRelativeTo(null);
-		f.setVisible(true);*/
-        
 		
 	}
 
