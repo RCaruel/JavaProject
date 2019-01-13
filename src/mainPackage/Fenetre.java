@@ -188,14 +188,14 @@ public class Fenetre extends JFrame {
         this.newgameItem = new JMenuItem("Nouvelle partie");
         newgameItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		Controleur c = new Controleur();
+        		Controleur c = new Controleur(); //On relance la partie
         		
         	}
         });
         this.resizeItem = new JMenuItem("Afficher les règles");
         resizeItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		AffichageTuto aff = new AffichageTuto();
+        		AffichageTuto aff = new AffichageTuto();//On affiche la JDialog qui affiche le tutoriel des regles 
         		
         		
         	}
@@ -211,7 +211,7 @@ public class Fenetre extends JFrame {
         this.manualItem = new JMenuItem("Manuel d'utilisation");
         manualItem.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		Manuel manu = new Manuel();
+        		Manuel manu = new Manuel();//On affiche la JDialog qui affiche le manuel d'utilisation
         		
         	}
         });

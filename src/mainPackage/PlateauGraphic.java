@@ -16,7 +16,9 @@ import javax.swing.JTextField;
 
 public class PlateauGraphic extends JPanel { 
 	  /**
-	 * 
+	 * MENU DU JEU AVEC IMAGE DE FOND, BOUTON POUR DEMARRER LA PARTIE ET 
+	 * UN JTEXTFIELD POUR RENTRER LE NOMBRE DE JOUEURS 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private Image imgBg;

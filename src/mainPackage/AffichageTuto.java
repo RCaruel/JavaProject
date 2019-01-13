@@ -11,6 +11,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 public class AffichageTuto extends JDialog {
+	//On affiche le tutoriel des règles du jeu dans une JDialog avec plusieurs onglets 
+	
 	JTextArea pt, sp, fp;
 	private JTabbedPane onglet = new JTabbedPane();
 	

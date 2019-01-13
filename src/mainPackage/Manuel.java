@@ -12,6 +12,7 @@ public class Manuel extends JDialog {
 	
 	JTextArea man;
 	private JTabbedPane onglet = new JTabbedPane();
+	// On affiche le manuel d'utilisation dans une JDialog
 	
 	public Manuel() {
 		this.setSize(550, 350);
