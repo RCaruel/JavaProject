@@ -1,8 +1,8 @@
 package mainPackage;
 
-public class Controleur {
+class Controleur {
 	
-	public Controleur() {
+	Controleur() {
 	    Composant composant = new Composant();
         Fenetre f = new Fenetre(composant);
 

@@ -1,11 +1,8 @@
 package mainPackage;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -15,17 +12,14 @@ import java.util.ArrayList;
 public class JeuTerrain extends JPanel{
     private Image imgBg, imgHeader;
     private Image imgPlateau;
-    private JButton buttonLancePartie;
     private Image[][] imagesDominos = new Image[5][5];
     private Image pion, imageIA;
-    private int size;
     private int x1, x2;
     private int y1, y2;
     private Joueurs joueurs;
     private Image imgTuile1, imgTuile2;
 
     JeuTerrain(Image img, final Composant composant, ArrayList<Integer> listedominos, Joueurs joueurs, int x1, int y1, int x2, int y2, int rang, Fenetre f) {
-        this.size = listedominos.size();
         imgBg = img;
         this.x1 = x1;
         this.y1 = y1;
@@ -37,30 +31,26 @@ public class JeuTerrain extends JPanel{
         // Permet de pouvoir bouger une image
         if (joueurs.getStatut().equals("HUMAN")) {
             socleTuile1.addMouseListener(new MouseListener() {
-                @Override
+
                 public void mouseClicked(MouseEvent e) {
                 }
 
-                @Override
                 public void mousePressed(MouseEvent e) {
                     System.out.println("Click");
                 }
 
-                @Override
                 public void mouseReleased(MouseEvent e) {
                     System.out.println("Released");
-                    int[] pos = autoPos(x1 + e.getX(), y1 + e.getY(), 700, 500);
+                    int[] pos = autoPos(x1 + e.getX(), y1 + e.getY(), 700);
                     //int[] pos = new int[]{x1 + e.getX() - 50, y1 + e.getY() - 50};
                     f.switchFrame(3, joueurs, listedominos, composant, pos[0], pos[1], x2, y2, rang);
 
                 }
 
-                @Override
                 public void mouseEntered(MouseEvent e) {
 
                 }
 
-                @Override
                 public void mouseExited(MouseEvent e) {
 
                 }
@@ -75,31 +65,27 @@ public class JeuTerrain extends JPanel{
         // Permet de pouvoir bouger une image
         if (joueurs.getStatut().equals("HUMAN")) {
             socleTuile2.addMouseListener(new MouseListener() {
-                @Override
+
                 public void mouseClicked(MouseEvent e) {
                 }
 
-                @Override
                 public void mousePressed(MouseEvent e) {
                     System.out.println("Click");
                 }
 
-                @Override
                 public void mouseReleased(MouseEvent e) {
                     System.out.println("Released");
-                    int[] pos = autoPos(x2 + e.getX(), y2 + e.getY(), 800, 500);
+                    int[] pos = autoPos(x2 + e.getX(), y2 + e.getY(), 800);
                     //int[] pos = new int[]{x2 + e.getX() - 50, y2 + e.getY() - 50};
 
                     f.switchFrame(3, joueurs, listedominos, composant, x1, y1, pos[0], pos[1], rang);
 
                 }
 
-                @Override
                 public void mouseEntered(MouseEvent e) {
 
                 }
 
-                @Override
                 public void mouseExited(MouseEvent e) {
 
                 }
@@ -148,22 +134,16 @@ public class JeuTerrain extends JPanel{
         b.setSize(new Dimension(200, 40));
         b.setLocation(740, 770);
 
-        this.buttonLancePartie = b;
-
-        this.buttonLancePartie.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (placementIsOk()){
-                    System.out.println("Placement est ok");
-                    Jouer.choixduplacement(rang, composant, (x1-100) / 100, (y1 - 300) / 100, (x2 - 100) / 100, (y2 - 300) / 100,f);
-                }
+        b.addActionListener(e -> {
+            if (placementIsOk()){
+                System.out.println("Placement est ok");
+                Jouer.choixduplacement(rang, composant, (x1-100) / 100, (y1 - 300) / 100, (x2 - 100) / 100, (y2 - 300) / 100,f);
             }
         });
 
         add(b);
     }
 
-    @Override
     protected void paintComponent(Graphics g) {
 
         super.paintComponent(g);
@@ -190,10 +170,10 @@ public class JeuTerrain extends JPanel{
         g2.drawImage(imgTuile2, x2, y2, null);
     }
 
-    private int[] autoPos(int x, int y, int initX, int initY){
+    private int[] autoPos(int x, int y, int initX){
         int posX = initX;
         int distmin = 10000;
-        int posY = initY;
+        int posY = 500;
 
         if (y < 800 && y > 300 && x < 600 && x > 100){
             for (int i = 0; i < 5; i++){
@@ -222,10 +202,7 @@ public class JeuTerrain extends JPanel{
         if ((x1 - x2) * (x1 - x2) + (y1 - y2)*(y1 - y2) > 10000){
             return false;
         }
-        if ((x1 - x2) * (x1 - x2) + (y1 - y2)*(y1 - y2) == 0){
-            return false;
-        }
-        return true;
+        return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) != 0;
     }
 
     private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height) {
