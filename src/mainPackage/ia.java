@@ -2,18 +2,18 @@ package mainPackage;
 
 class ia {
 
+    private static int[] pos = new int[]{-1, -1, -1, -1};
+
     /**
      * IA qui teste toutes les possibilités => brutal.
-     * @param joueurs
-     * @param listdom
-     * @param composant
-     * @return
+     * @param joueurs accède aux données du joueur
+     * @param listdom accède à la liste des dominos
+     * @param composant accède aux données des dominos
+     * @return la position du double domino
      */
     static int[] choixtuileia(Joueurs joueurs, String[] listdom, Composant composant) {
-        int[] pos = new int[]{-1, -1, -1, -1};
         joueurs.setChoixTuile(listdom[0]);
         int scoremax = -1;
-        int[] score;
 
         for (String listdomino : listdom) {
             for (int j = 1; j <= 2; j++) {
@@ -24,67 +24,46 @@ class ia {
                                 try {
                                     //modifier : test sur la moitié de la tuile.
                                     if (composant.getDominos().get(listdomino + String.valueOf(j))[1].equals(composant.getDominos().get(joueurs.getMapId( x, y - 1))[1]) || joueurs.getMapId(x, y - 1).equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
-
-                                        if (score[0] > scoremax) {
-                                            scoremax = score[0];
-                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
-                                            joueurs.setChoixTuile(listdomino);
-                                        }
+                                        scoremax = ScoreAtaPosition(j,x,y,scoremax,joueurs,listdomino,composant);
                                     }
-                                } catch (Exception e) {
-                                    System.out.print("");
-
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
                                     if (composant.getDominos().get(listdomino + String.valueOf(j))[1].equals(composant.getDominos().get(joueurs.getMapId(x, y+1))[1]) || joueurs.getMapId(x, y+1).equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
-
-                                        if (score[0] > scoremax) {
-                                            scoremax = score[0];
-                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
-                                            joueurs.setChoixTuile(listdomino);
-                                        }
+                                        scoremax = ScoreAtaPosition(j,x,y,scoremax,joueurs,listdomino,composant);
                                     }
-                                } catch (Exception e) {
-                                    System.out.println("");
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
                                     if (composant.getDominos().get(listdomino + String.valueOf(j))[1].equals(composant.getDominos().get(joueurs.getMapId(x - 1,y))[1]) || joueurs.getMapId(x - 1, y).equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
-
-                                        if (score[0] > scoremax) {
-                                            scoremax = score[0];
-                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
-                                            joueurs.setChoixTuile(listdomino);
-                                        }
+                                        scoremax = ScoreAtaPosition(j,x,y,scoremax,joueurs,listdomino,composant);
                                     }
-                                } catch (Exception e) {
-                                    System.out.println("");
-                                }
+                                } catch (Exception ignored) {}
                                 try {
                                     //modifier : test sur la moitié de la tuile.
                                     if (composant.getDominos().get(listdomino + String.valueOf(j))[1].equals(composant.getDominos().get(joueurs.getMapId(x + 1, y))[1]) || joueurs.getMapId(x + 1, y).equals("500")) {
-                                        score = calculscorepot(joueurs, x, y, listdomino, j, composant);
-
-                                        if (score[0] > scoremax) {
-                                            scoremax = score[0];
-                                            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
-                                            joueurs.setChoixTuile(listdomino);
-                                        }
+                                        scoremax = ScoreAtaPosition(j,x,y,scoremax,joueurs,listdomino,composant);
                                     }
-                                } catch (Exception e) {
-                                    System.out.println("");
-                                }
+                                } catch (Exception ignored) {}
                             }
-                        } catch (Exception e) {}
+                        } catch (Exception ignored) {}
                     }
                 }
             }
         }
         return pos;
+    }
+
+    private static int ScoreAtaPosition(int j, int x, int y, int scoremax, Joueurs joueurs, String listdomino, Composant composant){
+        int[] score = calculscorepot(joueurs, x, y, listdomino, j, composant);
+
+        if (score[0] > scoremax) {
+            pos = new int[]{score[1 + (j - 1) * 2], score[2 + (j - 1) * 2], score[3 - (j - 1) * 2], score[4 - (j - 1) * 2]};
+            joueurs.setChoixTuile(listdomino);
+            return score[0];
+        }else{
+            return scoremax;
+        }
     }
 
     private static int[] calculscorepot(Joueurs joueurs, int x, int y, String dominos, int j, Composant composant) {
@@ -156,9 +135,7 @@ class ia {
 
                 if (score > scoremax){
                     retour = new int[]{score, x, y, x + 1, y};
-                    scoremax = score;
                 }
-
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x + 1][y] = "0";
             }

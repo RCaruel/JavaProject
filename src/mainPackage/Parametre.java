@@ -2,16 +2,16 @@ package mainPackage;
 
 
 // demande aux joueuers les paramétres de la partie
-public class Parametre {
+class Parametre {
 
     /**
      * Fonction qui définis les paramétrages de départ en fonction de ce qui a été choisi.
-     * @param composant
-     * @param j
-     * @param f
+     * @param composant boite de jeu
+     * @param j créé le joueur en fonction de ses parametres
+     * @param f fenetre actuellement active
      */
 
-    public void parametre(Composant composant, ParamJoueur[] j, Fenetre f){
+    void parametre(Composant composant, ParamJoueur[] j, Fenetre f){
 
         for (int i = 0; i < composant.getNombreJoueurs(); i++) {
 

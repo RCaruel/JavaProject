@@ -112,8 +112,8 @@ class CalcScore {
 
     /**
      * fonction qui calcule la taille de la map
-     * @param map
-     * @return
+     * @param map carte du joueur
+     * @return le nombre de tuiles sur le terrain
      */
     static int scoreMap(String[][] map){
         int score = 0;
@@ -131,9 +131,9 @@ class CalcScore {
 
     /**
      * Fonction qui calcul le nombre de couronnes sur la map
-     * @param map
-     * @param composant
-     * @return
+     * @param map Terrain du joueur
+     * @param composant accès pour les données des dominos
+     * @return le nombre de courronnes
      */
     static int nbCouronnes(String[][] map, Composant composant){
         int score = 0;

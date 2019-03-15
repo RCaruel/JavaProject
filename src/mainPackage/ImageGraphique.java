@@ -8,17 +8,16 @@ class ImageGraphique extends JPanel {
     private Image[] point = new Image[4];
     private String[] color = new String[]{"rouge", "vert", "bleu", "jaune"};
     private int max;
-    private int nbCoups = 12;
     private int init;
     private Composant composant;
 
     ImageGraphique(Composant composant){
         this.max = maxi(composant);
         this.composant = composant;
-        point[0] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointrouge.png"), 10,10).getImage();
-        point[1] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointvert.png"), 10,10).getImage();
-        point[2] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointbleu.png"), 10,10).getImage();
-        point[3] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointjaune.png"), 10,10).getImage();
+        point[0] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointrouge.png")).getImage();
+        point[1] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointvert.png")).getImage();
+        point[2] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointbleu.png")).getImage();
+        point[3] = resizePicture(new ImageIcon("resources/mainPackage/ressources/pointjaune.png")).getImage();
         add(new JButton("Bouton"));
         setLayout(null);
     }
@@ -36,9 +35,9 @@ class ImageGraphique extends JPanel {
         }
     }
 
-    private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
+    private ImageIcon resizePicture(ImageIcon imageIcon){
         Image img = imageIcon.getImage();
-        Image imgResize = img.getScaledInstance(width,height,Image.SCALE_DEFAULT);
+        Image imgResize = img.getScaledInstance(10, 10,Image.SCALE_DEFAULT);
         imageIcon=new ImageIcon(imgResize);
 
         return imageIcon;
@@ -58,7 +57,8 @@ class ImageGraphique extends JPanel {
 
         int quot = (i - i%1000)/1000;
         int height = calcHeight(quot, joueurs);
-        int width = 12000/nbCoups;
+        int nbCoups = 12;
+        int width = 12000/ nbCoups;
         System.out.println(i + " : " + (init - (i-quot*1000) * height/width));
 
         return init - (i-quot*1000) * height/width;

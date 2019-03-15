@@ -19,8 +19,6 @@ class Jouer {
     private static int[] domi = new int[48];
     private static ArrayList<Integer> listedominos;
     private static ArrayList<Integer> listedominoscopy;
-    private static int[] choixtuile;
-    private static boolean reponse = false;
 
     static void play(Composant composant, Fenetre f) {
         compteurtour = 0;
@@ -30,7 +28,7 @@ class Jouer {
 
     /**
      * Fonction d'initialisation du jeu
-     * @param composant
+     * @param composant donnée contenant les données du jeu
      */
 
     private static void debutjeux(Composant composant) {
@@ -130,15 +128,15 @@ class Jouer {
 
     /**
      * Fonction qui gère le choix des tuiles
-     * @param i
-     * @param joueurs
-     * @param composant
-     * @param f
-     * @param indexTuile
+     * @param i tour de jeu
+     * @param joueurs joueurs qui doit jouer
+     * @param composant boite du jeu
+     * @param f fenetre actuellement active
+     * @param indexTuile indexdetuile choisie
      */
     static void choixtuile(int i, Joueurs joueurs, Composant composant, Fenetre f, String indexTuile) {
 
-        int indicetuile = 0;
+        int indicetuile;
         joueurs.ChoixTuile(convertisseur(listedominos), composant, indexTuile);
 
         try {
@@ -166,8 +164,8 @@ class Jouer {
 
     /**
      * Fonction de conversion array liste -> String[]
-     * @param liste
-     * @return
+     * @param liste liste des dominos
+     * @return la liste sous formes String[]
      */
     private static String[] convertisseur(ArrayList<Integer> liste) {
         String[] listeConv = new String[liste.size()];
@@ -179,13 +177,13 @@ class Jouer {
 
     /**
      * Fonciton qui gère le placement des tuiles
-     * @param i
-     * @param composant
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
-     * @param f
+     * @param i tour de jeu
+     * @param composant boite du jeu
+     * @param x1 position tuile 1 en x
+     * @param y1 position tuile 1 en y
+     * @param x2 position tuile 2 en x
+     * @param y2 position tuile 2 en y
+     * @param f fenetre actuelle active
      */
 
     static void choixduplacement(int i, Composant composant, int x1, int y1, int x2, int y2, Fenetre f) {
@@ -221,9 +219,9 @@ class Jouer {
 
     /**
      * Fonction qui retourne un joueur parmi la liste des joueurs possibles
-     * @param listjoueur
-     * @param couleur
-     * @return
+     * @param listjoueur liste des joueurs
+     * @param couleur couleur du joueur désiré
+     * @return le joueur désiré
      */
     private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur) {
         for (Joueurs aListjoueur : listjoueur) {
@@ -236,12 +234,10 @@ class Jouer {
 
     /**
      * Fonction du tour
-     * @param composant
-     * @param f
+     * @param composant boite du jeu
+     * @param f fenetre actuellement active
      */
     private static void tour(Composant composant, Fenetre f) {
-
-        choixtuile = new int[roi.size()];
 
         if (roi.size() * compteurtour < composant.getNombreDominos()) {
             tiretuile();

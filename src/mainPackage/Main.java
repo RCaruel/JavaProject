@@ -8,9 +8,9 @@ public class Main{
 
     }
     
-    public static void lancementJeu(){
+    private static void lancementJeu(){
     	
-    	Controleur c = new Controleur();
+    	new Controleur();
     	
     }
 

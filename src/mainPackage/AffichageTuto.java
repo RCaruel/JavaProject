@@ -4,30 +4,25 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 
 import javax.swing.JDialog;
-import javax.swing.JEditorPane;
-import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
-public class AffichageTuto extends JDialog {
+class AffichageTuto extends JDialog {
 	//On affiche le tutoriel des règles du jeu dans une JDialog avec plusieurs onglets 
-	
-	JTextArea pt, sp, fp;
-	private JTabbedPane onglet = new JTabbedPane();
 
 	/**
 	 * Fonction d'affichage du tuto pour jouer.
 	 */
 	
-	public AffichageTuto() {
+	AffichageTuto() {
 		  this.setSize(550, 350);
 		  this.setTitle("Tutoriel des règles");
 		  this.setLocationRelativeTo(null);
 		  //this.setModal(true);
-		  this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE); 
+		  this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-		  pt = new JTextArea();
+		JTextArea pt = new JTextArea();
 		  pt.setText("Lors du premier tour 4 dominos seront tirés au hasard dans la pioche"
 		  		+ " puis ils seront placés par ordre croissant puis retournais. Ensuite chaque"
 		  		+ " roi seront tirais aussi au hasard. Le premier roi tiré peut choisir en premier"
@@ -37,10 +32,9 @@ public class AffichageTuto extends JDialog {
 		  pt.setFont(new Font("Serif", Font.BOLD, 16));
 		  pt.setLineWrap(true);
 		  pt.setWrapStyleWord(true);
-		 
-		  
-		  
-		  sp = new JTextArea();
+
+
+		JTextArea sp = new JTextArea();
 		  sp.setText("A partir du deuxième tour tous les tours vont se dérouler de la même manière"
 		  		+ " jusqu'à  épuisement des cartes dans la pioche. Des nouveaux dominos vont être "
 		  		+ "tirées de la pioche puis placés dans l'ordre croissant et retournés. Ensuite,"
@@ -53,9 +47,9 @@ public class AffichageTuto extends JDialog {
 		  sp.setEditable(false);
 		  sp.setLineWrap(true);
 		  sp.setFont(new Font("Serif", Font.BOLD, 16));
-		  sp.setWrapStyleWord(true); 
-		  
-		  fp = new JTextArea();
+		  sp.setWrapStyleWord(true);
+
+		JTextArea fp = new JTextArea();
 		  fp.setText(" Une fois que tous les dominos ont été placés, le jeu va calculer votre score en fonction de : \r\n" + 
 		  		"- du nombre de couronnes sur un bloc de terrain d'un type.\r\n" + 
 		  		"- de la taille d'un bloc de terrain du même type.\r\n" + 
@@ -64,8 +58,9 @@ public class AffichageTuto extends JDialog {
 		  fp.setLineWrap(true);
 		  fp.setFont(new Font("Serif", Font.BOLD, 16));
 		  fp.setWrapStyleWord(true);
-		    
-		  onglet.addTab("Premier Tour", new JScrollPane(pt));
+
+		JTabbedPane onglet = new JTabbedPane();
+		onglet.addTab("Premier Tour", new JScrollPane(pt));
 		  onglet.addTab("Suite Partie", new JScrollPane(sp));
 		  onglet.addTab("Fin Partie", new JScrollPane(fp));
 		    

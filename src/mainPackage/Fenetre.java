@@ -1,8 +1,6 @@
 package mainPackage;
 
 import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -12,39 +10,20 @@ import javax.swing.*;
  * Class qui gère toutes les différentes fenêtres
  */
 
-public class Fenetre extends JFrame {
+class Fenetre extends JFrame {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//* Composants graphiques
-    //* Panel principal
-    private JPanel fenetre, imagePlateau, imageMenu, imageParam, imageChoixTuiles, imagePlacementTuiles, imageVictoire, imagegraphique;
-
-    //* Menu
-    private JMenuBar menuBar;
-    private JMenu menuPrincipal, menuAutre;
-    private JMenuItem quitItem, resizeItem, newgameItem, manualItem;
-
-    //* Boutons Param partie
-    private JButton buttonLancePartie;
-
-    //* Autres
-    //private Plateau plateau;
-    private boolean petiteFenetre;
-    private int xFenetre;
-    private int yFenetre;
+    private JPanel imageMenu;
 
     /**
      * Constructeur de cette classe
-     * @param composant
-     * @throws IOException 
-     * @throws FileNotFoundException 
+     * @param composant boite du jeu
      */
 
     Fenetre(Composant composant){
-        this.petiteFenetre = true;
         ImageIcon icon = new ImageIcon(this.getClass().getResource("ressources/icone.png"));
         Image imgIcon = resizePicture(icon, 100,100).getImage();
 
@@ -74,7 +53,7 @@ public class Fenetre extends JFrame {
         
         JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
-        this.imagePlateau = new PlateauJeuGraphic();
+        new PlateauJeuGraphic();
 
         this.imageMenu.add(image);
 
@@ -91,14 +70,14 @@ public class Fenetre extends JFrame {
             ImageIcon imgNull =new ImageIcon( this.getClass().getResource("ressources/fond3.png"));
 
             // this.imagePlateau.add(image);
-            this.imageParam = new Param(resizePicture(imageIcon, 1000,1000).getImage(), composant, this);
+            JPanel imageParam = new Param(resizePicture(imageIcon, 1000, 1000).getImage(), composant, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
             //imagePlateau.add();
             //for(int i = 0; i < )
-            this.imageParam.add(image);
+            imageParam.add(image);
             setContentPane(imageParam);
             revalidate();
-            this.imageParam.repaint();
+            imageParam.repaint();
 
         }else if(test == 0){
             ImageIcon imageIcon =new ImageIcon( this.getClass().getResource("ressources/bg.jpg"));
@@ -117,30 +96,29 @@ public class Fenetre extends JFrame {
 
 
             // this.imagePlateau.add(image);
-            this.imageChoixTuiles = new JeuPlateau(resizePicture(imageIcon, 1000,1000).getImage(), composant, listedominos, joueurs, x1, y1, i, this);
+            JPanel imageChoixTuiles = new JeuPlateau(resizePicture(imageIcon, 1000, 1000).getImage(), composant, listedominos, joueurs, x1, y1, i, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
             //imagePlateau.add();
             //for(int i = 0; i < )
-            this.imageChoixTuiles.add(image);
+            imageChoixTuiles.add(image);
             setContentPane(imageChoixTuiles);
             revalidate();
-            this.imageChoixTuiles.repaint();
+            imageChoixTuiles.repaint();
             setSize(1000,1000);
         }else if(test == 3){
             ImageIcon imageIcon =new ImageIcon( this.getClass().getResource("ressources/parchemin.jpg"));
             ImageIcon imgNull =new ImageIcon( this.getClass().getResource("ressources/fond3.png"));
-            ImageIcon imgTmp2 = new ImageIcon(this.getClass().getResource("ressources/header.jpg"));
 
 
             // this.imagePlateau.add(image);
-            this.imagePlacementTuiles = new JeuTerrain(resizePicture(imageIcon, 1000,1000).getImage(), composant, listedominos, joueurs, x1, y1, x2, y2, i, this);
+            JPanel imagePlacementTuiles = new JeuTerrain(resizePicture(imageIcon, 1000, 1000).getImage(), composant, listedominos, joueurs, x1, y1, x2, y2, i, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
             //imagePlateau.add();
             //for(int i = 0; i < )
-            this.imagePlacementTuiles.add(image);
+            imagePlacementTuiles.add(image);
             setContentPane(imagePlacementTuiles);
             revalidate();
-            this.imagePlacementTuiles.repaint();
+            imagePlacementTuiles.repaint();
             setSize(1000,1000);
         }else if (test == 4){
             joueurs.setCouleur("rouge");
@@ -148,13 +126,13 @@ public class Fenetre extends JFrame {
 
             ImageIcon imgNull =new ImageIcon( this.getClass().getResource("ressources/fond3.png"));
 
-            this.imageVictoire = new PlateauVictory(resizePicture(imageIcon, 1000,1000).getImage(), joueurs, this);
+            JPanel imageVictoire = new PlateauVictory(resizePicture(imageIcon, 1000, 1000).getImage(), joueurs, this);
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
 
-            this.imageVictoire.add(image);
+            imageVictoire.add(image);
             setContentPane(imageVictoire);
             revalidate();
-            this.imageVictoire.repaint();
+            imageVictoire.repaint();
         }else if (test == 5){
             composant.setNombreJoueurs(4);
             String[] couleurs = new String[]{"bleu", "rouge", "vert", "jaune"};
@@ -163,13 +141,13 @@ public class Fenetre extends JFrame {
                 composant.getListJoueurs()[j].setCouleur(couleurs[j]);
                 composant.getListJoueurs()[j].setEvolution(new int[]{0,j,j,3*j,4*j,6*j,7*j,10*j,15*j,16*j,22*j,30*j});
             }
-            this.imagegraphique = new ImageGraphique(composant);
+            JPanel imagegraphique = new ImageGraphique(composant);
             ImageIcon imgNull =new ImageIcon( this.getClass().getResource("ressources/fond3.png"));
             JLabel image = new JLabel(resizePicture(imgNull, 1000,1000));
-            this.imagegraphique.add(image);
+            imagegraphique.add(image);
             setContentPane(imagegraphique);
             revalidate();
-            this.imagegraphique.repaint();
+            imagegraphique.repaint();
         }
 
     }
@@ -188,39 +166,40 @@ public class Fenetre extends JFrame {
         //* Création des componsants du menu *\\
 
         //* Barre de menu *\\
-        this.menuBar = new JMenuBar();
+        //* Menu
+        JMenuBar menuBar = new JMenuBar();
 
         //*  menu *\\
-        this.menuPrincipal = new JMenu("Option");
-        this.menuAutre = new JMenu("Aide");
+        JMenu menuPrincipal = new JMenu("Option");
+        JMenu menuAutre = new JMenu("Aide");
 
         //* sous menu avec les actions pour chaque item du sous menu *\\
-        this.newgameItem = new JMenuItem("Nouvelle partie");
+        JMenuItem newgameItem = new JMenuItem("Nouvelle partie");
         newgameItem.addActionListener(arg0 -> new Controleur());
 
-        this.resizeItem = new JMenuItem("Afficher les règles");
+        JMenuItem resizeItem = new JMenuItem("Afficher les règles");
         resizeItem.addActionListener(arg0 -> new AffichageTuto());
 
-        this.quitItem = new JMenuItem("Quitter");
+        JMenuItem quitItem = new JMenuItem("Quitter");
         quitItem.addActionListener(arg0 -> setVisible(false));
-        
-        this.manualItem = new JMenuItem("Manuel d'utilisation");
+
+        JMenuItem manualItem = new JMenuItem("Manuel d'utilisation");
         manualItem.addActionListener(arg0 -> new Manuel());
         
 
         //*  Ajout des items *\\
 
-        this.menuPrincipal.add(this.newgameItem);
-        this.menuPrincipal.add(this.resizeItem);
-        this.menuPrincipal.addSeparator();
-        this.menuPrincipal.add(this.quitItem);
+        menuPrincipal.add(newgameItem);
+        menuPrincipal.add(resizeItem);
+        menuPrincipal.addSeparator();
+        menuPrincipal.add(quitItem);
         
-        this.menuAutre.add(this.manualItem);
+        menuAutre.add(manualItem);
 
-        this.menuBar.add(this.menuPrincipal);
-        this.menuBar.add(this.menuAutre);
+        menuBar.add(menuPrincipal);
+        menuBar.add(menuAutre);
 
-        setJMenuBar(this.menuBar);
+        setJMenuBar(menuBar);
 
     }
 
@@ -230,9 +209,11 @@ public class Fenetre extends JFrame {
 
     private void addToWindow() {
         //* Ajouts des composants graphique dans la fenêtre principales
-        this.fenetre = new JPanel();
-        this.fenetre.add(this.imageMenu);
-        setContentPane(this.fenetre);
+        //* Composants graphiques
+        //* Panel principal
+        JPanel fenetre = new JPanel();
+        fenetre.add(this.imageMenu);
+        setContentPane(fenetre);
     }
 
 

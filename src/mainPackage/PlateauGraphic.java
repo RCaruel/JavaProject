@@ -29,7 +29,7 @@ public class PlateauGraphic extends JPanel {
 		System.out.println(this.getClass().getResource("ressources/header.jpg"));
 	    ImageIcon imgTmp = new ImageIcon(this.getClass().getResource("ressources/header.jpg"));
 	    new ImageIcon(this.getClass().getPackageName() + ".jpg");
-	    imgHeader = resizePicture(imgTmp, 1000,300).getImage();
+	    imgHeader = resizePicture(imgTmp).getImage();
 	    JButton b = new JButton("Commencer la partie");
 	    this.j1 = new JTextField("Nombre de joueurs");
 
@@ -55,9 +55,9 @@ public class PlateauGraphic extends JPanel {
 		g2.drawImage(imgHeader, 0,0,null);
 
 	}
-	private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
+	private ImageIcon resizePicture(ImageIcon imageIcon){
 		Image img = imageIcon.getImage();
-		Image imgResize = img.getScaledInstance(width,height,Image.SCALE_DEFAULT);
+		Image imgResize = img.getScaledInstance(1000, 300,Image.SCALE_DEFAULT);
 		imageIcon=new ImageIcon(imgResize);
 		return imageIcon;
 	}
