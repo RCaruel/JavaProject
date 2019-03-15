@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+
+/**
+ * Class qui permet de définir les paramètres d'execution du jeu.
+ */
 public class Param extends JPanel{
 
     private Image imgBg;
@@ -19,8 +23,8 @@ public class Param extends JPanel{
     Param(Image img, Composant composant, Fenetre f){
         this.composant = composant;
         imgBg = img;
-        ImageIcon imgTmp = new ImageIcon("header.png");
-        imgHeader = resizePicture(imgTmp, 400,200).getImage();
+        ImageIcon imgTmp = new ImageIcon(this.getClass().getResource("ressources/header.jpg"));
+        imgHeader = resizePicture(imgTmp, 1000,300).getImage();
 
         j[0] = new ParamJoueur(this, 1);
 
@@ -60,14 +64,7 @@ public class Param extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
 
         g2.drawImage(imgBg, 0,0,null);
-        g2.drawImage(imgHeader, 200,0,null);
-
-        Image img2;
-        try {
-            img2 = ImageIO.read(new File("header.jpg"));
-            g.drawImage(img2, 0, 0, this);
-        } catch (IOException ignore) {}
-
+        g2.drawImage(imgHeader, 0,0,null);
     }
 
     private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){

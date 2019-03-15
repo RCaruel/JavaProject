@@ -110,6 +110,11 @@ class CalcScore {
         return new int[]{score, couronnes};
     }
 
+    /**
+     * fonction qui calcule la taille de la map
+     * @param map
+     * @return
+     */
     static int scoreMap(String[][] map){
         int score = 0;
 
@@ -124,6 +129,12 @@ class CalcScore {
         return score;
     }
 
+    /**
+     * Fonction qui calcul le nombre de couronnes sur la map
+     * @param map
+     * @param composant
+     * @return
+     */
     static int nbCouronnes(String[][] map, Composant composant){
         int score = 0;
 

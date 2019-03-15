@@ -15,6 +15,10 @@ public class AffichageTuto extends JDialog {
 	
 	JTextArea pt, sp, fp;
 	private JTabbedPane onglet = new JTabbedPane();
+
+	/**
+	 * Fonction d'affichage du tuto pour jouer.
+	 */
 	
 	public AffichageTuto() {
 		  this.setSize(550, 350);

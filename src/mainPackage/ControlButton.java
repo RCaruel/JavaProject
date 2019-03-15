@@ -12,6 +12,11 @@ public class ControlButton implements ActionListener {
     private Fenetre f;
     private final Composant composant;
 
+    /**
+     * Fonction qui controle le bouton du menu principal
+     * @param f
+     * @param composant
+     */
     public ControlButton(Fenetre f, final Composant composant) {
         
         this.f = f;
@@ -25,6 +30,7 @@ public class ControlButton implements ActionListener {
         if (Integer.valueOf(((PlateauGraphic)f.getImageMenu()).getJ1().getText()) > 1 ) {
             System.out.println("Début de la partie");
             composant.setNombreJoueurs(Integer.valueOf(((PlateauGraphic) f.getImageMenu()).getJ1().getText()));
+            if (composant.getNombreJoueurs() > 4){composant.setNombreJoueurs(4);}
             System.out.println(composant.getNombreJoueurs());
             f.switchFrame(1,new Joueurs(),new ArrayList<Integer>(), composant,0,0,0,0,0);
         }else{

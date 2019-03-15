@@ -14,7 +14,7 @@ class Jouer {
     private static Random rand = new Random();
     private static ArrayList<String> roi;
     private static String[] plateau = new String[4];
-    private static int compteurtour = 0;
+    private static int compteurtour;
     private static String[] newroi;
     private static int[] domi = new int[48];
     private static ArrayList<Integer> listedominos;
@@ -23,9 +23,15 @@ class Jouer {
     private static boolean reponse = false;
 
     static void play(Composant composant, Fenetre f) {
+        compteurtour = 0;
         debutjeux(composant);
         tour(composant, f);
     }
+
+    /**
+     * Fonction d'initialisation du jeu
+     * @param composant
+     */
 
     private static void debutjeux(Composant composant) {
 
@@ -110,6 +116,9 @@ class Jouer {
         newroi = new String[roi.size()];
     }
 
+    /**
+     * fonction de tirage de tuile
+     */
     private static void tiretuile() {
         //tire nb de roi cartes
         listedominos = new ArrayList<>();
@@ -119,28 +128,47 @@ class Jouer {
         Collections.sort(listedominos);
     }
 
+    /**
+     * Fonction qui gère le choix des tuiles
+     * @param i
+     * @param joueurs
+     * @param composant
+     * @param f
+     * @param indexTuile
+     */
     static void choixtuile(int i, Joueurs joueurs, Composant composant, Fenetre f, String indexTuile) {
 
+        int indicetuile = 0;
         joueurs.ChoixTuile(convertisseur(listedominos), composant, indexTuile);
 
-        System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
-
-        int indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
-
-        newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
-
-        System.out.println(listedominoscopy);
-        listedominos.remove(indicetuile);
+        try {
+            System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile());
+            indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile()));
+            newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile()))] = roi.get(i);
+            System.out.println(listedominoscopy);
+            listedominos.remove(indicetuile);
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("le joueur : " + joueurs.getPseudo() + " place son roi sur la tuile : " + joueurs.getChoixTuile2());
+            indicetuile = listedominos.indexOf(Integer.valueOf(joueurs.getChoixTuile2()));
+            newroi[listedominoscopy.indexOf(Integer.valueOf(joueurs.getChoixTuile2()))] = roi.get(i);
+            System.out.println(listedominoscopy);
+            listedominos.remove(indicetuile);
+        }
 
         if (i + 1 < roi.size()) {
             i++;
-            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(i)), listedominos, composant, 450, 600, 0, 0, i);
+            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(i)), listedominos, composant, 600, 600, 0, 0, i);
         } else {
             f.switchFrame(3, getJoueur(composant.getListJoueurs(), roi.get(0)), listedominos, composant, 700, 500, 800, 500, 0);
         }
 
     }
 
+    /**
+     * Fonction de conversion array liste -> String[]
+     * @param liste
+     * @return
+     */
     private static String[] convertisseur(ArrayList<Integer> liste) {
         String[] listeConv = new String[liste.size()];
         for (int i = 0; i < liste.size(); i++) {
@@ -149,17 +177,34 @@ class Jouer {
         return listeConv;
     }
 
+    /**
+     * Fonciton qui gère le placement des tuiles
+     * @param i
+     * @param composant
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param f
+     */
+
     static void choixduplacement(int i, Composant composant, int x1, int y1, int x2, int y2, Fenetre f) {
 
         System.out.println("le joueur : " + roi.get(i) + " a place sa tuile.");
 
         for (int j = 0; j < roi.size(); j++) {
             if (roi.get(i).equals(plateau[j]) && getJoueur(composant.getListJoueurs(), roi.get(i)).getStatut().equals("HUMAN") && x1 != 800) {
-                getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", x1, y1);
-                getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", x2, y2);
-
+                if (composant.getNombreJoueurs() > 2 || ((composant.getNombreJoueurs() == 2) && !getJoueur(composant.getListJoueurs(), roi.get(i)).isChoixTuile1IsPlaced())) {
+                    getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "1", x1, y1);
+                    getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile() + "2", x2, y2);
+                }else if(composant.getNombreJoueurs() == 2 && getJoueur(composant.getListJoueurs(), roi.get(i)).isChoixTuile1IsPlaced()) {
+                    getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile2() + "1", x1, y1);
+                    getJoueur(composant.getListJoueurs(), roi.get(i)).ajoutMap(getJoueur(composant.getListJoueurs(), roi.get(i)).getChoixTuile2() + "2", x2, y2);
+                }
             }
         }
+
+        getJoueur(composant.getListJoueurs(), roi.get(i)).setChoixTuile1IsPlaced(!(getJoueur(composant.getListJoueurs(), roi.get(i)).isChoixTuile1IsPlaced()));
 
         if (i + 1 < roi.size()) {
             i++;
@@ -174,6 +219,12 @@ class Jouer {
         }
     }
 
+    /**
+     * Fonction qui retourne un joueur parmi la liste des joueurs possibles
+     * @param listjoueur
+     * @param couleur
+     * @return
+     */
     private static Joueurs getJoueur(Joueurs[] listjoueur, String couleur) {
         for (Joueurs aListjoueur : listjoueur) {
             if (aListjoueur.getCouleur().equals(couleur)) {
@@ -183,6 +234,11 @@ class Jouer {
         return listjoueur[0];
     }
 
+    /**
+     * Fonction du tour
+     * @param composant
+     * @param f
+     */
     private static void tour(Composant composant, Fenetre f) {
 
         choixtuile = new int[roi.size()];
@@ -197,7 +253,7 @@ class Jouer {
             compteurtour++;
 
 
-            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(0)), listedominos, composant, 450, 600, 0, 0, 0);
+            f.switchFrame(2, getJoueur(composant.getListJoueurs(), roi.get(0)), listedominos, composant, 600, 600, 0, 0, 0);
         }else{
             int max = 0;
             int winner = 0;
@@ -211,9 +267,11 @@ class Jouer {
                 System.out.println("Le joueur " + composant.getListJoueurs()[i].getPseudo() + "a un score total de " + score);
             }
             System.out.println("Le joueur qui a gagné est : " + composant.getListJoueurs()[winner].getPseudo() + " avec un score de " + composant.getListJoueurs()[winner].getScore());
+            f.affWinner(composant.getListJoueurs()[winner]);
             f.switchFrame(4, composant.getListJoueurs()[winner], listedominos, composant, 0,0,0,0,0);
         }
     }
+
     private static int calculScore(Joueurs joueurs, Composant composant) {
         joueurs.setScore(CalcScore.play(joueurs, composant, true));
         return ((joueurs.getScore() * 100) + CalcScore.scoreMap(joueurs.getMap())) * 100 + CalcScore.nbCouronnes(joueurs.getMap(), composant);

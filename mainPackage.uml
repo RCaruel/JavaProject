@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>mainPackage</OriginalElement>
+  <nodes>
+    <node x="0.0" y="1413.0">mainPackage.ControlButton</node>
+    <node x="951.0" y="1413.0">mainPackage.Parametre</node>
+    <node x="686.0" y="691.0">mainPackage.Composant</node>
+    <node x="0.0" y="1554.0">mainPackage.Controleur</node>
+    <node x="992.0" y="691.0">mainPackage.PlateauGraphic</node>
+    <node x="1335.0" y="691.0">mainPackage.ParamJoueur</node>
+    <node x="1115.0" y="1162.0">mainPackage.PlateauJeuGraphic</node>
+    <node x="1458.0" y="1162.0">mainPackage.AffichageTuto</node>
+    <node x="548.0" y="0.0">mainPackage.Joueurs</node>
+    <node x="1343.0" y="1413.0">mainPackage.Main</node>
+    <node x="0.0" y="1162.0">mainPackage.Param</node>
+    <node x="730.0" y="1413.0">mainPackage.Manuel</node>
+    <node x="0.0" y="0.0">mainPackage.Fenetre</node>
+    <node x="896.0" y="0.0">mainPackage.Jouer</node>
+    <node x="343.0" y="1162.0">mainPackage.PlateauVictory</node>
+    <node x="343.0" y="691.0">mainPackage.JeuPlateau</node>
+    <node x="0.0" y="691.0">mainPackage.JeuTerrain</node>
+    <node x="686.0" y="1162.0">mainPackage.CalcScore</node>
+    <node x="301.0" y="1413.0">mainPackage.ia</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.17219057483169342" x="1109.5" y="1921.0" />
+  <SelectedNodes>
+    <node>mainPackage.ControlButton</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

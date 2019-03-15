@@ -21,7 +21,7 @@ public class PlateauJeuGraphic extends JPanel {
 	 
 
 
-	    public PlateauJeuGraphic(){
+	    PlateauJeuGraphic(){
 	    	
 	     // imgBg = img;
 	        ImageIcon image = new ImageIcon("parchemin.jpg"); 
@@ -46,7 +46,7 @@ public class PlateauJeuGraphic extends JPanel {
 	        
 	    }
 
-	    public ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
+	    private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
 
 
 	        Image img = imageIcon.getImage();

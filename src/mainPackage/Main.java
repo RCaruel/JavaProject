@@ -4,8 +4,14 @@ public class Main{
 
     public static void main(String[] args) {
 
-        Controleur c = new Controleur();
+        lancementJeu();
 
+    }
+    
+    public static void lancementJeu(){
+    	
+    	Controleur c = new Controleur();
+    	
     }
 
 }

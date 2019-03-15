@@ -3,21 +3,21 @@ package mainPackage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Class qui gère la position des tuiles par les joueurs
+ */
 
 public class JeuTerrain extends JPanel{
-    private Image imgBg;
+    private Image imgBg, imgHeader;
     private Image imgPlateau;
     private JButton buttonLancePartie;
     private Image[][] imagesDominos = new Image[5][5];
-    private Image pion;
+    private Image pion, imageIA;
     private int size;
     private int x1, x2;
     private int y1, y2;
@@ -34,6 +34,7 @@ public class JeuTerrain extends JPanel{
         this.joueurs = joueurs;
 
         Component socleTuile1 = new Component() {};
+        // Permet de pouvoir bouger une image
         if (joueurs.getStatut().equals("HUMAN")) {
             socleTuile1.addMouseListener(new MouseListener() {
                 @Override
@@ -71,6 +72,7 @@ public class JeuTerrain extends JPanel{
 
         Component socleTuile2 = new Component() {};
 
+        // Permet de pouvoir bouger une image
         if (joueurs.getStatut().equals("HUMAN")) {
             socleTuile2.addMouseListener(new MouseListener() {
                 @Override
@@ -109,25 +111,33 @@ public class JeuTerrain extends JPanel{
         add(socleTuile2);
 
         if (joueurs.getStatut().equals("HUMAN")) {
-            if (composant.getNombreJoueurs() > 2 || (composant.getNombreJoueurs() < 2 && joueurs.isChoixTuile1IsPlaced())) {
-                imgTuile1 = resizePicture(new ImageIcon("DemiDominos/" + joueurs.getChoixTuile() + "1.JPG"), 100, 100).getImage();
-                imgTuile2 = resizePicture(new ImageIcon("DemiDominos/" + joueurs.getChoixTuile() + "2.JPG"), 100, 100).getImage();
-            }else if(composant.getNombreJoueurs() < 2 && !joueurs.isChoixTuile1IsPlaced()){
-                imgTuile1 = resizePicture(new ImageIcon("DemiDominos/" + joueurs.getChoixTuile2() + "1.JPG"), 100, 100).getImage();
-                imgTuile2 = resizePicture(new ImageIcon("DemiDominos/" + joueurs.getChoixTuile2() + "2.JPG"), 100, 100).getImage();
+            if (composant.getNombreJoueurs() > 2 || ((composant.getNombreJoueurs() == 2) && !joueurs.isChoixTuile1IsPlaced())) {
+                System.out.println("test1");
+                imgTuile1 = resizePicture(new ImageIcon(this.getClass().getResource("DemiDominos/" + joueurs.getChoixTuile() + "1.JPG")), 100, 100).getImage();
+                imgTuile2 = resizePicture(new ImageIcon(this.getClass().getResource("DemiDominos/" + joueurs.getChoixTuile() + "2.JPG")), 100, 100).getImage();
+            }else if(composant.getNombreJoueurs() == 2 && joueurs.isChoixTuile1IsPlaced()){
+                System.out.println("test2");
+                imgTuile1 = resizePicture(new ImageIcon(this.getClass().getResource("DemiDominos/" + joueurs.getChoixTuile2() + "1.JPG")), 100, 100).getImage();
+                imgTuile2 = resizePicture(new ImageIcon(this.getClass().getResource("DemiDominos/" + joueurs.getChoixTuile2() + "2.JPG")), 100, 100).getImage();
             }
         }
+        
+        ImageIcon imgTmp = new ImageIcon(this.getClass().getResource("ressources/header.jpg"));
+	    imgHeader = resizePicture(imgTmp, 1000,300).getImage();
 
-        imgPlateau = resizePicture(new ImageIcon("src/ressources/Plateau.png"),500,500).getImage();
+        imgPlateau = resizePicture(new ImageIcon(this.getClass().getResource("ressources/Plateau.png")),500,500).getImage();
 
-        pion = resizePicture(new ImageIcon("src/ressources/K" + joueurs.getCouleur() + ".png"), 75,150).getImage();
+        pion = resizePicture(new ImageIcon(this.getClass().getResource("ressources/K" + joueurs.getCouleur() + ".png")), 75,150).getImage();
+        if (joueurs.getStatut().equals("IA")){
+            imageIA = resizePicture(new ImageIcon(this.getClass().getResource("ressources/IA.png")), 75,150).getImage();
+        }
 
         for (int pX = 0; pX < joueurs.getMap().length; pX++){
             for (int pY = 0; pY < joueurs.getMap().length; pY++){
                 if(!joueurs.getMap()[pX][pY].equals("0")){
                     System.out.println("isInIF.constructor");
                     System.out.println(joueurs.getMap()[pX][pY]);
-                    imagesDominos[pX][pY] = resizePicture(new ImageIcon("DemiDominos/" + joueurs.getMap()[pX][pY] + ".JPG"), 100,100).getImage();
+                    imagesDominos[pX][pY] = resizePicture(new ImageIcon(this.getClass().getResource("DemiDominos/" + joueurs.getMap()[pX][pY] + ".JPG")), 100,100).getImage();
                 }
             }
         }
@@ -145,7 +155,6 @@ public class JeuTerrain extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 if (placementIsOk()){
                     System.out.println("Placement est ok");
-                    joueurs.setChoixTuile1IsPlaced(!false);
                     Jouer.choixduplacement(rang, composant, (x1-100) / 100, (y1 - 300) / 100, (x2 - 100) / 100, (y2 - 300) / 100,f);
                 }
             }
@@ -162,16 +171,16 @@ public class JeuTerrain extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
 
         g2.drawImage(imgBg, 0, 0, null);
+        g2.drawImage(imgHeader, 0,0,null);
         g2.drawImage(imgPlateau, 100, 300, null);
-        g2.drawImage(pion, 803, 650, null);
+        g2.drawImage(pion, 803, 610, null);
+        if (joueurs.getStatut().equals("IA")){
+            g2.drawImage(imageIA, 803,610,null);
+        }
 
         for (int pX = 0; pX < 5; pX++){
             for (int pY = 0; pY < 5; pY++){
                 if(!joueurs.getMap()[pX][pY].equals("0")){
-                    System.out.println("isInIF.paintComponent");
-                    System.out.print(100+100*pX);
-                    System.out.print("   ");
-                    System.out.println(300+100*pY);
                     g2.drawImage(imagesDominos[pX][pY],100+100*pX, 300+100*pY, null);
                 }
             }
@@ -179,13 +188,6 @@ public class JeuTerrain extends JPanel{
 
         g2.drawImage(imgTuile1, x1, y1, null);
         g2.drawImage(imgTuile2, x2, y2, null);
-
-        Image img2;
-        try {
-            img2 = ImageIO.read(new File("header.jpg"));
-            g.drawImage(img2, 0, 0, this);
-        } catch (IOException ignore) {}
-
     }
 
     private int[] autoPos(int x, int y, int initX, int initY){
@@ -197,10 +199,7 @@ public class JeuTerrain extends JPanel{
             for (int i = 0; i < 5; i++){
                 for (int j = 0; j < 5; j++) {
                     if(joueurs.getMap()[i][j].equals("0")){
-                        System.out.println("i = " + i + " j = " + j);
-                        System.out.println("x = " + (100+100*i) + " y = " + (300+100*i));
-                        System.out.println("distance :" + (abs((100 + 100*i) - x) * abs((100 + 100*i) - x) + abs((300 + 100*j) - y) * abs((300 + 100*j) - y)));
-                        if ((abs((100 + 100*i) - x) * abs((100 + 100*i) - x) + abs((300 + 100*j) - y) * abs((300 + 100*j) - y)) < (distmin)) {
+                    	if ((abs((100 + 100*i) - x) * abs((100 + 100*i) - x) + abs((300 + 100*j) - y) * abs((300 + 100*j) - y)) < (distmin)) {
                             System.out.println("isInIF");
                             distmin = (abs((100 + 100*i) - x) * abs((100 + 100*i) - x) + abs((300 + 100*j) - y) * abs((300 + 100*j) - y));
                             posX = 100 + 100 * i;
@@ -236,4 +235,5 @@ public class JeuTerrain extends JPanel{
 
         return imageIcon;
     }
+
 }

@@ -1,31 +1,27 @@
 package mainPackage;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+
+/**
+ * Class qui gère la dernière fenêtre.
+ */
 
 public class PlateauVictory extends JPanel{
 
     private static final long serialVersionUID = 1L;
     private Image imgBg;
-    private JButton button;
     private Image imgHeader;
     private Image imgVictory, imgPion;
 
     PlateauVictory(Image img, Joueurs joueurs, Fenetre f){
 
         imgBg = img;
-        ImageIcon imgTmp = new ImageIcon("header.png");
-        imgHeader = resizePicture(imgTmp, 400,200).getImage();
+        ImageIcon imgTmp = new ImageIcon(this.getClass().getResource("ressources/header.jpg"));
+        imgHeader = resizePicture(imgTmp, 1000,300).getImage();
 
-        imgPion = resizePicture(new ImageIcon("src/ressources/K" + joueurs.getCouleur() + ".png"), 150, 300).getImage();
-        imgVictory = resizePicture(new ImageIcon("Laurier.png"), 500, 500).getImage();
-
-        JOptionPane.showMessageDialog(this, "Le vainqueur est " + joueurs.getPseudo() + " avec un score de " + joueurs.getScore(), "Fin de la partie", JOptionPane.INFORMATION_MESSAGE);
+        imgPion = resizePicture(new ImageIcon(this.getClass().getResource("ressources/K" + joueurs.getCouleur() + ".png")), 150, 300).getImage();
+        imgVictory = resizePicture(new ImageIcon(this.getClass().getResource("ressources/Laurier.png")), 500, 500).getImage();
 
         JButton b = new JButton("Retour au menu");
 
@@ -33,15 +29,10 @@ public class PlateauVictory extends JPanel{
 
         b.setSize(new Dimension(200,40));
         b.setLocation(400,800);
-        b.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                f.dispose();
-                Main_bis.main(new String[]{});
-            }
+        b.addActionListener(e -> {
+            f.dispose();
+            Main.main(new String[]{});
         });
-        this.button = b;
-        //add(j2);
         add(b);
     }
 
@@ -52,20 +43,11 @@ public class PlateauVictory extends JPanel{
         Graphics2D g2 = (Graphics2D) g;
 
         g2.drawImage(imgBg, 0,0,null);
+        g2.drawImage(imgHeader, 0, 0, null);
         g2.drawImage(imgVictory, 250, 250, null);
         g2.drawImage(imgPion, 425, 275, null);
-
-        Image img2;
-        try {
-            img2 = ImageIO.read(new File("header.jpg"));
-            g.drawImage(img2, 0, 0, this);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
     }
-    public ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
+    private ImageIcon resizePicture(ImageIcon imageIcon, int width, int height){
         Image img = imageIcon.getImage();
         Image imgResize = img.getScaledInstance(width,height,Image.SCALE_DEFAULT);
         imageIcon=new ImageIcon(imgResize);

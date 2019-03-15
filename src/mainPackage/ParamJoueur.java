@@ -5,7 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ParamJoueur extends JPanel{
+/**
+ * Class qui permet d'éditer les attributs d'un joueur.
+ */
+
+class ParamJoueur extends JPanel{
     private JCheckBox IA;
     private JTextField pseudo;
     private JButton color;
@@ -45,19 +49,19 @@ public class ParamJoueur extends JPanel{
 
     }
 
-    public void setCouleur(String couleur) {
+    private void setCouleur(String couleur) {
         this.couleur = couleur;
     }
 
-    public String getCouleur() {
+    String getCouleur() {
         return couleur;
     }
 
-    public JCheckBox getIA() {
+    JCheckBox getIA() {
         return IA;
     }
 
-    public JTextField getPseudo() {
+    JTextField getPseudo() {
         return pseudo;
     }
 }

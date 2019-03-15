@@ -2,6 +2,13 @@ package mainPackage;
 
 class ia {
 
+    /**
+     * IA qui teste toutes les possibilités => brutal.
+     * @param joueurs
+     * @param listdom
+     * @param composant
+     * @return
+     */
     static int[] choixtuileia(Joueurs joueurs, String[] listdom, Composant composant) {
         int[] pos = new int[]{-1, -1, -1, -1};
         joueurs.setChoixTuile(listdom[0]);
@@ -82,7 +89,7 @@ class ia {
 
     private static int[] calculscorepot(Joueurs joueurs, int x, int y, String dominos, int j, Composant composant) {
         int[] retour = new int[]{0, 0, 0, 0, 0};
-        int scoremax = 0;
+        int scoremax = -1; //pas = 0
         int score;
 
         try {
@@ -93,7 +100,10 @@ class ia {
 
                 score = CalcScore.play(joueurs, composant, false);
 
-                if (score > scoremax) retour = new int[]{score, x, y, x, y - 1};
+                if (score > scoremax){
+                    retour = new int[]{score, x, y, x, y - 1};
+                    scoremax = score;
+                }
 
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x][y - 1] = "0";
@@ -108,7 +118,10 @@ class ia {
 
                 score = CalcScore.play(joueurs, composant, false);
 
-                if (score > scoremax) retour = new int[]{score, x, y, x, y + 1};
+                if (score > scoremax){
+                    retour = new int[]{score, x, y, x, y + 1};
+                    scoremax = score;
+                }
 
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x][y + 1] = "0";
@@ -123,7 +136,10 @@ class ia {
 
                 score = CalcScore.play(joueurs, composant, false);
 
-                if (score > scoremax) retour = new int[]{score, x, y, x - 1, y};
+                if (score > scoremax){
+                    retour = new int[]{score, x, y, x - 1, y};
+                    scoremax = score;
+                }
 
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x - 1][y] = "0";
@@ -138,7 +154,10 @@ class ia {
 
                 score = CalcScore.play(joueurs, composant, false);
 
-                if (score > scoremax) retour = new int[]{score, x, y, x + 1, y};
+                if (score > scoremax){
+                    retour = new int[]{score, x, y, x + 1, y};
+                    scoremax = score;
+                }
 
                 joueurs.getMap()[x][y] = "0";
                 joueurs.getMap()[x + 1][y] = "0";
